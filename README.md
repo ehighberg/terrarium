@@ -103,11 +103,19 @@ _The **Terrarium** MVP is to allow users to view the results of machine learning
 
 |  Component   | State | Description                                                      |
 | :----------: | :---: | :--------------------------------------------------------------- |
-|    Header    |   n   | _The header will contain the navigation and logo._               |
-|  Navigation  |   n   | _The navigation will provide a link to each of the pages._       |
-|   Gallery    |   y   | _The gallery will render the posts using cards in flexbox._      |
-| Gallery Card |   n   | _The cards will render the post info via props._                 |
-|    Footer    |   n   | _The footer will show info about me and a link to my portfolio._ |
+|    Header    |   N   | _The header will contain site navigation and logo._|
+|    Footer    |   N   | _Links to my portfolio/contact info._ |
+|  Main  |   N   | _Container for User and Experiment views._|
+|  User  |   Y   | _Houses router for user login/registration/profile management._       |
+|  UserLogin   |   N   | _Handles account creation and logins._  |
+|  UserProfile  |   N   | _View and edit user's information._|
+|  Nav  |   N   | _Provide links/previews of experiments._      |
+| Card  |   N   | _Preview experiment._       |
+|  Experiment  |   Y  | _Contains experiment summary, hyperparameter selection, and results._       |
+|  Summary  |   N   | _Basic info about the dataset._       |
+|  Visualization  |   N   | _Visualize experiment results._|
+|  Hyperparameters  |   N   | _View / select hyperparameters._|
+|  Results  |   N   | _Display experiment results._|
 
 <br>
 
@@ -181,6 +189,7 @@ _The **Terrarium** MVP is to allow users to view the results of machine learning
 - Allow >1 metric tracking
 - More visualizations
 - Compare experiments
+- Filtered experiment browsing
 
 <br>
 
