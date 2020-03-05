@@ -120,23 +120,23 @@ _The **Terrarium** MVP is to allow users to view the results of machine learning
 
 #### Endpoints
 
-- GET `/api/users`
+- GET `/user`
 	- Index route returning an array of all Users
-- GET `/api/users/:id`
-	- Show route for a user requested by ID
-- POST `/api/users`
+- POST `/user`
 	- Create route for a new user
-- PUT `/api/users/:id/`
+- GET `/user/:id`
+  - Show route for a user requested by ID
+- PUT `/user/:id/`
   - Edit a user's profile info
-- DELETE `/api/users/:id`
+- DELETE `/user/:id`
   - Delete a user's profile
-- GET `/api/experiments`
+- GET `/experiment`
   - Index route returning an array of all experiments
-- GET `/api/experiments/:id`
+- GET `/experiment/:id`
   - Show route for a single experiment
-- GET `/api/users/:id/experiments`
+- GET `/user/:user_id/experiment`
   - Show all experiments for a user
-- POST `/api/users/:id/experiments`
+- POST `/user/:user_id/experiment`
   - Create and run an experiment
 
 <br>
