@@ -1,7 +1,5 @@
-# Full Stack Project
+# Terrarium
 
-> The Project Planning section **should be completed** for your project pitch with instructors.
-> To ensure correct Markdown, we recommend copy/pasting the raw template code from this file and removing/updating the necessary sections.
 
 - [Full Stack Project](#Full-Stack-Project)
   - [Overview](#Overview)
@@ -18,7 +16,6 @@
       - [Component Estimates](#Component-Estimates)
     - [MVP Server (Back End)](#MVP-Server-Back-End)
       - [ERD Model](#ERD-Model)
-      - [Data Heirarchy](#Data-Heirarchy)
   - [Post-MVP](#Post-MVP)
   - [Project Delivery](#Project-Delivery)
   - [Code Showcase](#Code-Showcase)
@@ -29,43 +26,38 @@
 
 ## Overview
 
-_**Project Title** is lorem ipsum dolor sit amet. Phasellus dapibus fermentum risus vitae bibendum. Integer vel ipsum mollis odio sollicitudin ornare eu vel ex. In quis fringilla velit, ac maximus quam. Etiam eget placerat neque. Aenean faucibus sem non nisi lobortis ullamcorper._
-
-### Permissions
-
-Digital assets used with full licensing and permission from [Death to Stock Photo](), [Freepik](), and [Unsplash](). Custom digital design and branding by John Lansing. Digital assets stored locally and on [Imgur]().
+_**Terrarium** is a web interface for running, tracking, and managing machine learning experiments._
 
 <br>
 
 ## MVP
 
-> The Minimum Viable Product should be a well-planned, easily-communicated product, ensuring that the client's deliverable will be achievable and meet specifications within the time frame estimated.
-
-_The **Project Title** MVP lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus dapibus fermentum risus vitae bibendum. Integer vel ipsum mollis odio sollicitudin ornare eu vel ex. In quis fringilla velit, ac maximus quam. Etiam eget placerat neque. Aenean faucibus sem non nisi lobortis ullamcorper._
+_The **Terrarium** MVP is to allow users to view the results of machine learning (ML) experiments, as well as to register on the site to perform experiments._
 
 <br>
 
 ### MVP Goals
 
-- _Lorem ipsum, dolor sit amet,_
-- _consectetur adipiscing elit._
-- _Phasellus dapibus fermentum risus vitae bibendum._
-- _Integer vel ipsum mollis odio sollicitudin ornare eu vel ex._
-- _etc._
+- _User signup and authentication_
+- _Browse completed experiments without login_
+- _Run experiments on a single dataset, using a single ML model_
 
 <br>
 
 ### MVP Libraries
 
-> Use this section to list all supporting libraries and dependencies, and their role in the project.
 
 |     Library      | Description                                |
 | :--------------: | :----------------------------------------- |
-|      React       | _Lorem ipsum dolor sit amet, consectetur._ |
-|   React Router   | _Lorem ipsum dolor sit amet, consectetur._ |
-| React SemanticUI | _Lorem ipsum dolor sit amet, consectetur._ |
-|     Express      | _Lorem ipsum dolor sit amet, consectetur._ |
-|  Express Router  | _Lorem ipsum dolor sit amet, consectetur._ |
+|   React Router   | _Makes easily navigable, bookmarkable React pages._ |
+|     Axios        | _Get data to/from front end._ |
+|      Formik      | _Simpler form handling in React._           |
+| Ruby on Rails    | _Backend server._ |
+|  Devise          | _Handles user authentication._ |
+|      D3          | _Data visualization._ |
+|     pandas       | _Data preprocessing._ |
+| scikit-learn     | _Perform machine learning experiments._ |
+|      requests    | _Get experiment data to/from backend server._ |
 
 <br>
 
@@ -135,7 +127,7 @@ _The **Project Title** MVP lorem ipsum dolor sit amet, consectetur adipiscing el
 	- Show route for a user requested by ID
 - POST `/api/users`
 	- Create route for a new user
-- PUT `/api/users/:id/nominate
+- PUT `/api/users/:id/nominate`
   - Update a user by id to create an association to the ballots table
 
 <br>
@@ -164,20 +156,18 @@ _The **Project Title** MVP lorem ipsum dolor sit amet, consectetur adipiscing el
 
 ### Schedule
 
-> Use this section to look at your project week and plan out when and what you want to do.
-
 |  Day   | Deliverables                              |
 | ------ | ----------------------------------------- |
-|Mar 4th | project proposal worksheet / psuedocoding |
-|Mar 5th | project pitch / build out endpoints       |
-|Mar 6th | Build out front-end components            |
-|Mar 7th | OFF                                       |
-|Mar 8th | impliment user auth                       |
-|Mar 9th | styling                                   |
-|Mar 10th| MVP, begin post-MVP                       |
-|Mar 11th| post-MVP                                  |
-|Mar 12th| polishing                                 |
-|Mar 13th| final presentations                       |
+|Mar 4th | Project proposal prompt |
+|Mar 5th | Project pitch / planning       |
+|Mar 6th | Build out backend            |
+|Mar 7th | User login page / authentication / profile edit |
+|Mar 8th | OFF                       |
+|Mar 9th | Run ML experiments                        |
+|Mar 10th| View ML experiments (MVP)                  |
+|Mar 11th| Post-MVP                                  |
+|Mar 12th| Polishing                                 |
+|Mar 13th| Final presentations                       |
 
 <br>
 
@@ -185,7 +175,12 @@ _The **Project Title** MVP lorem ipsum dolor sit amet, consectetur adipiscing el
 
 ## Post-MVP
 
-> Use this section to document ideas you've had that would be fun (or necessary) for your Post-MVP. This will be helpful when you return to your project after graduation!
+- More hyperparameters
+- Iterate on previous experiments
+- Track parameter history
+- Allow >1 metric tracking
+- More visualizations
+- Compare experiments
 
 <br>
 
