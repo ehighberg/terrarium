@@ -73,7 +73,7 @@ _The **Terrarium** MVP is to allow users to view the results of machine learning
 
 ![Desktop User Profile](https://i.imgur.com/TpcOWG6.png)
 
-- [Desktop User Profile
+- Desktop User Profile
 
 ![Mobile Experiment](https://i.imgur.com/A34ldQE.png)
 
@@ -82,6 +82,10 @@ _The **Terrarium** MVP is to allow users to view the results of machine learning
 ![Mobile User Profile](https://i.imgur.com/JbdF8Zw.png)
 
 - Mobile User Profile
+
+![Mobile Browse](https://i.imgur.com/AHK6V32.png)
+
+- Mobile Browse
 
 
 #### Component Hierarchy
