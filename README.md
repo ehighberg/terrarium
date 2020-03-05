@@ -3,9 +3,6 @@
 
 - [Full Stack Project](#Full-Stack-Project)
   - [Overview](#Overview)
-    - [Team Members](#Team-Members)
-    - [Team Expectations](#Team-Expectations)
-    - [Permissions](#Permissions)
   - [MVP](#MVP)
     - [MVP Goals](#MVP-Goals)
     - [MVP Libraries](#MVP-Libraries)
@@ -65,37 +62,31 @@ _The **Terrarium** MVP is to allow users to view the results of machine learning
 
 #### Wireframes
 
-> Use the Wireframes section to display desktop, tablet and mobile views.
 
-![Dummy Link](url)
+![Desktop Experiment](https://i.imgur.com/oSqeiDQ.png)
 
-- Desktop Landing
+- Desktop Experiment
 
-![Dummy Link](url)
+![Desktop Sign In](https://i.imgur.com/JggXzWZ.png)
 
-- Desktop Hero
+- Desktop Sign In
 
-![Dummy Link](url)
+![Desktop User Profile](https://i.imgur.com/TpcOWG6.png)
 
-- Resource Index
+- [Desktop User Profile
 
-![Dummy Link](url)
+![Mobile Experiment](https://i.imgur.com/A34ldQE.png)
 
-- Resource Show
+- Mobile Experiment
 
-![Dummy Link](url)
+![Mobile User Profile](https://i.imgur.com/JbdF8Zw.png)
 
-- Tablet Resource Index
+- Mobile User Profile
 
-![Dummy Link](url)
-
-- Mobile Resource Index
 
 #### Component Hierarchy
 
-> Use this section to show your React components and the data architecture of your app.
-
-![Dummy Link](url)
+![Component Hierarchy](https://i.imgur.com/FhJ1mtt.png)
 
 #### Component Breakdown
 
@@ -104,11 +95,11 @@ _The **Terrarium** MVP is to allow users to view the results of machine learning
 |    Header    |   N   | _The header will contain site navigation and logo._|
 |    Footer    |   N   | _Links to my portfolio/contact info._ |
 |  Main  |   N   | _Container for User and Experiment views._|
-|  User  |   Y   | _Houses router for user login/registration/profile management._       |
-|  UserLogin   |   N   | _Handles account creation and logins._  |
-|  UserProfile  |   N   | _View and edit user's information._|
 |  Nav  |   N   | _Provide links/previews of experiments._      |
 | Card  |   N   | _Preview experiment._       |
+|  User  |   Y   | _Houses router for user login/registration/profile management._       |
+|  Login   |   N   | _Handles account creation and logins._  |
+|  Profile  |   N   | _View and edit user's information._|
 |  Experiment  |   Y  | _Contains experiment summary, hyperparameter selection, and results._       |
 |  Summary  |   N   | _Basic info about the dataset._       |
 |  Visualization  |   N   | _Visualize experiment results._|
@@ -121,7 +112,7 @@ _The **Terrarium** MVP is to allow users to view the results of machine learning
 
 #### ERD Model
 
-> Use this section to display an image of a computer generated ERD model.
+![ERD](https://i.imgur.com/pSM9szE.png)
 
 #### Endpoints
 
@@ -156,9 +147,18 @@ _The **Terrarium** MVP is to allow users to view the results of machine learning
 
 | Task                | Priority | Estimated Time | Actual Time |
 | ------------------- | :------: | :------------: | :---------: |
-| Add Contact Form    |    L     |     3 hrs      |    3 hrs    |
-| Create CRUD Actions |    H     |     3 hrs      |     TBD     |
-| TOTAL               |          |     6 hrs      |     TBD     |
+| Back end models | H | 4 | |
+| Back end routes | H | 4 | |
+| Header, Footer, Nav, Main | H | 4 | |
+| User signup page | H | 2 | |
+| User profile page | H | 3 | |
+| User profile functionality | H | 3 | |
+| User authentication with Devise | H | 4 | |
+| Linear regression setup | H | 4 | |
+| ML experiment running/storage | H | 4 | |
+| Experiment view | H | 8 | |
+| Run ML experiment from front end  | H | 4 | |
+| TOTAL | T | 44 | |
 
 <br>
 
@@ -183,6 +183,7 @@ _The **Terrarium** MVP is to allow users to view the results of machine learning
 
 ## Post-MVP
 
+- Results detail page
 - More hyperparameters
 - Iterate on previous experiments
 - Track parameter history
@@ -205,6 +206,8 @@ _The **Terrarium** MVP is to allow users to view the results of machine learning
 
 ## Code Issues & Resolutions
 
-> Use this section to list of all major issues encountered and their resolution, if you'd like.
+### Expected Issues
+
+- Communicating between Python and Rails portions of back end. Solvable by using local requests to Rails, or direct SQL queries.
 
 ***
