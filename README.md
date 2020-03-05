@@ -99,8 +99,6 @@ _The **Terrarium** MVP is to allow users to view the results of machine learning
 
 #### Component Breakdown
 
-> Use this section to go into further depth regarding your components, including breaking down the components as stateless or stateful, and considering the passing of data between those components.
-
 |  Component   | State | Description                                                      |
 | :----------: | :---: | :--------------------------------------------------------------- |
 |    Header    |   N   | _The header will contain site navigation and logo._|
@@ -127,38 +125,40 @@ _The **Terrarium** MVP is to allow users to view the results of machine learning
 
 #### Endpoints
 
-> Use this section to list a selection of your intended endpoints and their uses. Please list any and all custom-created endpoints.
-
 - GET `/api/users`
-	- Index route returning an array of all Users and nested 'Likes'
+	- Index route returning an array of all Users
 - GET `/api/users/:id`
 	- Show route for a user requested by ID
 - POST `/api/users`
 	- Create route for a new user
-- PUT `/api/users/:id/nominate`
-  - Update a user by id to create an association to the ballots table
+- PUT `/api/users/:id/`
+  - Edit a user's profile info
+- DELETE `/api/users/:id`
+  - Delete a user's profile
+- GET `/api/experiments`
+  - Index route returning an array of all experiments
+- GET `/api/experiments/:id`
+  - Show route for a single experiment
+- GET `/api/users/:id/experiments`
+  - Show all experiments for a user
+- POST `/api/users/:id/experiments`
+  - Create and run an experiment
 
 <br>
 
 ***
 
 ## Planning
-
-> You've got a little over a week to reach your Minimum Viable Product. Use these sections to plan out your approach.
-
 <br>
 
 ### Timeframes
 
-> Use this section to estimate the time necessary to build out the various sections of your project. You may include an additional priority matrix, if you desire.
 
 | Task                | Priority | Estimated Time | Actual Time |
 | ------------------- | :------: | :------------: | :---------: |
 | Add Contact Form    |    L     |     3 hrs      |    3 hrs    |
 | Create CRUD Actions |    H     |     3 hrs      |     TBD     |
 | TOTAL               |          |     6 hrs      |     TBD     |
-
-> _Why is this necessary? Time frames are key to the development cycle. You have limited time to code your app, and your estimates can then be used to evalute possibilities of your MVP and post-MVP based on time needed. It's best you assume an additional hour for each component, as well as a few hours added to the total time, to play it safe._
 
 <br>
 
