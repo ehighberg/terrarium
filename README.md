@@ -51,7 +51,6 @@ _The **Terrarium** MVP is to allow users to view the results of machine learning
 |      Formik      | _Simpler form handling in React._           |
 |    Faker         | _Generate test data._          |
 | Ruby on Rails    | _Backend server._ |
-|  Devise          | _Handles user authentication._ |
 |      D3          | _Data visualization._ |
 |     pandas       | _Data preprocessing._ |
 | scikit-learn     | _Perform machine learning experiments._ |
@@ -152,13 +151,13 @@ _The **Terrarium** MVP is to allow users to view the results of machine learning
 
 | Task                | Priority | Estimated Time | Actual Time |
 | ------------------- | :------: | :------------: | :---------: |
-| Back end models | H | 4 | |
-| Back end routes | H | 4 | |
+| Back end models | H | 4 | 2 |
+| Back end routes | H | 4 | 2 |
 | Header, Footer, Nav, Main | H | 4 | |
 | User signup page | H | 2 | |
 | User profile page | H | 3 | |
 | User profile functionality | H | 3 | |
-| User authentication with Devise | H | 4 | |
+| User authentication | H | 4 | 3 |
 | Linear regression setup | H | 4 | |
 | ML experiment running/storage | H | 4 | |
 | Experiment view | H | 8 | |

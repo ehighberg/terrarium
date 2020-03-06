@@ -1895,3 +1895,157 @@ FOREIGN KEY ("experiment_id")
   [1m[36mExperiment Load (0.2ms)[0m  [1m[34mSELECT "experiments".* FROM "experiments" WHERE "experiments"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
   [1m[36mLinearRegression Create (0.3ms)[0m  [1m[32mINSERT INTO "linear_regressions" ("standard_scale", "learning_rate", "max_iterations", "experiment_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["standard_scale", true], ["learning_rate", 0.33], ["max_iterations", 10], ["experiment_id", 6], ["created_at", "2020-03-06 14:30:18.756226"], ["updated_at", "2020-03-06 14:30:18.756226"]]
   [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (119.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "server_development"[0m
+  [1m[35m (118.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "server_test"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "server_development"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "server_test"[0m
+  [1m[35m (274.1ms)[0m  [1m[35mCREATE DATABASE "server_development" ENCODING = 'unicode'[0m
+  [1m[35m (271.5ms)[0m  [1m[35mCREATE DATABASE "server_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "experiments" CASCADE[0m
+  [1m[35m (16.5ms)[0m  [1m[35mCREATE TABLE "experiments" ("id" bigserial primary key, "time_start" timestamp, "time_end" timestamp, "target" character varying, "metric" character varying, "final_score" float, "history" json, "user_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE  INDEX  "index_experiments_on_user_id" ON "experiments"  ("user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "linear_regressions" CASCADE[0m
+  [1m[35m (7.7ms)[0m  [1m[35mCREATE TABLE "linear_regressions" ("id" bigserial primary key, "standard_scale" boolean, "learning_rate" float, "max_iterations" integer, "experiment_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE  INDEX  "index_linear_regressions_on_experiment_id" ON "linear_regressions"  ("experiment_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (11.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying, "email" character varying, "role" character varying, "name" character varying, "password_digest" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (3.7ms)[0m  [1m[35mALTER TABLE "experiments" ADD CONSTRAINT "fk_rails_29fe176967"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (1.5ms)[0m  [1m[35mALTER TABLE "linear_regressions" ADD CONSTRAINT "fk_rails_a6683970b7"
+FOREIGN KEY ("experiment_id")
+  REFERENCES "experiments" ("id")
+[0m
+  [1m[35m (8.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20200305231423)[0m
+  [1m[35m (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20200305215415),
+(20200305215750),
+(20200305215844);
+
+[0m
+  [1m[35m (10.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-03-06 20:48:16.760648"], ["updated_at", "2020-03-06 20:48:16.760648"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "03dda2769c94aec468c1d071d03435f481da33a1"], ["created_at", "2020-03-06 20:48:16.766243"], ["updated_at", "2020-03-06 20:48:16.766243"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "experiments" CASCADE[0m
+  [1m[35m (19.0ms)[0m  [1m[35mCREATE TABLE "experiments" ("id" bigserial primary key, "time_start" timestamp, "time_end" timestamp, "target" character varying, "metric" character varying, "final_score" float, "history" json, "user_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (6.2ms)[0m  [1m[35mCREATE  INDEX  "index_experiments_on_user_id" ON "experiments"  ("user_id")[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "linear_regressions" CASCADE[0m
+  [1m[35m (7.3ms)[0m  [1m[35mCREATE TABLE "linear_regressions" ("id" bigserial primary key, "standard_scale" boolean, "learning_rate" float, "max_iterations" integer, "experiment_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (13.9ms)[0m  [1m[35mCREATE  INDEX  "index_linear_regressions_on_experiment_id" ON "linear_regressions"  ("experiment_id")[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (12.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying, "email" character varying, "role" character varying, "name" character varying, "password_digest" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (4.6ms)[0m  [1m[35mALTER TABLE "experiments" ADD CONSTRAINT "fk_rails_29fe176967"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (3.2ms)[0m  [1m[35mALTER TABLE "linear_regressions" ADD CONSTRAINT "fk_rails_a6683970b7"
+FOREIGN KEY ("experiment_id")
+  REFERENCES "experiments" ("id")
+[0m
+  [1m[35m (13.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20200305231423)[0m
+  [1m[35m (1.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20200305215415),
+(20200305215750),
+(20200305215844);
+
+[0m
+  [1m[35m (8.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-03-06 20:48:16.938989"], ["updated_at", "2020-03-06 20:48:16.938989"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.4ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2020-03-06 20:48:16.956294"], ["key", "environment"]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "03dda2769c94aec468c1d071d03435f481da33a1"], ["created_at", "2020-03-06 20:48:16.964914"], ["updated_at", "2020-03-06 20:48:16.964914"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "role", "name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "ehighberg"], ["email", "errol@errol.errol"], ["role", "admin"], ["name", "Errol Highberg"], ["password_digest", "bob"], ["created_at", "2020-03-06 20:48:17.003163"], ["updated_at", "2020-03-06 20:48:17.003163"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mExperiment Create (0.5ms)[0m  [1m[32mINSERT INTO "experiments" ("time_start", "time_end", "target", "metric", "final_score", "history", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["time_start", "2020-03-06 20:48:17.008863"], ["time_end", "2020-03-06 20:48:47.008863"], ["target", "net_energy"], ["metric", "r2"], ["final_score", 0.9], ["history", "\"{\\\"loss\\\":[99,77.2,33,11,8],\\\"r2\\\":[0.1,0.33,0.57,0.7,0.743]}\""], ["user_id", 1], ["created_at", "2020-03-06 20:48:17.021806"], ["updated_at", "2020-03-06 20:48:17.021806"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mExperiment Load (0.2ms)[0m  [1m[34mSELECT "experiments".* FROM "experiments" WHERE "experiments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mLinearRegression Create (0.5ms)[0m  [1m[32mINSERT INTO "linear_regressions" ("standard_scale", "learning_rate", "max_iterations", "experiment_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["standard_scale", false], ["learning_rate", 0.1], ["max_iterations", 5], ["experiment_id", 1], ["created_at", "2020-03-06 20:48:17.035593"], ["updated_at", "2020-03-06 20:48:17.035593"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "role", "name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "carmen_paucek"], ["email", "rivka_prosacco@deckowhowe.co"], ["role", "user"], ["name", "Lou Rosenbaum"], ["password_digest", "dtltffiq"], ["created_at", "2020-03-06 20:48:17.097513"], ["updated_at", "2020-03-06 20:48:17.097513"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "role", "name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "hong"], ["email", "herbert.kuphal@millslakin.biz"], ["role", "user"], ["name", "Florance Hudson"], ["password_digest", "pptepckj"], ["created_at", "2020-03-06 20:48:17.101129"], ["updated_at", "2020-03-06 20:48:17.101129"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "role", "name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "stacy.satterfield"], ["email", "andrea.witting@langoshschoen.biz"], ["role", "user"], ["name", "Alfred Hintz"], ["password_digest", "gfjfpsee"], ["created_at", "2020-03-06 20:48:17.104356"], ["updated_at", "2020-03-06 20:48:17.104356"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "role", "name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "henry"], ["email", "lou@bechtelar.info"], ["role", "user"], ["name", "Mr. Pat Cronin"], ["password_digest", "qymvfoxv"], ["created_at", "2020-03-06 20:48:17.107687"], ["updated_at", "2020-03-06 20:48:17.107687"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "role", "name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "gene"], ["email", "delbert@rempelraynor.net"], ["role", "user"], ["name", "Mr. Winston Donnelly"], ["password_digest", "gsivmqhk"], ["created_at", "2020-03-06 20:48:17.110732"], ["updated_at", "2020-03-06 20:48:17.110732"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mExperiment Create (0.3ms)[0m  [1m[32mINSERT INTO "experiments" ("time_start", "time_end", "target", "metric", "final_score", "history", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["time_start", "2020-03-06 20:48:17.113856"], ["time_end", "2020-03-06 20:48:47.113859"], ["target", "net_energy"], ["metric", "r2"], ["final_score", 0.87], ["history", "\"{\\\"loss\\\":[24,70,41,27,10,70,1,73,19,60],\\\"r2\\\":[0.73,0.19,0.62,0.42,0.11,0.53,0.33,0.49,0.21,0.87]}\""], ["user_id", 2], ["created_at", "2020-03-06 20:48:17.116246"], ["updated_at", "2020-03-06 20:48:17.116246"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mExperiment Create (0.3ms)[0m  [1m[32mINSERT INTO "experiments" ("time_start", "time_end", "target", "metric", "final_score", "history", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["time_start", "2020-03-06 20:49:17.113916"], ["time_end", "2020-03-06 20:49:47.113917"], ["target", "net_energy"], ["metric", "r2"], ["final_score", 0.42], ["history", "\"{\\\"loss\\\":[24,9,84,73,84,21,15,75,64,67],\\\"r2\\\":[0.97,0.14,0.43,0.84,0.94,0.73,0.64,0.98,0.24,0.42]}\""], ["user_id", 3], ["created_at", "2020-03-06 20:48:17.120725"], ["updated_at", "2020-03-06 20:48:17.120725"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mExperiment Create (0.3ms)[0m  [1m[32mINSERT INTO "experiments" ("time_start", "time_end", "target", "metric", "final_score", "history", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["time_start", "2020-03-06 20:50:17.113944"], ["time_end", "2020-03-06 20:50:47.113945"], ["target", "net_energy"], ["metric", "r2"], ["final_score", 0.76], ["history", "\"{\\\"loss\\\":[41,72,36,18,96,98,89,76,46,8],\\\"r2\\\":[0.46,0.53,0.75,0.72,0.57,0.49,0.59,0.37,0.66,0.76]}\""], ["user_id", 4], ["created_at", "2020-03-06 20:48:17.124990"], ["updated_at", "2020-03-06 20:48:17.124990"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mExperiment Create (0.3ms)[0m  [1m[32mINSERT INTO "experiments" ("time_start", "time_end", "target", "metric", "final_score", "history", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["time_start", "2020-03-06 20:51:17.113976"], ["time_end", "2020-03-06 20:51:47.113977"], ["target", "net_energy"], ["metric", "r2"], ["final_score", 0.17], ["history", "\"{\\\"loss\\\":[51,8,98,64,97,76,12,48,54,2],\\\"r2\\\":[0.51,0.77,0.01,0.86,0.38,0.64,0.95,0.53,0.56,0.17]}\""], ["user_id", 5], ["created_at", "2020-03-06 20:48:17.129393"], ["updated_at", "2020-03-06 20:48:17.129393"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mExperiment Create (0.3ms)[0m  [1m[32mINSERT INTO "experiments" ("time_start", "time_end", "target", "metric", "final_score", "history", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["time_start", "2020-03-06 20:52:17.114000"], ["time_end", "2020-03-06 20:52:47.114001"], ["target", "net_energy"], ["metric", "r2"], ["final_score", 0.84], ["history", "\"{\\\"loss\\\":[100,8,80,52,17,5,46,8,47,27],\\\"r2\\\":[0.33,0.92,0.81,0.27,0.05,0.05,0.18,0.36,0.05,0.84]}\""], ["user_id", 6], ["created_at", "2020-03-06 20:48:17.133706"], ["updated_at", "2020-03-06 20:48:17.133706"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mExperiment Load (0.2ms)[0m  [1m[34mSELECT "experiments".* FROM "experiments" WHERE "experiments"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mLinearRegression Create (0.3ms)[0m  [1m[32mINSERT INTO "linear_regressions" ("standard_scale", "learning_rate", "max_iterations", "experiment_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["standard_scale", false], ["learning_rate", 0.95], ["max_iterations", 10], ["experiment_id", 2], ["created_at", "2020-03-06 20:48:17.138395"], ["updated_at", "2020-03-06 20:48:17.138395"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mExperiment Load (0.2ms)[0m  [1m[34mSELECT "experiments".* FROM "experiments" WHERE "experiments"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mLinearRegression Create (0.3ms)[0m  [1m[32mINSERT INTO "linear_regressions" ("standard_scale", "learning_rate", "max_iterations", "experiment_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["standard_scale", true], ["learning_rate", 0.54], ["max_iterations", 10], ["experiment_id", 3], ["created_at", "2020-03-06 20:48:17.142817"], ["updated_at", "2020-03-06 20:48:17.142817"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mExperiment Load (0.3ms)[0m  [1m[34mSELECT "experiments".* FROM "experiments" WHERE "experiments"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mLinearRegression Create (0.3ms)[0m  [1m[32mINSERT INTO "linear_regressions" ("standard_scale", "learning_rate", "max_iterations", "experiment_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["standard_scale", true], ["learning_rate", 0.17], ["max_iterations", 10], ["experiment_id", 4], ["created_at", "2020-03-06 20:48:17.147111"], ["updated_at", "2020-03-06 20:48:17.147111"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mExperiment Load (0.2ms)[0m  [1m[34mSELECT "experiments".* FROM "experiments" WHERE "experiments"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mLinearRegression Create (0.3ms)[0m  [1m[32mINSERT INTO "linear_regressions" ("standard_scale", "learning_rate", "max_iterations", "experiment_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["standard_scale", true], ["learning_rate", 0.91], ["max_iterations", 10], ["experiment_id", 5], ["created_at", "2020-03-06 20:48:17.151428"], ["updated_at", "2020-03-06 20:48:17.151428"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mExperiment Load (0.2ms)[0m  [1m[34mSELECT "experiments".* FROM "experiments" WHERE "experiments"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mLinearRegression Create (0.3ms)[0m  [1m[32mINSERT INTO "linear_regressions" ("standard_scale", "learning_rate", "max_iterations", "experiment_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["standard_scale", false], ["learning_rate", 0.38], ["max_iterations", 10], ["experiment_id", 6], ["created_at", "2020-03-06 20:48:17.155568"], ["updated_at", "2020-03-06 20:48:17.155568"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
