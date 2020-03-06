@@ -2,12 +2,6 @@ class UserController < ApplicationController
   before_action :set_user, only: [:show, :update, :destroy]
   before_action :authorize_request, except: :create
 
-  has_secure_password
-  validates :password, length: { minimum: 8 }
-  validates :username, presence: true, uniqueness: true
-  validates :email, presence: true, uniqueness: true
-  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
-
   def index
     @users = User.all
     render json: @users
@@ -46,6 +40,6 @@ class UserController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:username, :email, :password, :name)
+    params.permit(:username, :email, :password, :name)
   end
 end
