@@ -36,3 +36,61 @@ linear_regression = LinearRegression.create({
   learning_rate: 0.1,
   max_iterations: 5
 })
+
+
+def make_users(num_users)
+  users = User.create((0...num_users).map do |_|
+    {
+      username: Faker::Internet.username,
+      email: Faker::Internet.email,
+      password_digest: Faker::Alphanumeric.alpha(number: 8),
+      role: 'user',
+      name: Faker::Name.name
+    }
+  end)
+  return users
+end
+
+
+def make_histories(num_histories, length)
+  (0...num_histories).map do |_|
+    {
+      loss: (0...length).map { |_| Faker::Number.within(range: 1..100) },
+      r2: (0...length).map { |_| Faker::Number.decimal(l_digits: 0, r_digits: 2) }
+    }
+  end
+end
+
+def make_experiments(users, histories)
+  experiments = Experiment.create(users.map.with_index do |user, i|
+    {
+      user_id: user.id,
+      time_start: Time.new + i * 60,
+      time_end: Time.new + i * 60 + 30,
+      target: 'net_energy',
+      metric: 'r2',
+      final_score: histories[i][:r2].last,
+      history: histories[i].to_json
+    }
+  end)
+  return experiments
+end
+
+def make_linear_regressions(experiments, history_length)
+  LinearRegression.create(experiments.map do |experiment|
+    {
+      experiment_id: experiment.id,
+      standard_scale: Faker::Boolean.boolean,
+      learning_rate: Faker::Number.decimal(l_digits: 0, r_digits: 2),
+      max_iterations: history_length
+    }
+  end)
+end
+
+num_new_users = 5
+history_length = 10
+
+users = make_users(num_new_users)
+histories = make_histories(num_new_users, history_length)
+experiments = make_experiments(users, histories)
+make_linear_regressions(experiments, history_length)

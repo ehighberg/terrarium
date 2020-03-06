@@ -49,6 +49,7 @@ _The **Terrarium** MVP is to allow users to view the results of machine learning
 |   React Router   | _Makes easily navigable, bookmarkable React pages._ |
 |     Axios        | _Get data to/from front end._ |
 |      Formik      | _Simpler form handling in React._           |
+|    Faker         | _Generate test data._          |
 | Ruby on Rails    | _Backend server._ |
 |  Devise          | _Handles user authentication._ |
 |      D3          | _Data visualization._ |
