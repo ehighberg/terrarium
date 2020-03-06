@@ -5,4 +5,7 @@ Rails.application.routes.draw do
   end
 
   resources :experiment
+
+  post '/auth/login', to: 'authentication#login'
+  get '/auth/verify', to: 'authentication#verify'
 end
