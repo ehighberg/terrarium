@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  time_start: 2020-03-05
+  time_end: 2020-03-05
+  target: MyString
+  metric: MyString
+  final_score: 1.5
+  history: 
+  user: one
+
+two:
+  time_start: 2020-03-05
+  time_end: 2020-03-05
+  target: MyString
+  metric: MyString
+  final_score: 1.5
+  history: 
+  user: two
