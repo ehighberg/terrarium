@@ -3,6 +3,7 @@ class ExperimentController < ApplicationController
   before_action :authorize_request, except: [:index, :show]
   before_action :set_model, only: [:show, :update, :destroy]
 
+
   def index
     @experiments = Experiment.all
     render json: @experiments
@@ -16,20 +17,8 @@ class ExperimentController < ApplicationController
     @experiment = Experiment.new(start_params)
 
     if @experiment.save
-
-      @model = get_model_sym.new(model_params)
-      puts "model params"
-      puts model_params
-      puts "created model"
-      puts @model
-      @model.experiment_id = @experiment.id
-
-      if @model.save
-        render json: {experiment: @experiment, model: @model}, status: :created, location: @experiment
-      else
-        render json: @model.errors, status: :unprocessable_entity
-      end
-
+      @model = get_model_sym.find_by(experiment_id: @experiment.id)
+      render json: { experiment: @experiment, model: @model }, status: :created, location: @experiment
     else
       render json: @experiment.errors, status: :unprocessable_entity
     end
@@ -66,17 +55,16 @@ class ExperimentController < ApplicationController
   end
 
   def start_params
-    params.permit(:time_start, :target, :metric, :user_id, :model, :dataset)
+    passed_params = params.require(:experiment)
+      .permit(:time_start, :target, :metric, :user_id, :model, :dataset)
+
+    model_accessor = "#{passed_params[:model]}_attributes"
+    passed_params[model_accessor] = params.require(:model_info).permit!
+    passed_params
   end
 
   def end_params
     params.permit(:time_end, :final_score, :history)
   end
 
-  def model_params
-    puts "params"
-    puts params
-    puts params.permit(:model_info)
-    params.permit(:model_info)
-  end
 end
