@@ -152,7 +152,7 @@ _The **Terrarium** MVP is to allow users to view the results of machine learning
 | Task                | Priority | Estimated Time | Actual Time |
 | ------------------- | :------: | :------------: | :---------: |
 | Back end models | H | 4 | 2 |
-| Back end routes | H | 4 | 2 |
+| Back end routes | H | 4 | 3 |
 | Header, Footer, Nav, Main | H | 4 | |
 | User signup page | H | 2 | |
 | User profile page | H | 3 | |
@@ -202,7 +202,7 @@ _The **Terrarium** MVP is to allow users to view the results of machine learning
 
 ## Project Change Log
 
-> This section should be expanded and revised as you work on your project.
+[2020-03-06] - Removed Devise from libraries
 
 ## Code Showcase
 

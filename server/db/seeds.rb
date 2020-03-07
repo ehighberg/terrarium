@@ -27,7 +27,9 @@ experiment = Experiment.create({
   target: 'net_energy',
   metric: 'r2',
   final_score: 0.9,
-  history: history.to_json
+  history: history.to_json,
+  model: 'linear_regression',
+  dataset: 'ccpp'
   })
 
 linear_regression = LinearRegression.create({
@@ -70,7 +72,9 @@ def make_experiments(users, histories)
       target: 'net_energy',
       metric: 'r2',
       final_score: histories[i][:r2].last,
-      history: histories[i].to_json
+      history: histories[i].to_json,
+      model: 'linear_regression',
+      dataset: 'ccpp'
     }
   end)
   return experiments
