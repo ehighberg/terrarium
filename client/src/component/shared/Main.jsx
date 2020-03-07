@@ -6,7 +6,7 @@ import User from '../routes/User'
 const Main = props => (
   <main>
     <Switch>
-      <Route exact path='/user' component={() => <User />} />
+      <Route path='/user' component={() => <User />} />
     </Switch>
   </main>
 )
