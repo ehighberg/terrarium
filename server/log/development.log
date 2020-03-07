@@ -2646,3 +2646,338 @@ Processing by UserController#index as HTML
 Completed 200 OK in 11ms (Views: 6.1ms | ActiveRecord: 2.7ms | Allocations: 8504)
 
 
+Started POST "/user" for ::1 at 2020-03-06 17:01:30 -0500
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UserController#create as */*
+  Parameters: {"email"=>"test2@email.com", "password"=>"[FILTERED]", "username"=>"bob", "user"=>{"username"=>"bob", "email"=>"test2@email.com"}}
+[31mUnpermitted parameter: :user[0m
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 2.8ms | Allocations: 284)
+
+
+  
+ArgumentError (wrong number of arguments (given 2, expected 0..1)):
+  
+app/controllers/user_controller.rb:15:in `create'
+Started POST "/user" for ::1 at 2020-03-06 17:03:52 -0500
+Processing by UserController#create as */*
+  Parameters: {"user"=>{"email"=>"test2@email.com", "password"=>"[FILTERED]", "username"=>"bob"}}
+[31mUnpermitted parameter: :user[0m
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 184)
+
+
+  
+ArgumentError (wrong number of arguments (given 2, expected 0..1)):
+  
+app/controllers/user_controller.rb:15:in `create'
+Started GET "/" for 127.0.0.1 at 2020-03-07 10:07:44 -0500
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/bam/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/railties-6.0.2.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/bam/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/railties-6.0.2.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 7.6ms | Allocations: 308)
+Completed 200 OK in 11ms (Views: 9.5ms | ActiveRecord: 0.0ms | Allocations: 1615)
+
+
+Started GET "/user" for 127.0.0.1 at 2020-03-07 10:07:48 -0500
+Processing by UserController#index as HTML
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 211)
+
+
+Started POST "/user" for ::1 at 2020-03-07 10:12:13 -0500
+Processing by UserController#create as */*
+  Parameters: {"user"=>{"email"=>"test2@email.com", "password"=>"[FILTERED]", "username"=>"bob"}}
+[31mUnpermitted parameter: :user[0m
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms | Allocations: 219)
+
+
+  
+ArgumentError (wrong number of arguments (given 2, expected 0..1)):
+  
+app/controllers/user_controller.rb:15:in `create'
+Started POST "/user" for ::1 at 2020-03-07 10:12:39 -0500
+Processing by UserController#create as */*
+  Parameters: {"email"=>"test2@email.com", "password"=>"[FILTERED]", "username"=>"bob", "user"=>{"username"=>"bob", "email"=>"test2@email.com"}}
+[31mUnpermitted parameter: :user[0m
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 1.7ms | Allocations: 201)
+
+
+  
+ArgumentError (wrong number of arguments (given 2, expected 0..1)):
+  
+app/controllers/user_controller.rb:15:in `create'
+Started POST "/user" for ::1 at 2020-03-07 10:13:25 -0500
+Processing by UserController#create as */*
+  Parameters: {"email"=>"test2@email.com", "password"=>"[FILTERED]", "username"=>"bob", "user"=>{"username"=>"bob", "email"=>"test2@email.com"}}
+[31mUnpermitted parameter: :user[0m
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 201)
+
+
+  
+ArgumentError (wrong number of arguments (given 2, expected 0..1)):
+  
+app/controllers/user_controller.rb:15:in `create'
+Started POST "/user" for ::1 at 2020-03-07 10:13:31 -0500
+  
+SyntaxError (/home/bam/ga/u4/terrarium/server/app/controllers/user_controller.rb:15: syntax error, unexpected ',', expecting =>
+... @user = User.new({user_params, role: 'user'})
+...                              ^
+/home/bam/ga/u4/terrarium/server/app/controllers/user_controller.rb:15: syntax error, unexpected '}', expecting end
+...new({user_params, role: 'user'})
+...                              ^):
+  
+app/controllers/user_controller.rb:15: syntax error, unexpected ',', expecting =>
+app/controllers/user_controller.rb:15: syntax error, unexpected '}', expecting end
+app/controllers/user_controller.rb:15: syntax error, unexpected ',', expecting =>
+app/controllers/user_controller.rb:15: syntax error, unexpected '}', expecting end
+Started POST "/user" for ::1 at 2020-03-07 10:14:01 -0500
+Processing by UserController#create as */*
+  Parameters: {"email"=>"test2@email.com", "password"=>"[FILTERED]", "username"=>"bob", "user"=>{"username"=>"bob", "email"=>"test2@email.com"}}
+[31mUnpermitted parameter: :user[0m
+[31mUnpermitted parameter: :user[0m
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 1.6ms | Allocations: 339)
+
+
+  
+ArgumentError (wrong number of arguments (given 2, expected 0..1)):
+  
+app/controllers/user_controller.rb:16:in `create'
+Started POST "/user" for ::1 at 2020-03-07 10:15:22 -0500
+Processing by UserController#create as */*
+  Parameters: {"email"=>"test2@email.com", "password"=>"[FILTERED]", "username"=>"bob", "user"=>{"username"=>"bob", "email"=>"test2@email.com"}}
+[31mUnpermitted parameter: :user[0m
+[31mUnpermitted parameter: :user[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/user_controller.rb:18:in `create'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "bob"], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:18:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test2@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:18:in `create'
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/user_controller.rb:18:in `create'
+Completed 422 Unprocessable Entity in 357ms (Views: 0.1ms | ActiveRecord: 5.8ms | Allocations: 190289)
+
+
+Started POST "/user" for ::1 at 2020-03-07 10:15:38 -0500
+Processing by UserController#create as */*
+  Parameters: {"email"=>"test2@email.com", "password"=>"[FILTERED]", "username"=>"bob", "user"=>{"username"=>"bob", "email"=>"test2@email.com"}}
+[31mUnpermitted parameter: :user[0m
+[31mUnpermitted parameter: :user[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/user_controller.rb:18:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "bob"], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:18:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test2@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:18:in `create'
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "bob"], ["email", "test2@email.com"], ["password_digest", "$2a$12$LyM8JRdLfwfZTHVO4GT0EevlZ2MuA/rar9wdFsB8h8L7iG3siO3tm"], ["created_at", "2020-03-07 15:15:38.443308"], ["updated_at", "2020-03-07 15:15:38.443308"]]
+  ↳ app/controllers/user_controller.rb:18:in `create'
+  [1m[35m (5.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/user_controller.rb:18:in `create'
+Completed 201 Created in 224ms (Views: 1.3ms | ActiveRecord: 6.5ms | Allocations: 4848)
+
+
+Started POST "/user" for ::1 at 2020-03-07 10:16:35 -0500
+Processing by UserController#create as */*
+  Parameters: {"email"=>"test3@email.com", "password"=>"[FILTERED]", "username"=>"bob", "user"=>{"username"=>"bob", "email"=>"test3@email.com"}}
+[31mUnpermitted parameter: :user[0m
+[31mUnpermitted parameter: :user[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/user_controller.rb:19:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "bob"], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:19:in `create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test3@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:19:in `create'
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/user_controller.rb:19:in `create'
+Completed 422 Unprocessable Entity in 219ms (Views: 0.2ms | ActiveRecord: 3.1ms | Allocations: 8798)
+
+
+Started POST "/user" for ::1 at 2020-03-07 10:16:42 -0500
+Processing by UserController#create as */*
+  Parameters: {"email"=>"test3@email.com", "password"=>"[FILTERED]", "username"=>"bobber", "user"=>{"username"=>"bobber", "email"=>"test3@email.com"}}
+[31mUnpermitted parameter: :user[0m
+[31mUnpermitted parameter: :user[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/user_controller.rb:19:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "bobber"], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:19:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test3@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:19:in `create'
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "role", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "bobber"], ["email", "test3@email.com"], ["role", "user"], ["password_digest", "$2a$12$XRJ39o/tzMwKwryxLqP9ZOVTXW3RlngfvaPcdpxW4YyHr3IXk.C3S"], ["created_at", "2020-03-07 15:16:42.430162"], ["updated_at", "2020-03-07 15:16:42.430162"]]
+  ↳ app/controllers/user_controller.rb:19:in `create'
+  [1m[35m (5.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/user_controller.rb:19:in `create'
+Completed 201 Created in 222ms (Views: 0.3ms | ActiveRecord: 6.1ms | Allocations: 4730)
+
+
+Started POST "/auth/login" for ::1 at 2020-03-07 10:17:19 -0500
+Processing by AuthenticationController#login as */*
+  Parameters: {"email"=>"test3@email.com", "password"=>"[FILTERED]", "username"=>"bobber", "authentication"=>{"email"=>"test3@email.com", "password"=>"[FILTERED]", "username"=>"bobber"}}
+[31mUnpermitted parameters: :email, :authentication[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "bobber"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:5:in `login'
+[31mUnpermitted parameters: :email, :authentication[0m
+Completed 200 OK in 214ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 1367)
+
+
+Started POST "/auth/login" for ::1 at 2020-03-07 10:17:53 -0500
+Processing by AuthenticationController#login as */*
+  Parameters: {"email"=>"test3@email.com", "password"=>"[FILTERED]", "username"=>"bobber", "authentication"=>{"email"=>"test3@email.com", "password"=>"[FILTERED]", "username"=>"bobber"}}
+[31mUnpermitted parameters: :email, :authentication[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "bobber"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:5:in `login'
+[31mUnpermitted parameters: :email, :authentication[0m
+Completed 200 OK in 220ms (Views: 0.3ms | ActiveRecord: 2.7ms | Allocations: 7934)
+
+
+Started POST "/auth/login" for ::1 at 2020-03-07 10:18:18 -0500
+Processing by AuthenticationController#login as */*
+  Parameters: {"email"=>"test3@email.com", "password"=>"[FILTERED]", "username"=>"bobber", "authentication"=>{"email"=>"test3@email.com", "password"=>"[FILTERED]", "username"=>"bobber"}}
+[31mUnpermitted parameters: :email, :authentication[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "bobber"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:5:in `login'
+[31mUnpermitted parameters: :email, :authentication[0m
+Completed 200 OK in 214ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 1073)
+
+
+Started GET "/auth/verify" for ::1 at 2020-03-07 10:18:30 -0500
+Processing by AuthenticationController#verify as */*
+  Parameters: {"email"=>"test3@email.com", "password"=>"[FILTERED]", "username"=>"bobber", "authentication"=>{"email"=>"test3@email.com", "password"=>"[FILTERED]", "username"=>"bobber"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 984)
+
+
+Started GET "/user" for ::1 at 2020-03-07 10:20:04 -0500
+Processing by UserController#index as */*
+  Parameters: {"email"=>"test3@email.com", "password"=>"[FILTERED]", "username"=>"bobber", "user"=>{"username"=>"bobber", "email"=>"test3@email.com"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/user_controller.rb:7:in `index'
+Completed 200 OK in 3ms (Views: 1.6ms | ActiveRecord: 0.5ms | Allocations: 2774)
+
+
+Started GET "/user/1" for ::1 at 2020-03-07 10:20:25 -0500
+Processing by UserController#show as */*
+  Parameters: {"email"=>"test3@email.com", "password"=>"[FILTERED]", "username"=>"bobber", "id"=>"1", "user"=>{"username"=>"bobber", "email"=>"test3@email.com"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:40:in `set_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 1444)
+
+
+Started PUT "/user/1" for ::1 at 2020-03-07 10:21:20 -0500
+Processing by UserController#update as */*
+  Parameters: {"email"=>"test3@email.com", "password"=>"[FILTERED]", "username"=>"bobber", "id"=>"1", "user"=>{"username"=>"bobber", "email"=>"test3@email.com"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:40:in `set_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+[31mUnpermitted parameters: :id, :user[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/user_controller.rb:26:in `update'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "bobber"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:26:in `update'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "test3@email.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:26:in `update'
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/user_controller.rb:26:in `update'
+Completed 422 Unprocessable Entity in 221ms (Views: 0.2ms | ActiveRecord: 1.9ms | Allocations: 5956)
+
+
+Started PUT "/user/1" for ::1 at 2020-03-07 10:22:09 -0500
+Processing by UserController#update as */*
+  Parameters: {"email"=>"test4@email.com", "password"=>"[FILTERED]", "username"=>"bbber", "id"=>"1", "user"=>{"username"=>"bbber", "email"=>"test4@email.com"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:40:in `set_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+[31mUnpermitted parameters: :id, :user[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/user_controller.rb:26:in `update'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "bbber"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:26:in `update'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "test4@email.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:26:in `update'
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "username" = $1, "email" = $2, "password_digest" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["username", "bbber"], ["email", "test4@email.com"], ["password_digest", "$2a$12$98iarWsyBX0cyGNY/r2.5Omjh5UG75XHt5ewAyy.4jNNnfax2jajS"], ["updated_at", "2020-03-07 15:22:09.304057"], ["id", 1]]
+  ↳ app/controllers/user_controller.rb:26:in `update'
+  [1m[35m (5.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/user_controller.rb:26:in `update'
+Completed 200 OK in 231ms (Views: 0.9ms | ActiveRecord: 6.4ms | Allocations: 6075)
+
+
+Started PUT "/user/1" for ::1 at 2020-03-07 10:22:26 -0500
+Processing by UserController#update as */*
+  Parameters: {"email"=>"test4@email.com", "password"=>"[FILTERED]", "username"=>"ehighberg", "id"=>"1", "user"=>{"username"=>"ehighberg", "email"=>"test4@email.com"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:40:in `set_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+[31mUnpermitted parameters: :id, :user[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/user_controller.rb:26:in `update'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "ehighberg"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:26:in `update'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "test4@email.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:26:in `update'
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "username" = $1, "password_digest" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["username", "ehighberg"], ["password_digest", "$2a$12$o6hh62Lv9ZxJ6uy7NSXTWuPNSXYUqyFJmE2P6t8FhdOtEkAS7JtG."], ["updated_at", "2020-03-07 15:22:26.735834"], ["id", 1]]
+  ↳ app/controllers/user_controller.rb:26:in `update'
+  [1m[35m (5.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/user_controller.rb:26:in `update'
+Completed 200 OK in 221ms (Views: 0.3ms | ActiveRecord: 7.0ms | Allocations: 5974)
+
+
+Started PUT "/user/1" for ::1 at 2020-03-07 10:22:45 -0500
+Processing by UserController#update as */*
+  Parameters: {"email"=>"errol@errol.errol", "password"=>"[FILTERED]", "username"=>"ehighberg", "id"=>"1", "user"=>{"username"=>"ehighberg", "email"=>"errol@errol.errol"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:40:in `set_user'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+[31mUnpermitted parameters: :id, :user[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/user_controller.rb:26:in `update'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "ehighberg"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:26:in `update'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "errol@errol.errol"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:26:in `update'
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "email" = $1, "password_digest" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["email", "errol@errol.errol"], ["password_digest", "$2a$12$W35ZMpcGTX1sCWAI3aZmb.E93awgnVHlMTbmtuAL9sm3S69foW2yy"], ["updated_at", "2020-03-07 15:22:45.492528"], ["id", 1]]
+  ↳ app/controllers/user_controller.rb:26:in `update'
+  [1m[35m (5.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/user_controller.rb:26:in `update'
+Completed 200 OK in 224ms (Views: 0.2ms | ActiveRecord: 6.6ms | Allocations: 5969)
+
+
+Started DELETE "/user/6" for ::1 at 2020-03-07 10:24:56 -0500
+Processing by UserController#destroy as */*
+  Parameters: {"email"=>"errol@errol.errol", "password"=>"[FILTERED]", "username"=>"ehighberg", "id"=>"6", "user"=>{"username"=>"ehighberg", "email"=>"errol@errol.errol"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:40:in `set_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/user_controller.rb:34:in `destroy'
+  [1m[36mUser Destroy (5.5ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 6]]
+  ↳ app/controllers/user_controller.rb:34:in `destroy'
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/user_controller.rb:34:in `destroy'
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 6.2ms | Allocations: 3098)
+
+
+  
+ActiveRecord::InvalidForeignKey (PG::ForeignKeyViolation: ERROR:  update or delete on table "users" violates foreign key constraint "fk_rails_29fe176967" on table "experiments"
+DETAIL:  Key (id)=(6) is still referenced from table "experiments".
+):
+  
+app/controllers/user_controller.rb:34:in `destroy'
+Started GET "/user/6" for ::1 at 2020-03-07 10:25:37 -0500
+Processing by UserController#show as */*
+  Parameters: {"email"=>"errol@errol.errol", "password"=>"[FILTERED]", "username"=>"ehighberg", "id"=>"6", "user"=>{"username"=>"ehighberg", "email"=>"errol@errol.errol"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:40:in `set_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 1443)
+
+
