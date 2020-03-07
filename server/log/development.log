@@ -4643,3 +4643,97 @@ Processing by ExperimentController#update as */*
 Completed 200 OK in 48ms (Views: 0.3ms | ActiveRecord: 10.9ms | Allocations: 24714)
 
 
+Started DELETE "/user/6/experiment/37" for ::1 at 2020-03-07 13:27:46 -0500
+Processing by ExperimentController#destroy as */*
+  Parameters: {"experiment"=>{"time_end"=>"2020-03-07T15:56:24.234Z", "final_score"=>0.84, "history"=>"{\"loss\":[58,68,46,1,33,60,42,51,49,54],\"r2\":[0.37,0.16,0.62,0.22,0.76,0.95,0.86,0.35,0.74,0.65]}"}, "user_id"=>"6", "id"=>"37"}
+  [1m[36mExperiment Load (0.5ms)[0m  [1m[34mSELECT "experiments".* FROM "experiments" WHERE "experiments"."id" = $1 LIMIT $2[0m  [["id", 37], ["LIMIT", 1]]
+  ↳ app/controllers/experiment_controller.rb:43:in `set_experiment'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+  [1m[36mLinearRegression Load (0.3ms)[0m  [1m[34mSELECT "linear_regressions".* FROM "linear_regressions" WHERE "linear_regressions"."experiment_id" = $1 LIMIT $2[0m  [["experiment_id", 37], ["LIMIT", 1]]
+  ↳ app/controllers/experiment_controller.rb:47:in `set_model'
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/experiment_controller.rb:36:in `destroy'
+  [1m[36mLinearRegression Destroy (0.3ms)[0m  [1m[31mDELETE FROM "linear_regressions" WHERE "linear_regressions"."id" = $1[0m  [["id", 21]]
+  ↳ app/controllers/experiment_controller.rb:36:in `destroy'
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/experiment_controller.rb:36:in `destroy'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/experiment_controller.rb:37:in `destroy'
+  [1m[36mExperiment Destroy (0.6ms)[0m  [1m[31mDELETE FROM "experiments" WHERE "experiments"."id" = $1[0m  [["id", 37]]
+  ↳ app/controllers/experiment_controller.rb:37:in `destroy'
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/experiment_controller.rb:37:in `destroy'
+Completed 204 No Content in 16ms (ActiveRecord: 4.3ms | Allocations: 5199)
+
+
+Started GET "/user/6/experiment/37" for ::1 at 2020-03-07 13:28:10 -0500
+Processing by ExperimentController#show as */*
+  Parameters: {"experiment"=>{"time_end"=>"2020-03-07T15:56:24.234Z", "final_score"=>0.84, "history"=>"{\"loss\":[58,68,46,1,33,60,42,51,49,54],\"r2\":[0.37,0.16,0.62,0.22,0.76,0.95,0.86,0.35,0.74,0.65]}"}, "user_id"=>"6", "id"=>"37"}
+  [1m[36mExperiment Load (0.8ms)[0m  [1m[34mSELECT "experiments".* FROM "experiments" WHERE "experiments"."id" = $1 LIMIT $2[0m  [["id", 37], ["LIMIT", 1]]
+  ↳ app/controllers/experiment_controller.rb:43:in `set_experiment'
+Completed 404 Not Found in 3ms (ActiveRecord: 0.8ms | Allocations: 636)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Experiment with 'id'=37):
+  
+app/controllers/experiment_controller.rb:43:in `set_experiment'
+Started GET "/user/6/experiment/38" for ::1 at 2020-03-07 13:28:14 -0500
+Processing by ExperimentController#show as */*
+  Parameters: {"experiment"=>{"time_end"=>"2020-03-07T15:56:24.234Z", "final_score"=>0.84, "history"=>"{\"loss\":[58,68,46,1,33,60,42,51,49,54],\"r2\":[0.37,0.16,0.62,0.22,0.76,0.95,0.86,0.35,0.74,0.65]}"}, "user_id"=>"6", "id"=>"38"}
+  [1m[36mExperiment Load (0.5ms)[0m  [1m[34mSELECT "experiments".* FROM "experiments" WHERE "experiments"."id" = $1 LIMIT $2[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/controllers/experiment_controller.rb:43:in `set_experiment'
+  [1m[36mLinearRegression Load (0.3ms)[0m  [1m[34mSELECT "linear_regressions".* FROM "linear_regressions" WHERE "linear_regressions"."experiment_id" = $1 LIMIT $2[0m  [["experiment_id", 38], ["LIMIT", 1]]
+  ↳ app/controllers/experiment_controller.rb:47:in `set_model'
+Completed 200 OK in 5ms (Views: 0.6ms | ActiveRecord: 0.8ms | Allocations: 1547)
+
+
+Started PUT "/user/6/experiment/38" for ::1 at 2020-03-07 13:28:36 -0500
+Processing by ExperimentController#update as */*
+  Parameters: {"experiment"=>{"time_end"=>"2020-03-07T15:56:24.234Z", "final_score"=>0.84, "history"=>"{\"loss\":[58,68,46,1,33,60,42,51,49,54],\"r2\":[0.37,0.16,0.62,0.22,0.76,0.95,0.86,0.35,0.74,0.65]}"}, "user_id"=>"6", "id"=>"38"}
+  [1m[36mExperiment Load (0.5ms)[0m  [1m[34mSELECT "experiments".* FROM "experiments" WHERE "experiments"."id" = $1 LIMIT $2[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/controllers/experiment_controller.rb:43:in `set_experiment'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+  [1m[36mLinearRegression Load (0.2ms)[0m  [1m[34mSELECT "linear_regressions".* FROM "linear_regressions" WHERE "linear_regressions"."experiment_id" = $1 LIMIT $2[0m  [["experiment_id", 38], ["LIMIT", 1]]
+  ↳ app/controllers/experiment_controller.rb:47:in `set_model'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/experiment_controller.rb:28:in `update'
+Completed 200 OK in 6ms (Views: 0.3ms | ActiveRecord: 1.0ms | Allocations: 3341)
+
+
+Started GET "/user/6/experiment/38" for ::1 at 2020-03-07 13:28:40 -0500
+Processing by ExperimentController#show as */*
+  Parameters: {"experiment"=>{"time_end"=>"2020-03-07T15:56:24.234Z", "final_score"=>0.84, "history"=>"{\"loss\":[58,68,46,1,33,60,42,51,49,54],\"r2\":[0.37,0.16,0.62,0.22,0.76,0.95,0.86,0.35,0.74,0.65]}"}, "user_id"=>"6", "id"=>"38"}
+  [1m[36mExperiment Load (0.2ms)[0m  [1m[34mSELECT "experiments".* FROM "experiments" WHERE "experiments"."id" = $1 LIMIT $2[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/controllers/experiment_controller.rb:43:in `set_experiment'
+  [1m[36mLinearRegression Load (0.4ms)[0m  [1m[34mSELECT "linear_regressions".* FROM "linear_regressions" WHERE "linear_regressions"."experiment_id" = $1 LIMIT $2[0m  [["experiment_id", 38], ["LIMIT", 1]]
+  ↳ app/controllers/experiment_controller.rb:47:in `set_model'
+Completed 200 OK in 6ms (Views: 1.0ms | ActiveRecord: 0.6ms | Allocations: 1544)
+
+
+Started PUT "/user/6/experiment/38" for ::1 at 2020-03-07 13:28:50 -0500
+Processing by ExperimentController#update as */*
+  Parameters: {"experiment"=>{"time_end"=>"2020-03-07T15:56:24.234Z", "final_score"=>0.84, "history"=>"{\"loss\":[58,68,46,1,33,60,42,51,49,54],\"r2\":[0.37,0.16,0.62,0.22,0.76,0.95,0.86,0.35,0.74,0.65]}"}, "user_id"=>"6", "id"=>"38"}
+  [1m[36mExperiment Load (0.3ms)[0m  [1m[34mSELECT "experiments".* FROM "experiments" WHERE "experiments"."id" = $1 LIMIT $2[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/controllers/experiment_controller.rb:43:in `set_experiment'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+  [1m[36mLinearRegression Load (0.3ms)[0m  [1m[34mSELECT "linear_regressions".* FROM "linear_regressions" WHERE "linear_regressions"."experiment_id" = $1 LIMIT $2[0m  [["experiment_id", 38], ["LIMIT", 1]]
+  ↳ app/controllers/experiment_controller.rb:47:in `set_model'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/experiment_controller.rb:28:in `update'
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 1.1ms | Allocations: 3339)
+
+
+Started GET "/user/6/experiment/38" for ::1 at 2020-03-07 13:32:49 -0500
+Processing by ExperimentController#show as */*
+  Parameters: {"experiment"=>{"time_end"=>"2020-03-07T15:56:24.234Z", "final_score"=>0.84, "history"=>"{\"loss\":[58,68,46,1,33,60,42,51,49,54],\"r2\":[0.37,0.16,0.62,0.22,0.76,0.95,0.86,0.35,0.74,0.65]}"}, "user_id"=>"6", "id"=>"38"}
+  [1m[36mExperiment Load (0.2ms)[0m  [1m[34mSELECT "experiments".* FROM "experiments" WHERE "experiments"."id" = $1 LIMIT $2[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/controllers/experiment_controller.rb:43:in `set_experiment'
+  [1m[36mLinearRegression Load (0.2ms)[0m  [1m[34mSELECT "linear_regressions".* FROM "linear_regressions" WHERE "linear_regressions"."experiment_id" = $1 LIMIT $2[0m  [["experiment_id", 38], ["LIMIT", 1]]
+  ↳ app/controllers/experiment_controller.rb:47:in `set_model'
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.4ms | Allocations: 1544)
+
+
