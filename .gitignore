@@ -1,5 +1,6 @@
 public/
 server/tmp/
+server/log/
 
 
 # client
