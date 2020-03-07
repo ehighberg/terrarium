@@ -1,12 +1,13 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Route, Switch, useHistory } from 'react-router-dom'
 
-import UserSign from '../routes/UserSign'
+import UserForm from '../routes/UserForm'
 
-import { userSignup, userLogin } from '../../services/apiHelper'
+import { userSignup, userLogin, userEdit, getUser } from '../../services/apiHelper'
 
 
 const User = props => {
+  const [currentUser, setCurrentUser ] = useState({})
 
   const history = useHistory()
 
@@ -18,7 +19,20 @@ const User = props => {
 
   const handleLogin = async (loginData) => {
     console.log('login')
-    await userLogin(loginData)
+    const user = await userLogin(loginData)
+    const { username, email, name, id } = user
+    setCurrentUser({
+      username: username,
+      email: email,
+      name: name,
+      id: id
+    })
+    history.push('/')
+  }
+
+  const handleEdit = async (editData) => {
+    console.log('edit')
+    await userEdit(editData, currentUser.id)
     history.push('/')
   }
 
@@ -27,10 +41,13 @@ const User = props => {
       <h1>User</h1>
       <Switch>
         <Route exact path='/user/signup'>
-          <UserSign handleSubmit={handleSignup} isSignup={true} />
+          <UserForm handleSubmit={handleSignup} actionType={'signup'} />
         </Route>
         <Route exact path='/user/login'>
-          <UserSign handleSubmit={handleLogin} isSignup={false} />
+          <UserForm handleSubmit={handleLogin} actionType={'login'} />
+        </Route>
+        <Route exact path='/user/edit'>
+          <UserForm currentUser={currentUser} handleSubmit={handleEdit} actionType={'edit'} />
         </Route>
       </Switch>
     </div>

@@ -4842,3 +4842,36 @@ Processing by AuthenticationController#login as HTML
 Completed 200 OK in 208ms (Views: 0.3ms | ActiveRecord: 0.6ms | Allocations: 1416)
 
 
+Started GET "/" for 127.0.0.1 at 2020-03-07 17:25:13 -0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/bam/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/railties-6.0.2.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/bam/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/railties-6.0.2.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 7.5ms | Allocations: 308)
+Completed 200 OK in 19ms (Views: 10.0ms | ActiveRecord: 0.0ms | Allocations: 1609)
+
+
+Started GET "/user" for 127.0.0.1 at 2020-03-07 17:25:16 -0500
+Processing by UserController#index as HTML
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 138)
+
+
+Started GET "/user" for ::1 at 2020-03-07 17:25:46 -0500
+Processing by UserController#index as */*
+  Parameters: {"experiment"=>{"time_end"=>"2020-03-07T15:56:24.234Z", "final_score"=>0.84, "history"=>"{\"loss\":[58,68,46,1,33,60,42,51,49,54],\"r2\":[0.37,0.16,0.62,0.22,0.76,0.95,0.86,0.35,0.74,0.65]}"}, "user"=>{}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/user_controller.rb:7:in `index'
+Completed 200 OK in 7ms (Views: 3.9ms | ActiveRecord: 1.0ms | Allocations: 2942)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2020-03-07 17:37:38 -0500
+Processing by AuthenticationController#login as HTML
+  Parameters: {"username"=>"bill", "password"=>"[FILTERED]", "authentication"=>{"username"=>"bill", "password"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :authentication[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "bill"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:5:in `login'
+[31mUnpermitted parameter: :authentication[0m
+Completed 200 OK in 215ms (Views: 0.4ms | ActiveRecord: 0.4ms | Allocations: 1174)
+
+
