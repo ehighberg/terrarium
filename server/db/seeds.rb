@@ -10,7 +10,7 @@ require 'json'
 user = User.create({
   username: 'ehighberg',
   email: 'errol@errol.errol',
-  password_digest: 'bob',
+  password: 'bob',
   role: 'admin',
   name: 'Errol Highberg'
   })
@@ -43,7 +43,7 @@ def make_users(num_users)
     {
       username: Faker::Internet.username,
       email: Faker::Internet.email,
-      password_digest: Faker::Alphanumeric.alpha(number: 8),
+      password: Faker::Alphanumeric.alpha(number: 8),
       role: 'user',
       name: Faker::Name.name
     }
