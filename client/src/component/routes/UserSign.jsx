@@ -43,7 +43,7 @@ const UserSign = props => {
             }
           }
 
-          if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/i.test(values.email)) {
+          if (values.email && !/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/i.test(values.email)) {
             errors.email = 'Invalid email address'
           }
 

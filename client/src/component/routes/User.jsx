@@ -3,7 +3,7 @@ import { Route, Switch, useHistory } from 'react-router-dom'
 
 import UserSign from '../routes/UserSign'
 
-import { userSignup } from '../../services/apiHelper'
+import { userSignup, userLogin } from '../../services/apiHelper'
 
 
 const User = props => {
@@ -11,12 +11,15 @@ const User = props => {
   const history = useHistory()
 
   const handleSignup = async (signUpData) => {
+    console.log('signup')
     await userSignup(signUpData)
     history.push('/user/login')
   }
 
-  const handleLogin = (event) => {
-    event.preventDefault()
+  const handleLogin = async (loginData) => {
+    console.log('login')
+    await userLogin(loginData)
+    history.push('/')
   }
 
   return (

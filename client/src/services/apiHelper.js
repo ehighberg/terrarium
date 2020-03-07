@@ -7,6 +7,13 @@ const api = axios.create({
 })
 
 export const userSignup = async (signupData) => {
-  const res = await api.post('/user/', signupData)
-  console.log(res)
+  await api.post('/user/', signupData)
+}
+
+export const userLogin = async (loginData) => {
+  const res = await api.post('auth/login', loginData)
+  localStorage.setItem('authToken', res.data.token)
+  api.defaults.headers.common.authorization = `Bearer ${res.data.token}`
+  console.log(res.data.user)
+  return res.data.user
 }
