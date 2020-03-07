@@ -1,7 +1,7 @@
 class ExperimentController < ApplicationController
-  before_action, :set_experiment, only: [:show, :update, :destroy]
-  before_action, :authorize_request, except: [:index, :show]
-  before_action, :set_model, only: [:show, :update, :destroy]
+  before_action :set_experiment, only: [:show, :update, :destroy]
+  before_action :authorize_request, except: [:index, :show]
+  before_action :set_model, only: [:show, :update, :destroy]
 
   def index
     @experiments = Experiment.all
@@ -9,7 +9,7 @@ class ExperimentController < ApplicationController
   end
 
   def show
-    render json: @experiment, @model
+    render json: {experiment: @experiment, model: @model}
   end
 
   def create
@@ -17,9 +17,15 @@ class ExperimentController < ApplicationController
 
     if @experiment.save
 
-      @model = Model.new(model_params)
+      @model = get_model_sym.new(model_params)
+      puts "model params"
+      puts model_params
+      puts "created model"
+      puts @model
+      @model.experiment_id = @experiment.id
+
       if @model.save
-        render json: @experiment, @model, status: :created, location: @experiment
+        render json: {experiment: @experiment, model: @model}, status: :created, location: @experiment
       else
         render json: @model.errors, status: :unprocessable_entity
       end
@@ -49,14 +55,14 @@ class ExperimentController < ApplicationController
   end
 
   def set_model
-    @model = get_model_sym.find(mode_params[:experiment_id])
+    @model = get_model_sym.find(model_params[:experiment_id])
   end
 
   def get_model_sym
     model_types = {
-      linear_regression: :LinearRegression
+      :linear_regression => LinearRegression
     }
-    model_types[@experiment.model]
+    model_types[@experiment.model.to_sym]
   end
 
   def start_params
@@ -68,6 +74,9 @@ class ExperimentController < ApplicationController
   end
 
   def model_params
-    params.permit(:model_type, :model_info, :experiment_id)
+    puts "params"
+    puts params
+    puts params.permit(:model_info)
+    params.permit(:model_info)
   end
 end
