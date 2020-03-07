@@ -17,7 +17,7 @@ class ExperimentController < ApplicationController
     @experiment = Experiment.new(start_params)
 
     if @experiment.save
-      @model = get_model_sym.find_by(experiment_id: @experiment.id)
+      set_model
       render json: { experiment: @experiment, model: @model }, status: :created, location: @experiment
     else
       render json: @experiment.errors, status: :unprocessable_entity
@@ -44,7 +44,7 @@ class ExperimentController < ApplicationController
   end
 
   def set_model
-    @model = get_model_sym.find(model_params[:experiment_id])
+    @model = get_model_sym.find_by(experiment_id: @experiment.id)
   end
 
   def get_model_sym
@@ -64,7 +64,7 @@ class ExperimentController < ApplicationController
   end
 
   def end_params
-    params.permit(:time_end, :final_score, :history)
+    params.require(:experiment).permit(:time_end, :final_score, :history)
   end
 
 end
