@@ -4,6 +4,8 @@ header {
   background-color: var(--bg-mint);
   padding: 0.5em 2em;
   border-bottom: 3px solid var(--outline-dark-cyan);
+  position: sticky;
+  top: 0;
 }
 
 header * {

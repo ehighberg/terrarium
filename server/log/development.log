@@ -6044,3 +6044,19 @@ Processing by AuthenticationController#verify as HTML
 Completed 200 OK in 6ms (Views: 0.7ms | ActiveRecord: 1.0ms | Allocations: 1091)
 
 
+Started GET "/user" for 127.0.0.1 at 2020-03-09 19:56:04 -0400
+Started GET "/experiment" for 127.0.0.1 at 2020-03-09 19:56:04 -0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UserController#index as HTML
+  [1m[35m (20.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ExperimentController#index as HTML
+  [1m[36mExperiment Load (1.1ms)[0m  [1m[34mSELECT "experiments".* FROM "experiments"[0m
+  ↳ app/controllers/experiment_controller.rb:9:in `index'
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users"."id", "users"."username" FROM "users"[0m
+  ↳ app/controllers/user_controller.rb:7:in `index'
+Completed 200 OK in 24ms (Views: 13.8ms | ActiveRecord: 6.9ms | Allocations: 13915)
+
+
+Completed 200 OK in 68ms (Views: 50.0ms | ActiveRecord: 16.5ms | Allocations: 26419)
+
+
