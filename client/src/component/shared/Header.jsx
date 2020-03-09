@@ -22,10 +22,11 @@ const Header = props => (
     }
     {!props.currentUser.id &&
       (<div className='header-user-action'>
-              <NavLink className='header-nav' exact to='/user/login'>
+        <NavLink className='header-nav header-login' exact to='/user/login'>
           Log In
         </NavLink>
-        <NavLink className='header-nav' exact to='/user/signup'>
+        <br />
+        <NavLink className='header-nav header-signup' exact to='/user/signup'>
           Sign Up
         </NavLink>
       </div>)
