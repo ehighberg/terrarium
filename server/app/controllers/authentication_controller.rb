@@ -12,7 +12,8 @@ class AuthenticationController < ApplicationController
   end
 
   def verify
-    render json: @current_user, status: :ok
+    token = encode(user_id: @current_user.id)
+    render json: { user: @current_user, token: token }, status: :ok
   end
 
   private
