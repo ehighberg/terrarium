@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+import '../../style/Footer.css'
+
 const Footer = () => (
   <footer>
     <p className='footer-copyright'>
