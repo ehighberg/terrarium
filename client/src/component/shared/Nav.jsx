@@ -1,11 +1,17 @@
 import React from 'react'
+import NavCard from './NavCard'
 
 const Nav = props => {
   const { experiments, usernameMap } = props
 
   return (
     <nav>
-      EXPERIMENTS
+      {experiments && usernameMap && (
+        experiments.map((experiment, i) => {
+          const username = usernameMap[experiment.user_id]
+          return <NavCard key={i} experiment={experiment} username={username} />
+        })
+      )}
     </nav>
   )
 }

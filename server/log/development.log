@@ -5411,3 +5411,45 @@ Completed 200 OK in 37ms (Views: 35.3ms | ActiveRecord: 0.9ms | Allocations: 114
 Completed 200 OK in 37ms (Views: 36.2ms | ActiveRecord: 0.4ms | Allocations: 11995)
 
 
+Started GET "/user" for 127.0.0.1 at 2020-03-09 16:17:13 -0400
+Started GET "/experiment" for 127.0.0.1 at 2020-03-09 16:17:13 -0400
+Processing by UserController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users"."id", "users"."username" FROM "users"[0m
+  ↳ app/controllers/user_controller.rb:7:in `index'
+Completed 200 OK in 7ms (Views: 5.6ms | ActiveRecord: 0.9ms | Allocations: 1376)
+
+
+Processing by ExperimentController#index as HTML
+  [1m[36mExperiment Load (1.8ms)[0m  [1m[34mSELECT "experiments".* FROM "experiments"[0m
+  ↳ app/controllers/experiment_controller.rb:9:in `index'
+Completed 200 OK in 30ms (Views: 26.9ms | ActiveRecord: 1.8ms | Allocations: 10835)
+
+
+Started GET "/user" for 127.0.0.1 at 2020-03-09 16:23:02 -0400
+Started GET "/experiment" for 127.0.0.1 at 2020-03-09 16:23:02 -0400
+Processing by UserController#index as HTML
+Processing by ExperimentController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users"."id", "users"."username" FROM "users"[0m
+  ↳ app/controllers/user_controller.rb:7:in `index'
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.6ms | Allocations: 1462)
+
+
+  [1m[36mExperiment Load (1.5ms)[0m  [1m[34mSELECT "experiments".* FROM "experiments"[0m
+  ↳ app/controllers/experiment_controller.rb:9:in `index'
+Completed 200 OK in 21ms (Views: 19.0ms | ActiveRecord: 1.5ms | Allocations: 12252)
+
+
+Started GET "/user" for 127.0.0.1 at 2020-03-09 16:26:53 -0400
+Started GET "/experiment" for 127.0.0.1 at 2020-03-09 16:26:53 -0400
+Processing by UserController#index as HTML
+Processing by ExperimentController#index as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users"."id", "users"."username" FROM "users"[0m
+  ↳ app/controllers/user_controller.rb:7:in `index'
+  [1m[36mExperiment Load (1.4ms)[0m  [1m[34mSELECT "experiments".* FROM "experiments"[0m
+Completed 200 OK in 4ms (Views: 2.6ms | ActiveRecord: 1.2ms | Allocations: 1485)
+
+
+  ↳ app/controllers/experiment_controller.rb:9:in `index'
+Completed 200 OK in 30ms (Views: 28.2ms | ActiveRecord: 1.4ms | Allocations: 12179)
+
+
