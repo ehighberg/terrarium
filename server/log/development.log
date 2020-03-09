@@ -5267,3 +5267,147 @@ Processing by AuthenticationController#verify as HTML
 Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 1000)
 
 
+Started GET "/experiment" for 127.0.0.1 at 2020-03-09 15:50:12 -0400
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ExperimentController#index as HTML
+  [1m[36mExperiment Load (0.7ms)[0m  [1m[34mSELECT "experiments".* FROM "experiments"[0m
+  ↳ app/controllers/experiment_controller.rb:9:in `index'
+Completed 200 OK in 30ms (Views: 19.2ms | ActiveRecord: 6.4ms | Allocations: 20289)
+
+
+Started GET "/experiment" for 127.0.0.1 at 2020-03-09 15:52:13 -0400
+Processing by ExperimentController#index as HTML
+  [1m[36mExperiment Load (0.3ms)[0m  [1m[34mSELECT "experiments".* FROM "experiments"[0m
+  ↳ app/controllers/experiment_controller.rb:9:in `index'
+Completed 200 OK in 11ms (Views: 10.7ms | ActiveRecord: 0.3ms | Allocations: 10743)
+
+
+Started GET "/user" for 127.0.0.1 at 2020-03-09 15:57:23 -0400
+Started GET "/experiment" for 127.0.0.1 at 2020-03-09 15:57:23 -0400
+Processing by UserController#index as HTML
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 174)
+
+
+Processing by ExperimentController#index as HTML
+  [1m[36mExperiment Load (1.1ms)[0m  [1m[34mSELECT "experiments".* FROM "experiments"[0m
+  ↳ app/controllers/experiment_controller.rb:9:in `index'
+Completed 200 OK in 27ms (Views: 25.4ms | ActiveRecord: 1.1ms | Allocations: 10848)
+
+
+Started GET "/user" for 127.0.0.1 at 2020-03-09 15:58:53 -0400
+Started GET "/experiment" for 127.0.0.1 at 2020-03-09 15:58:53 -0400
+Processing by ExperimentController#index as HTML
+Processing by UserController#index as HTML
+Filter chain halted as :authorize_request rendered or redirected
+  [1m[36mExperiment Load (0.7ms)[0m  [1m[34mSELECT "experiments".* FROM "experiments"[0m
+  ↳ app/controllers/experiment_controller.rb:9:in `index'
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 157)
+
+
+Completed 200 OK in 20ms (Views: 18.8ms | ActiveRecord: 0.7ms | Allocations: 10907)
+
+
+Started GET "/" for 127.0.0.1 at 2020-03-09 16:01:30 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/bam/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/railties-6.0.2.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/bam/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/railties-6.0.2.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 8.1ms | Allocations: 308)
+Completed 200 OK in 14ms (Views: 10.4ms | ActiveRecord: 0.0ms | Allocations: 1606)
+
+
+Started GET "/user" for 127.0.0.1 at 2020-03-09 16:01:33 -0400
+Processing by UserController#index as HTML
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 135)
+
+
+Started GET "/user" for 127.0.0.1 at 2020-03-09 16:01:58 -0400
+  
+SyntaxError (/home/bam/ga/u4/terrarium/server/app/controllers/user_controller.rb:3: syntax error, unexpected '\n', expecting =>):
+  
+app/controllers/user_controller.rb:3: syntax error, unexpected '\n', expecting =>
+app/controllers/user_controller.rb:3: syntax error, unexpected '\n', expecting =>
+Started GET "/user" for 127.0.0.1 at 2020-03-09 16:02:05 -0400
+Processing by UserController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/user_controller.rb:7:in `index'
+Completed 200 OK in 13ms (Views: 6.1ms | ActiveRecord: 3.9ms | Allocations: 9545)
+
+
+Started GET "/user" for 127.0.0.1 at 2020-03-09 16:03:15 -0400
+Processing by UserController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users"."id", "users"."username" FROM "users"[0m
+  ↳ app/controllers/user_controller.rb:7:in `index'
+Completed 200 OK in 12ms (Views: 6.7ms | ActiveRecord: 2.7ms | Allocations: 8190)
+
+
+Started GET "/user" for 127.0.0.1 at 2020-03-09 16:07:03 -0400
+Processing by UserController#index as HTML
+Started GET "/experiment" for 127.0.0.1 at 2020-03-09 16:07:03 -0400
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users"."id", "users"."username" FROM "users"[0m
+  ↳ app/controllers/user_controller.rb:7:in `index'
+Completed 200 OK in 4ms (Views: 2.6ms | ActiveRecord: 0.9ms | Allocations: 1616)
+
+
+Processing by ExperimentController#index as HTML
+  [1m[36mExperiment Load (1.0ms)[0m  [1m[34mSELECT "experiments".* FROM "experiments"[0m
+  ↳ app/controllers/experiment_controller.rb:9:in `index'
+Completed 200 OK in 65ms (Views: 51.5ms | ActiveRecord: 8.9ms | Allocations: 18843)
+
+
+Started GET "/user" for 127.0.0.1 at 2020-03-09 16:07:46 -0400
+Started GET "/experiment" for 127.0.0.1 at 2020-03-09 16:07:46 -0400
+Processing by ExperimentController#index as HTML
+Processing by UserController#index as HTML
+  [1m[36mExperiment Load (0.6ms)[0m  [1m[34mSELECT "experiments".* FROM "experiments"[0m
+  ↳ app/controllers/experiment_controller.rb:9:in `index'
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users"."id", "users"."username" FROM "users"[0m
+Completed 200 OK in 21ms (Views: 20.2ms | ActiveRecord: 0.6ms | Allocations: 11086)
+
+
+  ↳ app/controllers/user_controller.rb:7:in `index'
+Completed 200 OK in 25ms (Views: 23.9ms | ActiveRecord: 1.0ms | Allocations: 12185)
+
+
+Started GET "/user" for 127.0.0.1 at 2020-03-09 16:08:22 -0400
+Started GET "/experiment" for 127.0.0.1 at 2020-03-09 16:08:22 -0400
+Processing by UserController#index as HTML
+Processing by ExperimentController#index as HTML
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users"."id", "users"."username" FROM "users"[0m
+  ↳ app/controllers/user_controller.rb:7:in `index'
+Completed 200 OK in 4ms (Views: 2.0ms | ActiveRecord: 1.5ms | Allocations: 1462)
+
+
+  [1m[36mExperiment Load (3.2ms)[0m  [1m[34mSELECT "experiments".* FROM "experiments"[0m
+  ↳ app/controllers/experiment_controller.rb:9:in `index'
+Completed 200 OK in 25ms (Views: 21.3ms | ActiveRecord: 3.2ms | Allocations: 12179)
+
+
+Started GET "/user" for 127.0.0.1 at 2020-03-09 16:09:25 -0400
+Started GET "/experiment" for 127.0.0.1 at 2020-03-09 16:09:25 -0400
+Processing by UserController#index as HTML
+Processing by ExperimentController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users"."id", "users"."username" FROM "users"[0m
+  ↳ app/controllers/user_controller.rb:7:in `index'
+  [1m[36mExperiment Load (1.2ms)[0m  [1m[34mSELECT "experiments".* FROM "experiments"[0m
+Completed 200 OK in 4ms (Views: 2.5ms | ActiveRecord: 0.8ms | Allocations: 1479)
+
+
+  ↳ app/controllers/experiment_controller.rb:9:in `index'
+Completed 200 OK in 18ms (Views: 16.0ms | ActiveRecord: 1.2ms | Allocations: 12179)
+
+
+Started GET "/experiment" for 127.0.0.1 at 2020-03-09 16:10:00 -0400
+Started GET "/user" for 127.0.0.1 at 2020-03-09 16:10:00 -0400
+Processing by ExperimentController#index as HTML
+Processing by UserController#index as HTML
+  [1m[36mExperiment Load (0.9ms)[0m  [1m[34mSELECT "experiments".* FROM "experiments"[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users"."id", "users"."username" FROM "users"[0m
+  ↳ app/controllers/experiment_controller.rb:9:in `index'
+  ↳ app/controllers/user_controller.rb:7:in `index'
+Completed 200 OK in 37ms (Views: 35.3ms | ActiveRecord: 0.9ms | Allocations: 11498)
+
+
+Completed 200 OK in 37ms (Views: 36.2ms | ActiveRecord: 0.4ms | Allocations: 11995)
+
+

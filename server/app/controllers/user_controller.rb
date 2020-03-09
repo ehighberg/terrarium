@@ -1,9 +1,9 @@
 class UserController < ApplicationController
   before_action :set_user, only: [:show, :update, :destroy]
-  before_action :authorize_request, except: :create
+  before_action :authorize_request, except: [:create, :index]
 
   def index
-    @users = User.all
+    @users = User.select('id', 'username').all
     render json: @users
   end
 
