@@ -17,7 +17,7 @@ const User = props => {
           <UserForm handleSubmit={props.handleLogin} actionType={'login'} />
         </Route>
         <Route exact path='/user/edit'>
-          <UserForm currentUser={props.currentUser} handleSubmit={props.handleEdit} actionType={'edit'} />
+          <UserForm currentUser={props.currentUser} handleSubmit={props.handleEdit} actionType={'edit'} logoutUser={props.logoutUser}/>
         </Route>
       </Switch>
     </div>

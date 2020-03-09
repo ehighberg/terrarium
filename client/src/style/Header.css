@@ -31,6 +31,8 @@ header * {
 .header-name {
   color: var(--python-blue);
   font-weight: 600;
+  font-family: 'Tritillium', sans-serif;
+  font-size: 2em;
 }
 
 .header-new-experiment span {

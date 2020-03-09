@@ -43,6 +43,10 @@
   color: green;
 }
 
+.user-edit-text {
+  margin-top: 0.5em;
+}
+
 @media (max-width: 500px) {
   .user-container {
     width: 90vw;

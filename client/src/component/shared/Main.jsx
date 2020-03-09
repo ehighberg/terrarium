@@ -13,7 +13,8 @@ import { userSignup,
   userEdit,
   verifyUser,
   getAllExperiments,
-  getAllUsernames } from '../../services/apiHelper'
+  getAllUsernames,
+  unauthorizeUser } from '../../services/apiHelper'
 
 
 const Main = props => {
@@ -80,6 +81,12 @@ const Main = props => {
     }
   }
 
+  const logoutUser = () => {
+    unauthorizeUser()
+    setCurrentUser({})
+    history.push('/')
+  }
+
   useEffect(() => {
     fetchAllUsernames()
     handlePersistingToken()
@@ -99,6 +106,7 @@ const Main = props => {
                 handleSignup={handleSignup}
                 handleLogin={handleLogin}
                 handleEdit={handleEdit}
+                logoutUser={logoutUser}
               />
             )} />
           </Switch>

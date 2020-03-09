@@ -1,10 +1,8 @@
 import React from 'react'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
-import { useHistory } from 'react-router-dom'
 
 
 const UserForm = props => {
-  const history = useHistory()
 
   const formBlankValues = () => {
     const values = {
@@ -55,9 +53,10 @@ const UserForm = props => {
         }}
       >
         <Form>
+          {(props.actionType === 'edit') && <h3 className='user-edit-text'>Edit Profile</h3>}
           <div className='user-form-entry'>
             <label>Username: </label>
-            <Field type='text' name='username' />
+            <Field autoFocus type='text' name='username' />
             <ErrorMessage name='username' component='div' className='user-form-error'/>
             <br />
           </div>
@@ -99,7 +98,9 @@ const UserForm = props => {
           <button className='user-form-submit' type='submit'>Submit</button>
 
           {(props.actionType === 'edit') && (
-            <button className='user-form-logout'>Log Out</button>
+            <button onClick={props.logoutUser} className='user-form-logout'>
+              Log Out
+            </button>
           )}
         </Form>
       </Formik>
