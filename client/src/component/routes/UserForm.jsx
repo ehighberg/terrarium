@@ -1,8 +1,10 @@
 import React from 'react'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
+import { useHistory } from 'react-router-dom'
 
 
 const UserForm = props => {
+  const history = useHistory()
 
   const formBlankValues = () => {
     const values = {
@@ -21,7 +23,6 @@ const UserForm = props => {
 
   return (
     <div className='user-sign-container'>
-      <h1>User Sign</h1>
       <Formik
         initialValues={
           (props.actionType === 'signup' || props.actionType === 'login') ?
@@ -88,14 +89,18 @@ const UserForm = props => {
 
           {(props.actionType === 'signup' || props.actionType === 'edit') && (
           <div className='user-form-entry'>
-            <label>Confirm Password: </label>
+            <label>Confirm: </label>
             <Field type='password' name='confirmPassword' />
             <ErrorMessage name='confirmPassword' component='div' className='user-form-error'/>
             <br />
           </div>
           )}
 
-          <button type='submit'>Submit</button>
+          <button className='user-form-submit' type='submit'>Submit</button>
+
+          {(props.actionType === 'edit') && (
+            <button className='user-form-logout'>Log Out</button>
+          )}
         </Form>
       </Formik>
     </div>

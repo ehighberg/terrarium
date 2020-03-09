@@ -1,6 +1,7 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
 
+import '../../style/User.css'
 import UserForm from '../routes/UserForm'
 
 
@@ -8,7 +9,6 @@ const User = props => {
 
   return (
     <div className='user-container'>
-      <h1>User</h1>
       <Switch>
         <Route exact path='/user/signup'>
           <UserForm handleSubmit={props.handleSignup} actionType={'signup'} />
