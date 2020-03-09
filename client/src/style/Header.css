@@ -1,0 +1,69 @@
+header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  background-color: var(--bg-mint);
+  padding: 0 2em;
+  border-bottom: 3px solid var(--outline-dark-cyan);
+}
+
+header * {
+  margin: auto 0;
+}
+
+.header-logo-container {
+  grid-column: 1;
+  text-align: center;
+}
+
+.header-new-experiment {
+  grid-column: 2;
+  text-align: center;
+}
+
+.header-user-action {
+  grid-column: 3;
+  text-align: center;
+  font-size: 1.3em;
+  text-decoration: underline;
+  text-decoration-color: blue;
+}
+
+.header-name {
+  color: var(--python-blue);
+  font-weight: 600;
+}
+
+.header-new-experiment span {
+  padding: 0.3em 0.5em;
+  color: white;
+  background-color: var(--button-blue);
+  border-radius: 0.4em;
+}
+
+.header-signup,.header-login {
+  line-height: 1.5em;
+}
+
+@media (max-width: 500px) {
+  header {
+    padding: 0 1em;
+  }
+
+  .header-name {
+    display: none;
+  }
+
+  .header-new-experiment {
+    font-size: 0.8em;
+    padding-top: 0.2vh;
+  }
+
+  .header-new-experiment span {
+    padding: 0.1em 0.2em;
+  }
+
+  .header-user-action {
+    font-size: 1em;
+    padding: 0.1em 0;
+  }
+}
