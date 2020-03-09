@@ -1,13 +1,17 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
+import '../../style/Header.css'
+
 
 const Header = props => (
-  <div>
-    <div className='header-logo-img'></div>
-    <h1 className='header-name'>Terrarium</h1>
+  <header>
+    <div className='header-logo-container'>
+      <div className='header-logo-img'></div>
+      <h1 className='header-name'>Terrarium</h1>
+    </div>
     <NavLink className='header-new-experiment' exact to='/experiment/new'>
-        New Experiment
+        <span>New Experiment</span>
     </NavLink>
     {props.currentUser.id &&
       (<div className='header-user-action'>
@@ -26,7 +30,7 @@ const Header = props => (
         </NavLink>
       </div>)
     }
-  </div>
+  </header>
 )
 
 export default Header

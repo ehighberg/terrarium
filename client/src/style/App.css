@@ -1,0 +1,23 @@
+:root {
+  --bg-mint: #8dd7cf;
+  --button-blue: #6558f5;
+  --outline-dark-cyan: #4dc0b4;
+  --button-purple: #bd34d1;
+  --python-yellow: #ffe231;
+  --python-blue: #2767a0;
+}
+
+h1 {
+  font-family: 'Tritillium', sans-serif;
+  font-size: 2em;
+}
+
+a {
+  color: blue;
+  text-decoration: none;
+}
+
+a, p {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.2em;
+}

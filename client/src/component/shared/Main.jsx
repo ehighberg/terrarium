@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Switch, Route, useHistory } from 'react-router-dom'
 
 import User from '../routes/User'
+import Home from '../routes/Home'
 import Header from './Header'
 import Footer from './Footer'
 
@@ -64,13 +65,14 @@ const Main = props => {
       <Header currentUser={currentUser} />
       <main>
         <Switch>
+          <Route exact path='/'><Home /></Route>
           <Route path='/user' component={() => (
-              <User
-                currentUser={currentUser}
-                handleSignup={handleSignup}
-                handleLogin={handleLogin}
-                handleEdit={handleEdit}
-              />
+            <User
+              currentUser={currentUser}
+              handleSignup={handleSignup}
+              handleLogin={handleLogin}
+              handleEdit={handleEdit}
+            />
           )} />
         </Switch>
       </main>

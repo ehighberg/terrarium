@@ -7,13 +7,13 @@ const Footer = () => (
       &copy; {new Date().getFullYear()} Errol Highberg
     </p>
     <div className='footer-link-container'>
-      <Link className='footer-link'>
-        Linkedin
+      <Link className='footer-link' to='#'>
+        LinkedIn
       </Link>
-      <Link className='footer-link'>
+      <Link className='footer-link' to='#'>
         Github
       </Link>
-      <Link className='footer-link'>
+      <Link className='footer-link' to='#'>
         Email
       </Link>
     </div>
