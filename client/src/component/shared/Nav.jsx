@@ -1,5 +1,7 @@
 import React from 'react'
+
 import NavCard from './NavCard'
+import '../../style/Nav.css'
 
 const Nav = props => {
   const { experiments, usernameMap } = props

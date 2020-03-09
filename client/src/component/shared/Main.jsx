@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Switch, Route, useHistory } from 'react-router-dom'
 
+import '../../style/Main.css'
 import User from '../routes/User'
 import Home from '../routes/Home'
 import Header from './Header'
@@ -88,20 +89,22 @@ const Main = props => {
   return (
     <React.Fragment>
       <Header currentUser={currentUser} />
-      <main>
-        <Switch>
-          <Route exact path='/'><Home /></Route>
-          <Route path='/user' component={() => (
-            <User
-              currentUser={currentUser}
-              handleSignup={handleSignup}
-              handleLogin={handleLogin}
-              handleEdit={handleEdit}
-            />
-          )} />
-        </Switch>
-      </main>
-      <Nav experiments={experiments} usernameMap={usernameMap}/>
+      <div className='main-flex-container'>
+        <main>
+          <Switch>
+            <Route exact path='/'><Home /></Route>
+            <Route path='/user' component={() => (
+              <User
+                currentUser={currentUser}
+                handleSignup={handleSignup}
+                handleLogin={handleLogin}
+                handleEdit={handleEdit}
+              />
+            )} />
+          </Switch>
+        </main>
+        <Nav experiments={experiments} usernameMap={usernameMap}/>
+      </div>
       <Footer />
     </React.Fragment>
   )
