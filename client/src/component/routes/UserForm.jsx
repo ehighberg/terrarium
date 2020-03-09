@@ -21,7 +21,6 @@ const UserForm = props => {
 
   return (
     <div className='user-sign-container'>
-      <h1>User Sign</h1>
       <Formik
         initialValues={
           (props.actionType === 'signup' || props.actionType === 'login') ?
@@ -54,9 +53,10 @@ const UserForm = props => {
         }}
       >
         <Form>
+          {(props.actionType === 'edit') && <h3 className='user-edit-text'>Edit Profile</h3>}
           <div className='user-form-entry'>
             <label>Username: </label>
-            <Field type='text' name='username' />
+            <Field autoFocus type='text' name='username' />
             <ErrorMessage name='username' component='div' className='user-form-error'/>
             <br />
           </div>
@@ -88,14 +88,20 @@ const UserForm = props => {
 
           {(props.actionType === 'signup' || props.actionType === 'edit') && (
           <div className='user-form-entry'>
-            <label>Confirm Password: </label>
+            <label>Confirm: </label>
             <Field type='password' name='confirmPassword' />
             <ErrorMessage name='confirmPassword' component='div' className='user-form-error'/>
             <br />
           </div>
           )}
 
-          <button type='submit'>Submit</button>
+          <button className='user-form-submit' type='submit'>Submit</button>
+
+          {(props.actionType === 'edit') && (
+            <button onClick={props.logoutUser} className='user-form-logout'>
+              Log Out
+            </button>
+          )}
         </Form>
       </Formik>
     </div>

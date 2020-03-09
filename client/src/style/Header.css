@@ -2,7 +2,7 @@ header {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   background-color: var(--bg-mint);
-  padding: 0 2em;
+  padding: 0.5em 2em;
   border-bottom: 3px solid var(--outline-dark-cyan);
 }
 
@@ -31,6 +31,8 @@ header * {
 .header-name {
   color: var(--python-blue);
   font-weight: 600;
+  font-family: 'Tritillium', sans-serif;
+  font-size: 2em;
 }
 
 .header-new-experiment span {

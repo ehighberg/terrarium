@@ -68,3 +68,8 @@ export const getAllUsernames = async () => {
     console.error(e)
   }
 }
+
+export const unauthorizeUser = () => {
+  localStorage.removeItem('authToken')
+  api.defaults.headers.common.authorization = ''
+}
