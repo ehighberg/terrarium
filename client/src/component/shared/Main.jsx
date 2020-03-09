@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react'
 import { Switch, Route, useHistory } from 'react-router-dom'
 
 import User from '../routes/User'
-
+import Header from './Header'
 
 import { userSignup, userLogin, userEdit, verifyUser } from '../../services/apiHelper'
 
-const Main = props => {
 
+const Main = props => {
   const [currentUser, setCurrentUser ] = useState({})
 
   const history = useHistory()
@@ -59,18 +59,21 @@ const Main = props => {
   }, [])
 
   return (
-    <main>
-      <Switch>
-        <Route path='/user' component={() => (
-            <User
-              currentUser={currentUser}
-              handleSignup={handleSignup}
-              handleLogin={handleLogin}
-              handleEdit={handleEdit}
-            />
-        )} />
-      </Switch>
-    </main>
+    <React.Fragment>
+      <Header currentUser={currentUser} />
+      <main>
+        <Switch>
+          <Route path='/user' component={() => (
+              <User
+                currentUser={currentUser}
+                handleSignup={handleSignup}
+                handleLogin={handleLogin}
+                handleEdit={handleEdit}
+              />
+          )} />
+        </Switch>
+      </main>
+    </React.Fragment>
   )
 }
 
