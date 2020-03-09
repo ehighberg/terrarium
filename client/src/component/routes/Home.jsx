@@ -1,14 +1,14 @@
 import React from 'react'
 
+import '../../style/Home.css'
+
 const Home = () => (
   <div className='home-container'>
-    <div className='home-welcome-container'>
-      <p className='home-welcome-messsage'>
-        Welcome to Terrarium!
-      </p>
-      <p className='home-browse-message'>
-        Please select an experiment from the left to view, or sign in and start experimenting!
-      </p>
+    <p className='home-welcome-message'>
+      Welcome to Terrarium!
+    </p>
+    <div className='home-browse-message'>
+      <p>Please select an experiment from the left to view, or sign in and start experimenting!</p>
     </div>
   </div>
 )

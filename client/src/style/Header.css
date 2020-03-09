@@ -1,6 +1,6 @@
 header {
   display: grid;
-  grid-template-columns: repeat(1fr, 3);
+  grid-template-columns: 1fr 1fr 1fr;
   background-color: var(--bg-mint);
   padding: 1em 2em;
   border-bottom: 3px solid var(--outline-dark-cyan);
@@ -12,10 +12,12 @@ header * {
 
 .header-logo-container {
   grid-column: 1;
+  text-align: center;
 }
 
 .header-new-experiment {
   grid-column: 2;
+  text-align: center;
 }
 
 .header-user-action {
