@@ -3,6 +3,7 @@ import { Switch, Route, useHistory } from 'react-router-dom'
 
 import User from '../routes/User'
 import Header from './Header'
+import Footer from './Footer'
 
 import { userSignup, userLogin, userEdit, verifyUser } from '../../services/apiHelper'
 
@@ -73,6 +74,7 @@ const Main = props => {
           )} />
         </Switch>
       </main>
+      <Footer />
     </React.Fragment>
   )
 }
