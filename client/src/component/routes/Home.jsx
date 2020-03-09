@@ -8,7 +8,7 @@ const Home = () => (
       Welcome to Terrarium!
     </p>
     <div className='home-browse-message'>
-      <p>Please select an experiment from the left to view, or sign in and start experimenting!</p>
+      <p>Please select an experiment from the scroll to view, or sign in and start experimenting!</p>
     </div>
   </div>
 )
