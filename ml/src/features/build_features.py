@@ -22,4 +22,4 @@ print(CCPP_raw.dtypes)
 # Export dataset
 
 CCPP_raw.columns = ['avg_temp', 'exhaust_vac', 'ambient_pressure', 'rel_humid', 'net_energy']
-CCPP_raw.to_csv('./ml/data/processed/ccpp.csv')
+CCPP_raw.to_csv('./ml/data/processed/ccpp.csv', index=False)
