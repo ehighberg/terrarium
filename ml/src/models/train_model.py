@@ -80,16 +80,21 @@ def calc_cost(y_pred, y_true):
 def calc_gradient(X, y_pred, y_true, thetas):
     num_rows = X.shape[0]
     errors = y_pred - y_true
-    return (1 / num_rows) * X.dot(errors)
+    return (1 / num_rows) * X.T.dot(errors)
 
 def update_thetas(thetas, theta_gradient, learn_rate=1):
     return thetas - learn_rate * theta_gradient
+
+    
 # %%
 
 X_train = add_ones(X_train)
+y_train = np.array(y_train).reshape(y_train.shape[0], 1)
 initial_thetas = gen_initial_thetas(X_train)
 preds = predict_y(X_train, initial_thetas)
-cost = calc_cost(X_train, y_train)
+print(preds[:10, :])
+print(y_train[:10])
+cost = calc_cost(X_train, preds)
 grad = calc_gradient(X_train, preds, y_train, initial_thetas)
 updated_thetas = update_thetas(initial_thetas, grad)
 print(cost)

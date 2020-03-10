@@ -6112,3 +6112,19 @@ Processing by AuthenticationController#login as HTML
 Completed 200 OK in 213ms (Views: 0.3ms | ActiveRecord: 1.1ms | Allocations: 1697)
 
 
+Started GET "/user" for 127.0.0.1 at 2020-03-10 15:15:05 -0400
+Started GET "/experiment" for 127.0.0.1 at 2020-03-10 15:15:05 -0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ExperimentController#index as HTML
+Processing by UserController#index as HTML
+  [1m[36mExperiment Load (4.7ms)[0m  [1m[34mSELECT "experiments".* FROM "experiments"[0m
+  ↳ app/controllers/experiment_controller.rb:9:in `index'
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users"."id", "users"."username" FROM "users"[0m
+  ↳ app/controllers/user_controller.rb:7:in `index'
+Completed 200 OK in 65ms (Views: 53.0ms | ActiveRecord: 8.1ms | Allocations: 23804)
+
+
+Completed 200 OK in 69ms (Views: 9.5ms | ActiveRecord: 55.4ms | Allocations: 27362)
+
+
