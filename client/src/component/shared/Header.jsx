@@ -1,11 +1,10 @@
 import React from 'react'
-import { NavLink, useHistory } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 import '../../style/Header.css'
 
 
 const Header = props => {
-  const history = useHistory()
 
   return (
     <header>

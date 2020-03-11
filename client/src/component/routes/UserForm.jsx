@@ -27,7 +27,9 @@ const UserForm = props => {
           formBlankValues() :
           props.currentUser
         }
-        onSubmit={props.handleSubmit}
+        onSubmit={(values) => {
+          props.handleSubmit(values)
+        }}
         validate={(values) => {
           const errors = {}
 
@@ -48,7 +50,7 @@ const UserForm = props => {
           if (values.email && !/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/i.test(values.email)) {
             errors.email = 'Invalid email address'
           }
-
+          
           return errors
         }}
       >
@@ -82,6 +84,7 @@ const UserForm = props => {
           <div className='user-form-entry'>
             <label>Password: </label>
             <Field type='password' name='password' />
+            {props.actionType === 'edit' && <p className='user-form-error'>Password required to edit profile</p>}
             <ErrorMessage name='password' component='div' className='user-form-error'/>
             <br />
           </div>

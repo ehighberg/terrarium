@@ -43,6 +43,7 @@ const Main = props => {
 
   const handleEdit = async (editData) => {
     await userEdit(editData, currentUser.id)
+    setCurrentUser(editData)
     history.push('/')
   }
 

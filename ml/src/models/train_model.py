@@ -179,5 +179,6 @@ def linear_regression(X_train, X_test, y_train, y_test, max_iterations=50, learn
 
 
 # %%
-results = linear_regression(X_train, X_test, y_train, y_test, max_iterations=50, learn_rate=0.1, standard_scale=True)
-print(results['history'])
+results = linear_regression(X_train, X_test, y_train, y_test, max_iterations=100, learn_rate=1, standard_scale=True)
+print(results['history']['loss'][-1])
+print(results['final_score'])
