@@ -1,6 +1,7 @@
 associated_media/
 server/tmp/
 server/log/
+tmp/
 
 
 # client
