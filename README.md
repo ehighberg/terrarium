@@ -203,8 +203,9 @@ _The **Terrarium** MVP is to allow users to view the results of machine learning
 
 ## Project Change Log
 
-[2020-03-06] - Removed Devise from libraries
+[2020-03-06] - Removed Devise from libraries.
 [2020-03-09] - Moved state handling on client end to main.
+[2020-03-11] - Removed start/stop times from Experiment table.
 
 ## Code Showcase
 
@@ -220,5 +221,6 @@ _The **Terrarium** MVP is to allow users to view the results of machine learning
 
 - Needed user profile information for experiment control. Moved state handling up a level to Main.
 - Sklearn's implementation of linear regression doesn't support number of iterations or learning rate. Hand-building linear regression gradient descent from scratch.
+- Formik validations require password to submit (if field present). Displaying message to inform user of requirement.
 
 ***

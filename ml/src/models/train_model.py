@@ -101,24 +101,24 @@ def scale_X_test(X_test, means, standard_deviations):
     return (X_test - means) / standard_deviations
 
 # %%
-# scale = scale_X(X_train)
-# print(scale)
-X_train, _, _ = scale_X(X_train)
-X_train = add_ones(X_train)
-y_train = np.array(y_train).reshape(y_train.shape[0], 1)
-initial_thetas = gen_initial_thetas(X_train)
-preds = predict_y(X_train, initial_thetas)
-# print(preds[:10, :])
-# print(y_train[:10])
-cost = calc_cost(preds, y_train)
-grad = calc_gradient(X_train, y_train, preds)
-updated_thetas = update_thetas(initial_thetas, grad, 0.01)
-new_cost = calc_cost(X_train, predict_y(X_train, updated_thetas))
-print(cost)
-print(new_cost)
-# print(grad)
-print(updated_thetas)
-# print(preds[:10])
+# # scale = scale_X(X_train)
+# # print(scale)
+# X_train, _, _ = scale_X(X_train)
+# X_train = add_ones(X_train)
+# y_train = np.array(y_train).reshape(y_train.shape[0], 1)
+# initial_thetas = gen_initial_thetas(X_train)
+# preds = predict_y(X_train, initial_thetas)
+# # print(preds[:10, :])
+# # print(y_train[:10])
+# cost = calc_cost(preds, y_train)
+# grad = calc_gradient(X_train, y_train, preds)
+# updated_thetas = update_thetas(initial_thetas, grad, 0.01)
+# new_cost = calc_cost(X_train, predict_y(X_train, updated_thetas))
+# print(cost)
+# print(new_cost)
+# # print(grad)
+# print(updated_thetas)
+# # print(preds[:10])
 
 
 # %%
@@ -179,6 +179,12 @@ def linear_regression(X_train, X_test, y_train, y_test, max_iterations=50, learn
 
 
 # %%
-results = linear_regression(X_train, X_test, y_train, y_test, max_iterations=100, learn_rate=1, standard_scale=True)
-print(results['history']['loss'][-1])
-print(results['final_score'])
+# More manual testing code
+# results = linear_regression(X_train, X_test, y_train, y_test, max_iterations=1000, learn_rate=0.5, standard_scale=True)
+# print(results['history']['loss'][-1])
+# print(results['final_score'])
+
+
+# %%
+# Train selected model
+linreg_results = linear_regression(X_train, X_test, y_train, y_test, max_iterations=hyperparameters['max_iterations'], learn_rate=hyperparameters['learning_rate'])
