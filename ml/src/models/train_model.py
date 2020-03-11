@@ -1,36 +1,17 @@
+#!/usr/bin/bash python3
 # %%
 
 import sys
 import requests
 
-import pandas as pd
+from pandas import read_csv
 import numpy as np
-import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import r2_score
 
-%matplotlib inline
 
 # %%
-# Retrieve hyperparameters from cmd arguments
-
-
-# %%
-# Parameters for manual testing
-
-parameters = {
-    'dataset': 'ccpp',
-    'model': 'linear_regression',
-    'target': 'net_energy',
-    'metric': 'r2',
-    'user_id': 1,
-    }
-
-hyperparameters = {
-    'standard_scale': True,
-    'learning_rate': 0.1,
-    'max_iterations': 10
-}
+# Parameters for all runs
 
 test_frac = 0.2
 random_seed = 42
@@ -38,13 +19,11 @@ random_seed = 42
 
 # %%
 # Import dataset
+local_root = '~/ga/u4/terrarium'
+def import_dataset(dataset_name):
+    return read_csv(f'{local_root}/ml/data/processed/{dataset_name}.csv')
 
-def import_dataset(parameters):
-    dataset_name = parameters['dataset']
-    return pd.read_csv(f'./ml/data/processed/{dataset_name}.csv')
-
-ccpp = import_dataset(parameters)
-print(ccpp.head())
+ccpp = import_dataset('ccpp')
 
 
 # %%
@@ -76,12 +55,8 @@ def calc_cost(y_pred, y_true):
     return (0.5 / num_rows) * np.sum(errors ** 2)
 
 def calc_gradient(X, y_true, y_pred):
-    # print(y_pred[:10])
-    # print(y_true[:10])
     num_rows = X.shape[0]
     errors = y_pred - y_true
-    # print(errors[:10])
-    # print((1 / num_rows) * np.matmul(X.T, errors))
     return (1 / num_rows) * np.matmul(X.T, errors)
 
 def update_thetas(thetas, gradient, learn_rate):
@@ -100,31 +75,11 @@ def restore_X(scaled_X, means, standard_deviations):
 def scale_X_test(X_test, means, standard_deviations):
     return (X_test - means) / standard_deviations
 
-# %%
-# # scale = scale_X(X_train)
-# # print(scale)
-# X_train, _, _ = scale_X(X_train)
-# X_train = add_ones(X_train)
-# y_train = np.array(y_train).reshape(y_train.shape[0], 1)
-# initial_thetas = gen_initial_thetas(X_train)
-# preds = predict_y(X_train, initial_thetas)
-# # print(preds[:10, :])
-# # print(y_train[:10])
-# cost = calc_cost(preds, y_train)
-# grad = calc_gradient(X_train, y_train, preds)
-# updated_thetas = update_thetas(initial_thetas, grad, 0.01)
-# new_cost = calc_cost(X_train, predict_y(X_train, updated_thetas))
-# print(cost)
-# print(new_cost)
-# # print(grad)
-# print(updated_thetas)
-# # print(preds[:10])
-
 
 # %%
 # Putting together the helper methods above to perform gradient descent linear regression
 
-def linear_regression(X_train, X_test, y_train, y_test, max_iterations=50, learn_rate=0.01, standard_scale=False):
+def linear_regression(X_train, X_test, y_train, y_test, max_iterations=50, learn_rate=0.01, standard_scale=True):
     '''
     Returns in a tuple:
         history: cost values and metric evaluated on training set at each iteration
@@ -179,12 +134,29 @@ def linear_regression(X_train, X_test, y_train, y_test, max_iterations=50, learn
 
 
 # %%
-# More manual testing code
-# results = linear_regression(X_train, X_test, y_train, y_test, max_iterations=1000, learn_rate=0.5, standard_scale=True)
-# print(results['history']['loss'][-1])
-# print(results['final_score'])
+# Get headers and body from shell command
+
+learn_rate = float(sys.argv[1])
+max_iterations = int(sys.argv[2])
+experiment_id = int(sys.argv[3])
+user_id = int(sys.argv[4])
+authorization = ' '.join([sys.argv[5], sys.argv[6]])
+
+headers = {
+    "Content-Type": "application/json",
+    "Authorization": authorization
+    }
 
 
 # %%
 # Train selected model
-linreg_results = linear_regression(X_train, X_test, y_train, y_test, max_iterations=hyperparameters['max_iterations'], learn_rate=hyperparameters['learning_rate'])
+linreg_results = linear_regression(X_train, X_test, y_train, y_test, max_iterations=max_iterations, learn_rate=learn_rate)
+
+
+# %%
+# Send results back to backend
+
+base_url = 'http://localhost:3000'
+response = requests.put(f'{base_url}/user/{user_id}/experiment/{experiment_id}',
+    json=linreg_results,
+    headers=headers)

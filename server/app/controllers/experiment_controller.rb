@@ -1,3 +1,6 @@
+#!/usr/bin/python3 python3
+require 'json'
+
 class ExperimentController < ApplicationController
   before_action :set_experiment, only: [:show, :update, :destroy]
   before_action :authorize_request, except: [:index, :show]
@@ -18,6 +21,7 @@ class ExperimentController < ApplicationController
 
     if @experiment.save
       set_model
+      run_experiment
       render json: { experiment: @experiment, model: @model }, status: :created, location: @experiment
     else
       render json: @experiment.errors, status: :unprocessable_entity
@@ -26,7 +30,7 @@ class ExperimentController < ApplicationController
 
   def update
     if @experiment.update(end_params)
-      render json: @experiment
+      render json: { experiment: @experiment, model: @model }
     else
       render json: @experiment.errors, status: :unprocessable_entity
     end
@@ -56,15 +60,31 @@ class ExperimentController < ApplicationController
 
   def start_params
     passed_params = params.require(:experiment)
-      .permit(:time_start, :target, :metric, :user_id, :model, :dataset)
+      .permit(:target, :metric, :user_id, :model, :dataset)
 
     model_accessor = "#{passed_params[:model]}_attributes"
-    passed_params[model_accessor] = params.require(:model_info).permit!
+    passed_params[model_accessor] = params.require(:model).permit!
     passed_params
   end
 
   def end_params
-    params.require(:experiment).permit(:time_end, :final_score, :history)
+    passed_params = params.require(:experiment).permit(:final_score, :history)
+    passed_params['history'] = params.require(:experiment).require(:history).permit!
+    passed_params
+  end
+
+  def run_experiment
+    auth_data = authorize_request()
+    user_id = auth_data[:user_id]
+    auth_header = auth_data[:auth_header]
+
+    regression_params = start_params[:linear_regression_attributes]
+    learning_rate = regression_params[:learning_rate]
+    max_iterations = regression_params[:max_iterations]
+
+    local_root = "~/ga/u4/terrarium"
+    script_location = "#{local_root}/ml/src/models/train_model.py"
+    fork { system("python3 #{script_location} #{learning_rate} #{max_iterations} #{@experiment.id} #{user_id} #{auth_header}") }
   end
 
 end

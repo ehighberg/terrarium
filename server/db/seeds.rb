@@ -22,8 +22,6 @@ history = {
 
 experiment = Experiment.create({
   user_id: user.id,
-  time_start: Time.new,
-  time_end: Time.new + 30,
   target: 'net_energy',
   metric: 'r2',
   final_score: 0.9,
@@ -67,8 +65,6 @@ def make_experiments(users, histories)
   experiments = Experiment.create(users.map.with_index do |user, i|
     {
       user_id: user.id,
-      time_start: Time.new + i * 60,
-      time_end: Time.new + i * 60 + 30,
       target: 'net_energy',
       metric: 'r2',
       final_score: histories[i][:r2].last,
