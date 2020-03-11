@@ -156,7 +156,7 @@ linreg_results = linear_regression(X_train, X_test, y_train, y_test, max_iterati
 # %%
 # Send results back to backend
 
-base_url = 'http://localhost:3000'
+base_url = 'https://terrarium-ml.herokuapp.com/'
 response = requests.put(f'{base_url}/user/{user_id}/experiment/{experiment_id}',
     json=linreg_results,
     headers=headers)
