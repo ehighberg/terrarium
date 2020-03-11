@@ -18,8 +18,11 @@ export const userLogin = async (loginData) => {
 }
 
 export const userEdit = async (editData, id) => {
-  const res = await api.put(`user/${id}`, editData)
-  console.log(res.data)
+  try {
+    const res = await api.put(`user/${id}`, editData)
+  } catch(e) {
+    console.error(e)
+  }
 }
 
 // export const getUser = async (id) => {

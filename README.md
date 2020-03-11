@@ -153,13 +153,13 @@ _The **Terrarium** MVP is to allow users to view the results of machine learning
 | ------------------- | :------: | :------------: | :---------: |
 | Back end models | H | 4 | 2 |
 | Back end routes | H | 4 | 4 |
-| Header, Footer, Nav, Main | H | 4 | |
-| User signup page | H | 2 | |
-| User profile page | H | 3 | |
-| User profile functionality | H | 3 | |
+| Header, Footer, Nav, Main | H | 4 | 4 |
+| User signup page | H | 2 | 2 |
+| User profile page | H | 3 | 2 |
+| User profile functionality | H | 3 | 4 |
 | User authentication | H | 4 | 4 |
-| Linear regression setup | H | 4 | |
-| ML experiment running/storage | H | 4 | |
+| Linear regression setup | H | 4 | 4 |
+| ML experiment running/storage | H | 4 | 2 |
 | Experiment view | H | 8 | |
 | Run ML experiment from front end  | H | 4 | |
 | TOTAL | T | 44 | |
@@ -195,6 +195,7 @@ _The **Terrarium** MVP is to allow users to view the results of machine learning
 - More visualizations
 - Compare experiments
 - Filtered experiment browsing
+- Dataset info page
 
 <br>
 
@@ -202,7 +203,9 @@ _The **Terrarium** MVP is to allow users to view the results of machine learning
 
 ## Project Change Log
 
-[2020-03-06] - Removed Devise from libraries
+[2020-03-06] - Removed Devise from libraries.
+[2020-03-09] - Moved state handling on client end to main.
+[2020-03-11] - Removed start/stop times from Experiment table.
 
 ## Code Showcase
 
@@ -213,5 +216,11 @@ _The **Terrarium** MVP is to allow users to view the results of machine learning
 ### Expected Issues
 
 - Communicating between Python and Rails portions of back end. Solvable by using local requests to Rails, or direct SQL queries.
+
+### Encountered Issues
+
+- Needed user profile information for experiment control. Moved state handling up a level to Main.
+- Sklearn's implementation of linear regression doesn't support number of iterations or learning rate. Hand-building linear regression gradient descent from scratch.
+- Formik validations require password to submit (if field present). Displaying message to inform user of requirement.
 
 ***

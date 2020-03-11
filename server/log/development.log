@@ -6044,3 +6044,1144 @@ Processing by AuthenticationController#verify as HTML
 Completed 200 OK in 6ms (Views: 0.7ms | ActiveRecord: 1.0ms | Allocations: 1091)
 
 
+Started GET "/user" for 127.0.0.1 at 2020-03-09 19:56:04 -0400
+Started GET "/experiment" for 127.0.0.1 at 2020-03-09 19:56:04 -0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UserController#index as HTML
+  [1m[35m (20.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ExperimentController#index as HTML
+  [1m[36mExperiment Load (1.1ms)[0m  [1m[34mSELECT "experiments".* FROM "experiments"[0m
+  ↳ app/controllers/experiment_controller.rb:9:in `index'
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users"."id", "users"."username" FROM "users"[0m
+  ↳ app/controllers/user_controller.rb:7:in `index'
+Completed 200 OK in 24ms (Views: 13.8ms | ActiveRecord: 6.9ms | Allocations: 13915)
+
+
+Completed 200 OK in 68ms (Views: 50.0ms | ActiveRecord: 16.5ms | Allocations: 26419)
+
+
+Started GET "/user" for 127.0.0.1 at 2020-03-09 20:24:33 -0400
+Started GET "/experiment" for 127.0.0.1 at 2020-03-09 20:24:33 -0400
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UserController#index as HTML
+  [1m[35m (16.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ExperimentController#index as HTML
+  [1m[36mExperiment Load (1.9ms)[0m  [1m[34mSELECT "experiments".* FROM "experiments"[0m
+  ↳ app/controllers/experiment_controller.rb:9:in `index'
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users"."id", "users"."username" FROM "users"[0m
+  ↳ app/controllers/user_controller.rb:7:in `index'
+Completed 200 OK in 24ms (Views: 14.0ms | ActiveRecord: 7.2ms | Allocations: 13912)
+
+
+Completed 200 OK in 63ms (Views: 44.3ms | ActiveRecord: 16.7ms | Allocations: 26724)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2020-03-09 20:24:45 -0400
+Processing by AuthenticationController#login as HTML
+  Parameters: {"username"=>"Bill", "password"=>"[FILTERED]", "authentication"=>{"username"=>"Bill", "password"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :authentication[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Bill"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:5:in `login'
+[31mUnpermitted parameter: :authentication[0m
+Completed 200 OK in 205ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 1646)
+
+
+Started GET "/experiment" for 127.0.0.1 at 2020-03-10 08:32:48 -0400
+Started GET "/user" for 127.0.0.1 at 2020-03-10 08:32:48 -0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ExperimentController#index as HTML
+  [1m[35m (18.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UserController#index as HTML
+  [1m[36mExperiment Load (4.6ms)[0m  [1m[34mSELECT "experiments".* FROM "experiments"[0m
+  ↳ app/controllers/experiment_controller.rb:9:in `index'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users"."id", "users"."username" FROM "users"[0m
+  ↳ app/controllers/user_controller.rb:7:in `index'
+Completed 200 OK in 68ms (Views: 56.4ms | ActiveRecord: 8.9ms | Allocations: 25157)
+
+
+Completed 200 OK in 72ms (Views: 10.7ms | ActiveRecord: 59.0ms | Allocations: 27671)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2020-03-10 11:34:29 -0400
+Processing by AuthenticationController#login as HTML
+  Parameters: {"username"=>"bill", "password"=>"[FILTERED]", "authentication"=>{"username"=>"bill", "password"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :authentication[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "bill"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:5:in `login'
+[31mUnpermitted parameter: :authentication[0m
+Completed 200 OK in 213ms (Views: 0.3ms | ActiveRecord: 1.1ms | Allocations: 1697)
+
+
+Started GET "/user" for 127.0.0.1 at 2020-03-10 15:15:05 -0400
+Started GET "/experiment" for 127.0.0.1 at 2020-03-10 15:15:05 -0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ExperimentController#index as HTML
+Processing by UserController#index as HTML
+  [1m[36mExperiment Load (4.7ms)[0m  [1m[34mSELECT "experiments".* FROM "experiments"[0m
+  ↳ app/controllers/experiment_controller.rb:9:in `index'
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users"."id", "users"."username" FROM "users"[0m
+  ↳ app/controllers/user_controller.rb:7:in `index'
+Completed 200 OK in 65ms (Views: 53.0ms | ActiveRecord: 8.1ms | Allocations: 23804)
+
+
+Completed 200 OK in 69ms (Views: 9.5ms | ActiveRecord: 55.4ms | Allocations: 27362)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2020-03-10 20:35:46 -0400
+Processing by AuthenticationController#login as HTML
+  Parameters: {"username"=>"bill", "password"=>"[FILTERED]", "authentication"=>{"username"=>"bill", "password"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :authentication[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "bill"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:5:in `login'
+[31mUnpermitted parameter: :authentication[0m
+Completed 200 OK in 206ms (Views: 0.3ms | ActiveRecord: 0.6ms | Allocations: 1695)
+
+
+Started GET "/user" for 127.0.0.1 at 2020-03-10 20:40:27 -0400
+Processing by UserController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users"."id", "users"."username" FROM "users"[0m
+  ↳ app/controllers/user_controller.rb:7:in `index'
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.3ms | Allocations: 1423)
+
+
+Started GET "/auth/verify" for 127.0.0.1 at 2020-03-10 20:40:27 -0400
+Processing by AuthenticationController#verify as HTML
+Started GET "/experiment" for 127.0.0.1 at 2020-03-10 20:40:27 -0400
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.3ms | Allocations: 1337)
+
+
+Processing by ExperimentController#index as HTML
+  [1m[36mExperiment Load (0.9ms)[0m  [1m[34mSELECT "experiments".* FROM "experiments"[0m
+  ↳ app/controllers/experiment_controller.rb:9:in `index'
+Completed 200 OK in 9ms (Views: 8.1ms | ActiveRecord: 0.9ms | Allocations: 10848)
+
+
+Started GET "/user" for 127.0.0.1 at 2020-03-10 20:41:50 -0400
+Started GET "/auth/verify" for 127.0.0.1 at 2020-03-10 20:41:50 -0400
+Started GET "/experiment" for 127.0.0.1 at 2020-03-10 20:41:50 -0400
+Processing by UserController#index as HTML
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users"."id", "users"."username" FROM "users"[0m
+  ↳ app/controllers/user_controller.rb:7:in `index'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+Completed 200 OK in 10ms (Views: 7.3ms | ActiveRecord: 1.5ms | Allocations: 2028)
+
+
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 13ms (Views: 0.5ms | ActiveRecord: 0.5ms | Allocations: 2731)
+
+
+Processing by ExperimentController#index as HTML
+  [1m[36mExperiment Load (1.2ms)[0m  [1m[34mSELECT "experiments".* FROM "experiments"[0m
+  ↳ app/controllers/experiment_controller.rb:9:in `index'
+Completed 200 OK in 39ms (Views: 37.2ms | ActiveRecord: 1.2ms | Allocations: 10835)
+
+
+Started GET "/user" for 127.0.0.1 at 2020-03-10 20:42:50 -0400
+Processing by UserController#index as HTML
+Started GET "/auth/verify" for 127.0.0.1 at 2020-03-10 20:42:50 -0400
+  [1m[36mUser Load (3.3ms)[0m  [1m[34mSELECT "users"."id", "users"."username" FROM "users"[0m
+Started GET "/experiment" for 127.0.0.1 at 2020-03-10 20:42:50 -0400
+  ↳ app/controllers/user_controller.rb:7:in `index'
+Processing by AuthenticationController#verify as HTML
+Completed 200 OK in 13ms (Views: 8.5ms | ActiveRecord: 3.3ms | Allocations: 2475)
+
+
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Processing by ExperimentController#index as HTML
+  [1m[36mExperiment Load (0.8ms)[0m  [1m[34mSELECT "experiments".* FROM "experiments"[0m
+Completed 200 OK in 11ms (Views: 1.2ms | ActiveRecord: 2.8ms | Allocations: 1683)
+
+
+  ↳ app/controllers/experiment_controller.rb:9:in `index'
+Completed 200 OK in 45ms (Views: 43.9ms | ActiveRecord: 0.8ms | Allocations: 10884)
+
+
+Started GET "/user" for 127.0.0.1 at 2020-03-10 20:46:08 -0400
+Started GET "/experiment" for 127.0.0.1 at 2020-03-10 20:46:08 -0400
+Started GET "/auth/verify" for 127.0.0.1 at 2020-03-10 20:46:08 -0400
+Processing by ExperimentController#index as HTML
+Processing by UserController#index as HTML
+  [1m[36mExperiment Load (2.9ms)[0m  [1m[34mSELECT "experiments".* FROM "experiments"[0m
+Processing by AuthenticationController#verify as HTML
+  ↳ app/controllers/experiment_controller.rb:9:in `index'
+Completed 200 OK in 39ms (Views: 35.0ms | ActiveRecord: 2.9ms | Allocations: 11973)
+
+
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT "users"."id", "users"."username" FROM "users"[0m
+  ↳ app/controllers/user_controller.rb:7:in `index'
+Completed 200 OK in 40ms (Views: 36.6ms | ActiveRecord: 2.6ms | Allocations: 12414)
+
+
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 43ms (Views: 0.6ms | ActiveRecord: 38.0ms | Allocations: 12766)
+
+
+Started GET "/user" for 127.0.0.1 at 2020-03-10 20:52:11 -0400
+Started GET "/auth/verify" for 127.0.0.1 at 2020-03-10 20:52:11 -0400
+Started GET "/experiment" for 127.0.0.1 at 2020-03-10 20:52:11 -0400
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ExperimentController#index as HTML
+  [1m[35m (5.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (8.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AuthenticationController#verify as HTML
+Processing by UserController#index as HTML
+  [1m[36mExperiment Load (3.1ms)[0m  [1m[34mSELECT "experiments".* FROM "experiments"[0m
+  ↳ app/controllers/experiment_controller.rb:9:in `index'
+  [1m[36mUser Load (3.5ms)[0m  [1m[34mSELECT "users"."id", "users"."username" FROM "users"[0m
+  ↳ app/controllers/user_controller.rb:7:in `index'
+Completed 200 OK in 72ms (Views: 56.0ms | ActiveRecord: 14.1ms | Allocations: 26965)
+
+
+Completed 200 OK in 68ms (Views: 61.0ms | ActiveRecord: 6.6ms | Allocations: 25808)
+
+
+  [1m[36mUser Load (6.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 75ms (Views: 0.3ms | ActiveRecord: 10.2ms | Allocations: 29394)
+
+
+Started GET "/user" for 127.0.0.1 at 2020-03-10 20:52:39 -0400
+Started GET "/auth/verify" for 127.0.0.1 at 2020-03-10 20:52:39 -0400
+Started GET "/experiment" for 127.0.0.1 at 2020-03-10 20:52:39 -0400
+Processing by UserController#index as HTML
+Processing by ExperimentController#index as HTML
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT "users"."id", "users"."username" FROM "users"[0m
+  ↳ app/controllers/user_controller.rb:7:in `index'
+Completed 200 OK in 6ms (Views: 2.1ms | ActiveRecord: 3.4ms | Allocations: 2611)
+
+
+  [1m[36mExperiment Load (2.9ms)[0m  [1m[34mSELECT "experiments".* FROM "experiments"[0m
+  ↳ app/controllers/experiment_controller.rb:9:in `index'
+Completed 200 OK in 29ms (Views: 25.3ms | ActiveRecord: 2.9ms | Allocations: 12522)
+
+
+  [1m[36mUser Load (25.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 31ms (Views: 0.6ms | ActiveRecord: 27.1ms | Allocations: 13469)
+
+
+Started PUT "/user/7" for 127.0.0.1 at 2020-03-10 20:52:44 -0400
+Processing by UserController#update as HTML
+  Parameters: {"username"=>"bill", "email"=>"bill@bill.com", "name"=>"bill", "id"=>"7", "user"=>{"id"=>"7", "username"=>"bill", "email"=>"bill@bill.com", "name"=>"bill"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:40:in `set_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+[31mUnpermitted parameters: :id, :user[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/user_controller.rb:26:in `update'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "bill"], ["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:26:in `update'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "bill@bill.com"], ["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:26:in `update'
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/user_controller.rb:26:in `update'
+Completed 422 Unprocessable Entity in 103ms (Views: 0.1ms | ActiveRecord: 1.6ms | Allocations: 186476)
+
+
+Started GET "/auth/verify" for 127.0.0.1 at 2020-03-10 20:53:25 -0400
+Started GET "/user" for 127.0.0.1 at 2020-03-10 20:53:25 -0400
+Started GET "/experiment" for 127.0.0.1 at 2020-03-10 20:53:25 -0400
+Processing by AuthenticationController#verify as HTML
+Processing by UserController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users"."id", "users"."username" FROM "users"[0m
+  ↳ app/controllers/user_controller.rb:7:in `index'
+Processing by ExperimentController#index as HTML
+Completed 200 OK in 7ms (Views: 5.2ms | ActiveRecord: 0.8ms | Allocations: 2048)
+
+
+  [1m[36mUser Load (3.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+  [1m[36mExperiment Load (2.2ms)[0m  [1m[34mSELECT "experiments".* FROM "experiments"[0m
+Completed 200 OK in 17ms (Views: 2.8ms | ActiveRecord: 3.3ms | Allocations: 3706)
+
+
+  ↳ app/controllers/experiment_controller.rb:9:in `index'
+Completed 200 OK in 36ms (Views: 33.6ms | ActiveRecord: 2.2ms | Allocations: 12013)
+
+
+Started PUT "/user/7" for 127.0.0.1 at 2020-03-10 20:53:27 -0400
+Processing by UserController#update as HTML
+  Parameters: {"username"=>"bill", "email"=>"bill@bill.com", "name"=>"", "id"=>"7", "user"=>{"id"=>"7", "username"=>"bill", "email"=>"bill@bill.com", "name"=>""}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:40:in `set_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+[31mUnpermitted parameters: :id, :user[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/user_controller.rb:26:in `update'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "bill"], ["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:26:in `update'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "bill@bill.com"], ["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:26:in `update'
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/user_controller.rb:26:in `update'
+Completed 422 Unprocessable Entity in 7ms (Views: 0.1ms | ActiveRecord: 1.4ms | Allocations: 5335)
+
+
+Started GET "/user" for 127.0.0.1 at 2020-03-10 20:53:51 -0400
+Processing by UserController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users"."id", "users"."username" FROM "users"[0m
+Started GET "/auth/verify" for 127.0.0.1 at 2020-03-10 20:53:51 -0400
+Started GET "/experiment" for 127.0.0.1 at 2020-03-10 20:53:51 -0400
+  ↳ app/controllers/user_controller.rb:7:in `index'
+Completed 200 OK in 6ms (Views: 4.3ms | ActiveRecord: 0.9ms | Allocations: 1965)
+
+
+Processing by ExperimentController#index as HTML
+Processing by AuthenticationController#verify as HTML
+  [1m[36mExperiment Load (3.4ms)[0m  [1m[34mSELECT "experiments".* FROM "experiments"[0m
+  ↳ app/controllers/experiment_controller.rb:9:in `index'
+Completed 200 OK in 30ms (Views: 26.4ms | ActiveRecord: 3.4ms | Allocations: 11327)
+
+
+  [1m[36mUser Load (24.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 31ms (Views: 1.4ms | ActiveRecord: 24.4ms | Allocations: 11847)
+
+
+Started PUT "/user/7" for 127.0.0.1 at 2020-03-10 20:53:53 -0400
+Processing by UserController#update as HTML
+  Parameters: {"username"=>"bill", "email"=>"bill@bill.com", "name"=>"", "id"=>"7", "user"=>{"id"=>"7", "username"=>"bill", "email"=>"bill@bill.com", "name"=>""}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:40:in `set_user'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+[31mUnpermitted parameters: :id, :user[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/user_controller.rb:26:in `update'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "bill"], ["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:26:in `update'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "bill@bill.com"], ["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:26:in `update'
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/user_controller.rb:26:in `update'
+Completed 422 Unprocessable Entity in 7ms (Views: 0.1ms | ActiveRecord: 1.3ms | Allocations: 5321)
+
+
+Started GET "/auth/verify" for 127.0.0.1 at 2020-03-10 20:54:07 -0400
+Started GET "/user" for 127.0.0.1 at 2020-03-10 20:54:07 -0400
+Started GET "/experiment" for 127.0.0.1 at 2020-03-10 20:54:07 -0400
+Processing by AuthenticationController#verify as HTML
+Processing by UserController#index as HTML
+  [1m[36mUser Load (4.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+Processing by ExperimentController#index as HTML
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 10ms (Views: 0.6ms | ActiveRecord: 4.2ms | Allocations: 2175)
+
+
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users"."id", "users"."username" FROM "users"[0m
+  [1m[36mExperiment Load (2.1ms)[0m  [1m[34mSELECT "experiments".* FROM "experiments"[0m
+  ↳ app/controllers/user_controller.rb:7:in `index'
+  ↳ app/controllers/experiment_controller.rb:9:in `index'
+Completed 200 OK in 10ms (Views: 8.5ms | ActiveRecord: 0.7ms | Allocations: 3219)
+
+
+Completed 200 OK in 42ms (Views: 38.9ms | ActiveRecord: 2.1ms | Allocations: 12675)
+
+
+Started PUT "/user/7" for 127.0.0.1 at 2020-03-10 20:54:09 -0400
+Processing by UserController#update as HTML
+  Parameters: {"username"=>"bill", "email"=>"bill@bill.com", "name"=>"", "id"=>"7", "user"=>{"id"=>"7", "username"=>"bill", "email"=>"bill@bill.com", "name"=>""}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:40:in `set_user'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+[31mUnpermitted parameters: :id, :user[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/user_controller.rb:26:in `update'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "bill"], ["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:26:in `update'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "bill@bill.com"], ["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:26:in `update'
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/user_controller.rb:26:in `update'
+Completed 422 Unprocessable Entity in 7ms (Views: 0.1ms | ActiveRecord: 1.3ms | Allocations: 5318)
+
+
+Started PUT "/user/7" for 127.0.0.1 at 2020-03-10 20:54:14 -0400
+Processing by UserController#update as HTML
+  Parameters: {"username"=>"bill", "email"=>"bill@bill.com", "name"=>"bill", "id"=>"7", "user"=>{"id"=>"7", "username"=>"bill", "email"=>"bill@bill.com", "name"=>"bill"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:40:in `set_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+[31mUnpermitted parameters: :id, :user[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/user_controller.rb:26:in `update'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "bill"], ["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:26:in `update'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "bill@bill.com"], ["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:26:in `update'
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/user_controller.rb:26:in `update'
+Completed 422 Unprocessable Entity in 6ms (Views: 0.1ms | ActiveRecord: 1.0ms | Allocations: 5318)
+
+
+Started GET "/user" for 127.0.0.1 at 2020-03-10 20:57:54 -0400
+Started GET "/experiment" for 127.0.0.1 at 2020-03-10 20:57:54 -0400
+Started GET "/auth/verify" for 127.0.0.1 at 2020-03-10 20:57:54 -0400
+Processing by UserController#index as HTML
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users"."id", "users"."username" FROM "users"[0m
+  ↳ app/controllers/user_controller.rb:7:in `index'
+Completed 200 OK in 8ms (Views: 4.8ms | ActiveRecord: 2.2ms | Allocations: 2374)
+
+
+Processing by ExperimentController#index as HTML
+  [1m[36mExperiment Load (0.8ms)[0m  [1m[34mSELECT "experiments".* FROM "experiments"[0m
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/experiment_controller.rb:9:in `index'
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 46ms (Views: 0.8ms | ActiveRecord: 8.1ms | Allocations: 13773)
+
+
+Completed 200 OK in 34ms (Views: 32.5ms | ActiveRecord: 0.8ms | Allocations: 11158)
+
+
+Started GET "/user" for 127.0.0.1 at 2020-03-10 20:58:51 -0400
+Processing by UserController#index as HTML
+Started GET "/auth/verify" for 127.0.0.1 at 2020-03-10 20:58:51 -0400
+Started GET "/experiment" for 127.0.0.1 at 2020-03-10 20:58:51 -0400
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT "users"."id", "users"."username" FROM "users"[0m
+Processing by AuthenticationController#verify as HTML
+  ↳ app/controllers/user_controller.rb:7:in `index'
+Completed 200 OK in 10ms (Views: 4.9ms | ActiveRecord: 3.1ms | Allocations: 2204)
+
+
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 6ms (Views: 0.8ms | ActiveRecord: 2.2ms | Allocations: 1909)
+
+
+Processing by ExperimentController#index as HTML
+  [1m[36mExperiment Load (0.5ms)[0m  [1m[34mSELECT "experiments".* FROM "experiments"[0m
+  ↳ app/controllers/experiment_controller.rb:9:in `index'
+Completed 200 OK in 49ms (Views: 47.9ms | ActiveRecord: 0.5ms | Allocations: 10727)
+
+
+Started GET "/user" for 127.0.0.1 at 2020-03-10 20:59:53 -0400
+Started GET "/auth/verify" for 127.0.0.1 at 2020-03-10 20:59:53 -0400
+Processing by UserController#index as HTML
+Started GET "/experiment" for 127.0.0.1 at 2020-03-10 20:59:53 -0400
+Processing by ExperimentController#index as HTML
+  [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT "users"."id", "users"."username" FROM "users"[0m
+  ↳ app/controllers/user_controller.rb:7:in `index'
+Completed 200 OK in 12ms (Views: 7.7ms | ActiveRecord: 3.4ms | Allocations: 2198)
+
+
+Processing by AuthenticationController#verify as HTML
+  [1m[36mExperiment Load (4.7ms)[0m  [1m[34mSELECT "experiments".* FROM "experiments"[0m
+  ↳ app/controllers/experiment_controller.rb:9:in `index'
+Completed 200 OK in 41ms (Views: 35.9ms | ActiveRecord: 4.7ms | Allocations: 12380)
+
+
+  [1m[36mUser Load (31.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 44ms (Views: 1.0ms | ActiveRecord: 31.6ms | Allocations: 11926)
+
+
+Started PUT "/user/7" for 127.0.0.1 at 2020-03-10 21:00:08 -0400
+Processing by UserController#update as HTML
+  Parameters: {"username"=>"bill", "email"=>"bill@bill.com", "name"=>"bill", "id"=>"7", "password"=>"[FILTERED]", "confirmPassword"=>"[FILTERED]", "user"=>{"id"=>"7", "username"=>"bill", "email"=>"bill@bill.com", "name"=>"bill"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:40:in `set_user'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+[31mUnpermitted parameters: :id, :confirmPassword, :user[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/user_controller.rb:26:in `update'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "bill"], ["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:26:in `update'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "bill@bill.com"], ["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:26:in `update'
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "password_digest" = $1, "name" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_digest", "$2a$12$wR6sexoQvFDUK4rfdaQh4et/0Wn6p5l9N0XG2HICwRFVki3TzCune"], ["name", "bill"], ["updated_at", "2020-03-11 01:00:08.515515"], ["id", 7]]
+  ↳ app/controllers/user_controller.rb:26:in `update'
+  [1m[35m (6.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/user_controller.rb:26:in `update'
+Completed 200 OK in 226ms (Views: 0.7ms | ActiveRecord: 8.5ms | Allocations: 6146)
+
+
+Started GET "/user" for 127.0.0.1 at 2020-03-11 08:46:58 -0400
+Started GET "/auth/verify" for 127.0.0.1 at 2020-03-11 08:46:58 -0400
+Started GET "/experiment" for 127.0.0.1 at 2020-03-11 08:46:58 -0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AuthenticationController#verify as HTML
+  [1m[35m (7.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UserController#index as HTML
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ExperimentController#index as HTML
+  [1m[36mExperiment Load (1.8ms)[0m  [1m[34mSELECT "experiments".* FROM "experiments"[0m
+  ↳ app/controllers/experiment_controller.rb:9:in `index'
+  [1m[36mUser Load (4.7ms)[0m  [1m[34mSELECT "users"."id", "users"."username" FROM "users"[0m
+  ↳ app/controllers/user_controller.rb:7:in `index'
+Completed 200 OK in 30ms (Views: 19.3ms | ActiveRecord: 9.8ms | Allocations: 10804)
+
+
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 42ms (Views: 1.2ms | ActiveRecord: 30.7ms | Allocations: 16584)
+
+
+Completed 200 OK in 72ms (Views: 58.4ms | ActiveRecord: 10.7ms | Allocations: 28292)
+
+
+Started GET "/user" for 127.0.0.1 at 2020-03-11 08:48:52 -0400
+Processing by UserController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users"."id", "users"."username" FROM "users"[0m
+  ↳ app/controllers/user_controller.rb:7:in `index'
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.5ms | Allocations: 1474)
+
+
+Started GET "/auth/verify" for 127.0.0.1 at 2020-03-11 08:48:52 -0400
+Started GET "/experiment" for 127.0.0.1 at 2020-03-11 08:48:52 -0400
+Processing by AuthenticationController#verify as HTML
+Processing by ExperimentController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 4ms (Views: 0.4ms | ActiveRecord: 1.1ms | Allocations: 1365)
+
+
+  [1m[36mExperiment Load (2.4ms)[0m  [1m[34mSELECT "experiments".* FROM "experiments"[0m
+  ↳ app/controllers/experiment_controller.rb:9:in `index'
+Completed 200 OK in 16ms (Views: 12.8ms | ActiveRecord: 2.4ms | Allocations: 11842)
+
+
+Started GET "/user" for 127.0.0.1 at 2020-03-11 08:51:33 -0400
+Processing by UserController#index as HTML
+Started GET "/auth/verify" for 127.0.0.1 at 2020-03-11 08:51:33 -0400
+Started GET "/experiment" for 127.0.0.1 at 2020-03-11 08:51:33 -0400
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users"."id", "users"."username" FROM "users"[0m
+  ↳ app/controllers/user_controller.rb:7:in `index'
+Completed 200 OK in 5ms (Views: 2.9ms | ActiveRecord: 1.5ms | Allocations: 1820)
+
+
+Processing by ExperimentController#index as HTML
+Processing by AuthenticationController#verify as HTML
+  [1m[36mExperiment Load (1.0ms)[0m  [1m[34mSELECT "experiments".* FROM "experiments"[0m
+  ↳ app/controllers/experiment_controller.rb:9:in `index'
+Completed 200 OK in 20ms (Views: 18.3ms | ActiveRecord: 1.0ms | Allocations: 11076)
+
+
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 22ms (Views: 0.4ms | ActiveRecord: 2.8ms | Allocations: 11892)
+
+
+Started GET "/user" for 127.0.0.1 at 2020-03-11 08:51:56 -0400
+Processing by UserController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users"."id", "users"."username" FROM "users"[0m
+  ↳ app/controllers/user_controller.rb:7:in `index'
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.4ms | Allocations: 1402)
+
+
+Started GET "/auth/verify" for 127.0.0.1 at 2020-03-11 08:51:56 -0400
+Started GET "/experiment" for 127.0.0.1 at 2020-03-11 08:51:56 -0400
+Processing by AuthenticationController#verify as HTML
+Processing by ExperimentController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 4ms (Views: 0.4ms | ActiveRecord: 0.9ms | Allocations: 1549)
+
+
+  [1m[36mExperiment Load (2.0ms)[0m  [1m[34mSELECT "experiments".* FROM "experiments"[0m
+  ↳ app/controllers/experiment_controller.rb:9:in `index'
+Completed 200 OK in 14ms (Views: 11.8ms | ActiveRecord: 2.0ms | Allocations: 11785)
+
+
+Started GET "/user" for 127.0.0.1 at 2020-03-11 08:53:21 -0400
+Processing by UserController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users"."id", "users"."username" FROM "users"[0m
+Started GET "/auth/verify" for 127.0.0.1 at 2020-03-11 08:53:21 -0400
+Started GET "/experiment" for 127.0.0.1 at 2020-03-11 08:53:21 -0400
+  ↳ app/controllers/user_controller.rb:7:in `index'
+Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.8ms | Allocations: 2033)
+
+
+Processing by AuthenticationController#verify as HTML
+Processing by ExperimentController#index as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 5ms (Views: 0.7ms | ActiveRecord: 1.2ms | Allocations: 1555)
+
+
+  [1m[36mExperiment Load (2.7ms)[0m  [1m[34mSELECT "experiments".* FROM "experiments"[0m
+  ↳ app/controllers/experiment_controller.rb:9:in `index'
+Completed 200 OK in 21ms (Views: 18.0ms | ActiveRecord: 2.7ms | Allocations: 11793)
+
+
+Started GET "/user" for 127.0.0.1 at 2020-03-11 08:53:42 -0400
+Started GET "/experiment" for 127.0.0.1 at 2020-03-11 08:53:42 -0400
+Processing by ExperimentController#index as HTML
+Processing by UserController#index as HTML
+  [1m[36mExperiment Load (0.8ms)[0m  [1m[34mSELECT "experiments".* FROM "experiments"[0m
+  ↳ app/controllers/experiment_controller.rb:9:in `index'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users"."id", "users"."username" FROM "users"[0m
+Completed 200 OK in 23ms (Views: 21.4ms | ActiveRecord: 0.8ms | Allocations: 11388)
+
+
+  ↳ app/controllers/user_controller.rb:7:in `index'
+Completed 200 OK in 24ms (Views: 23.1ms | ActiveRecord: 0.8ms | Allocations: 12247)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2020-03-11 08:53:51 -0400
+Processing by AuthenticationController#login as HTML
+  Parameters: {"username"=>"bill", "password"=>"[FILTERED]", "authentication"=>{"username"=>"bill", "password"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :authentication[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "bill"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:5:in `login'
+[31mUnpermitted parameter: :authentication[0m
+Completed 200 OK in 224ms (Views: 0.3ms | ActiveRecord: 0.7ms | Allocations: 1248)
+
+
+Started POST "/user/" for 127.0.0.1 at 2020-03-11 08:55:11 -0400
+Processing by UserController#create as HTML
+  Parameters: {"username"=>"bob", "password"=>"[FILTERED]", "confirmPassword"=>"[FILTERED]", "email"=>"bob@bob.bob", "name"=>"", "user"=>{"username"=>"bob", "email"=>"bob@bob.bob", "name"=>""}}
+[31mUnpermitted parameters: :confirmPassword, :user[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/user_controller.rb:18:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "bob"], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:18:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "bob@bob.bob"], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:18:in `create'
+  [1m[36mUser Create (5.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "role", "name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "bob"], ["email", "bob@bob.bob"], ["role", "user"], ["name", ""], ["password_digest", "$2a$12$GrnIgq5YVL5zXx4JjT18lOJpjijN0EVO3vY9Lqsv0A6U.q2LtDVO6"], ["created_at", "2020-03-11 12:55:12.163388"], ["updated_at", "2020-03-11 12:55:12.163388"]]
+  ↳ app/controllers/user_controller.rb:18:in `create'
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/user_controller.rb:18:in `create'
+Completed 201 Created in 210ms (Views: 0.6ms | ActiveRecord: 7.2ms | Allocations: 5138)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2020-03-11 08:55:20 -0400
+Processing by AuthenticationController#login as HTML
+  Parameters: {"username"=>"bob", "password"=>"[FILTERED]", "authentication"=>{"username"=>"bob", "password"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :authentication[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "bob"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:5:in `login'
+[31mUnpermitted parameter: :authentication[0m
+Completed 200 OK in 200ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 1081)
+
+
+Started GET "/user" for 127.0.0.1 at 2020-03-11 08:56:40 -0400
+Processing by UserController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users"."id", "users"."username" FROM "users"[0m
+  ↳ app/controllers/user_controller.rb:7:in `index'
+Completed 200 OK in 5ms (Views: 3.7ms | ActiveRecord: 0.4ms | Allocations: 1466)
+
+
+Started GET "/auth/verify" for 127.0.0.1 at 2020-03-11 08:56:40 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+Started GET "/experiment" for 127.0.0.1 at 2020-03-11 08:56:40 -0400
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 6ms (Views: 1.0ms | ActiveRecord: 0.8ms | Allocations: 1320)
+
+
+Processing by ExperimentController#index as HTML
+  [1m[36mExperiment Load (1.4ms)[0m  [1m[34mSELECT "experiments".* FROM "experiments"[0m
+  ↳ app/controllers/experiment_controller.rb:9:in `index'
+Completed 200 OK in 24ms (Views: 22.5ms | ActiveRecord: 1.4ms | Allocations: 10731)
+
+
+Started GET "/user" for 127.0.0.1 at 2020-03-11 08:57:10 -0400
+Started GET "/experiment" for 127.0.0.1 at 2020-03-11 08:57:10 -0400
+Started GET "/auth/verify" for 127.0.0.1 at 2020-03-11 08:57:10 -0400
+Processing by UserController#index as HTML
+Processing by ExperimentController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users"."id", "users"."username" FROM "users"[0m
+  ↳ app/controllers/user_controller.rb:7:in `index'
+Completed 200 OK in 6ms (Views: 4.3ms | ActiveRecord: 0.7ms | Allocations: 1782)
+
+
+  [1m[36mExperiment Load (5.1ms)[0m  [1m[34mSELECT "experiments".* FROM "experiments"[0m
+  ↳ app/controllers/experiment_controller.rb:9:in `index'
+Completed 200 OK in 44ms (Views: 38.1ms | ActiveRecord: 5.1ms | Allocations: 12379)
+
+
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 7ms (Views: 0.7ms | ActiveRecord: 1.4ms | Allocations: 1089)
+
+
+Started GET "/user" for 127.0.0.1 at 2020-03-11 08:57:47 -0400
+Started GET "/auth/verify" for 127.0.0.1 at 2020-03-11 08:57:47 -0400
+Started GET "/experiment" for 127.0.0.1 at 2020-03-11 08:57:47 -0400
+Processing by UserController#index as HTML
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users"."id", "users"."username" FROM "users"[0m
+  ↳ app/controllers/user_controller.rb:7:in `index'
+Completed 200 OK in 8ms (Views: 5.4ms | ActiveRecord: 1.4ms | Allocations: 1976)
+
+
+Processing by ExperimentController#index as HTML
+Processing by AuthenticationController#verify as HTML
+  [1m[36mExperiment Load (1.1ms)[0m  [1m[34mSELECT "experiments".* FROM "experiments"[0m
+  ↳ app/controllers/experiment_controller.rb:9:in `index'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+Completed 200 OK in 36ms (Views: 34.7ms | ActiveRecord: 1.1ms | Allocations: 10930)
+
+
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 40ms (Views: 0.8ms | ActiveRecord: 0.5ms | Allocations: 11868)
+
+
+Started GET "/auth/verify" for 127.0.0.1 at 2020-03-11 08:58:00 -0400
+Started GET "/experiment" for 127.0.0.1 at 2020-03-11 08:58:00 -0400
+Started GET "/user" for 127.0.0.1 at 2020-03-11 08:58:00 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Processing by UserController#index as HTML
+Processing by ExperimentController#index as HTML
+Completed 200 OK in 13ms (Views: 1.3ms | ActiveRecord: 1.8ms | Allocations: 1912)
+
+
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users"."id", "users"."username" FROM "users"[0m
+  ↳ app/controllers/user_controller.rb:7:in `index'
+  [1m[36mExperiment Load (3.0ms)[0m  [1m[34mSELECT "experiments".* FROM "experiments"[0m
+Completed 200 OK in 12ms (Views: 8.2ms | ActiveRecord: 1.2ms | Allocations: 1890)
+
+
+  ↳ app/controllers/experiment_controller.rb:9:in `index'
+Completed 200 OK in 35ms (Views: 31.8ms | ActiveRecord: 3.0ms | Allocations: 12466)
+
+
+Started GET "/user" for 127.0.0.1 at 2020-03-11 09:03:44 -0400
+Processing by UserController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users"."id", "users"."username" FROM "users"[0m
+Started GET "/auth/verify" for 127.0.0.1 at 2020-03-11 09:03:44 -0400
+Started GET "/experiment" for 127.0.0.1 at 2020-03-11 09:03:44 -0400
+  ↳ app/controllers/user_controller.rb:7:in `index'
+Completed 200 OK in 5ms (Views: 3.3ms | ActiveRecord: 0.8ms | Allocations: 2102)
+
+
+Processing by AuthenticationController#verify as HTML
+Processing by ExperimentController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 5ms (Views: 0.6ms | ActiveRecord: 1.1ms | Allocations: 1124)
+
+
+  [1m[36mExperiment Load (3.1ms)[0m  [1m[34mSELECT "experiments".* FROM "experiments"[0m
+  ↳ app/controllers/experiment_controller.rb:9:in `index'
+Completed 200 OK in 28ms (Views: 24.4ms | ActiveRecord: 3.1ms | Allocations: 11826)
+
+
+Started GET "/user" for 127.0.0.1 at 2020-03-11 09:06:10 -0400
+Started GET "/experiment" for 127.0.0.1 at 2020-03-11 09:06:10 -0400
+Started GET "/auth/verify" for 127.0.0.1 at 2020-03-11 09:06:10 -0400
+Processing by AuthenticationController#verify as HTML
+Processing by ExperimentController#index as HTML
+Processing by UserController#index as HTML
+  [1m[36mUser Load (4.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mExperiment Load (2.6ms)[0m  [1m[34mSELECT "experiments".* FROM "experiments"[0m
+  ↳ app/controllers/experiment_controller.rb:9:in `index'
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users"."id", "users"."username" FROM "users"[0m
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 28ms (Views: 25.1ms | ActiveRecord: 2.6ms | Allocations: 11336)
+
+
+  ↳ app/controllers/user_controller.rb:7:in `index'
+Completed 200 OK in 33ms (Views: 0.5ms | ActiveRecord: 4.2ms | Allocations: 12745)
+
+
+Completed 200 OK in 32ms (Views: 30.1ms | ActiveRecord: 1.8ms | Allocations: 13215)
+
+
+Started GET "/user" for 127.0.0.1 at 2020-03-11 09:06:50 -0400
+Processing by UserController#index as HTML
+Started GET "/auth/verify" for 127.0.0.1 at 2020-03-11 09:06:50 -0400
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT "users"."id", "users"."username" FROM "users"[0m
+Started GET "/experiment" for 127.0.0.1 at 2020-03-11 09:06:50 -0400
+  ↳ app/controllers/user_controller.rb:7:in `index'
+Processing by AuthenticationController#verify as HTML
+Completed 200 OK in 10ms (Views: 6.7ms | ActiveRecord: 3.0ms | Allocations: 2553)
+
+
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+Processing by ExperimentController#index as HTML
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 6ms (Views: 0.4ms | ActiveRecord: 0.9ms | Allocations: 1812)
+
+
+  [1m[36mExperiment Load (1.4ms)[0m  [1m[34mSELECT "experiments".* FROM "experiments"[0m
+  ↳ app/controllers/experiment_controller.rb:9:in `index'
+Completed 200 OK in 22ms (Views: 19.9ms | ActiveRecord: 1.4ms | Allocations: 11392)
+
+
+Started GET "/user" for 127.0.0.1 at 2020-03-11 09:07:38 -0400
+Started GET "/auth/verify" for 127.0.0.1 at 2020-03-11 09:07:38 -0400
+Processing by UserController#index as HTML
+Started GET "/experiment" for 127.0.0.1 at 2020-03-11 09:07:38 -0400
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users"."id", "users"."username" FROM "users"[0m
+  ↳ app/controllers/user_controller.rb:7:in `index'
+Processing by AuthenticationController#verify as HTML
+Completed 200 OK in 5ms (Views: 4.2ms | ActiveRecord: 0.5ms | Allocations: 1953)
+
+
+Processing by ExperimentController#index as HTML
+  [1m[36mUser Load (4.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+  [1m[36mExperiment Load (2.0ms)[0m  [1m[34mSELECT "experiments".* FROM "experiments"[0m
+Completed 200 OK in 9ms (Views: 0.6ms | ActiveRecord: 4.2ms | Allocations: 1809)
+
+
+  ↳ app/controllers/experiment_controller.rb:9:in `index'
+Completed 200 OK in 53ms (Views: 50.7ms | ActiveRecord: 2.0ms | Allocations: 11820)
+
+
+Started GET "/auth/verify" for 127.0.0.1 at 2020-03-11 09:09:50 -0400
+Started GET "/user" for 127.0.0.1 at 2020-03-11 09:09:50 -0400
+Processing by AuthenticationController#verify as HTML
+Started GET "/experiment" for 127.0.0.1 at 2020-03-11 09:09:50 -0400
+Processing by UserController#index as HTML
+Processing by ExperimentController#index as HTML
+  [1m[36mUser Load (7.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 11ms (Views: 1.0ms | ActiveRecord: 7.2ms | Allocations: 2230)
+
+
+  [1m[36mUser Load (6.8ms)[0m  [1m[34mSELECT "users"."id", "users"."username" FROM "users"[0m
+  ↳ app/controllers/user_controller.rb:7:in `index'
+  [1m[36mExperiment Load (2.1ms)[0m  [1m[34mSELECT "experiments".* FROM "experiments"[0m
+Completed 200 OK in 12ms (Views: 5.0ms | ActiveRecord: 6.8ms | Allocations: 2901)
+
+
+  ↳ app/controllers/experiment_controller.rb:9:in `index'
+Completed 200 OK in 26ms (Views: 23.8ms | ActiveRecord: 2.1ms | Allocations: 12304)
+
+
+Started GET "/user" for 127.0.0.1 at 2020-03-11 09:12:05 -0400
+Started GET "/auth/verify" for 127.0.0.1 at 2020-03-11 09:12:05 -0400
+Started GET "/experiment" for 127.0.0.1 at 2020-03-11 09:12:05 -0400
+Processing by AuthenticationController#verify as HTML
+Processing by ExperimentController#index as HTML
+Processing by UserController#index as HTML
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users"."id", "users"."username" FROM "users"[0m
+  ↳ app/controllers/user_controller.rb:7:in `index'
+Completed 200 OK in 7ms (Views: 5.1ms | ActiveRecord: 1.2ms | Allocations: 2328)
+
+
+Completed 200 OK in 7ms (Views: 0.5ms | ActiveRecord: 2.0ms | Allocations: 2188)
+
+
+  [1m[36mExperiment Load (1.8ms)[0m  [1m[34mSELECT "experiments".* FROM "experiments"[0m
+  ↳ app/controllers/experiment_controller.rb:9:in `index'
+Completed 200 OK in 42ms (Views: 39.7ms | ActiveRecord: 1.8ms | Allocations: 13523)
+
+
+Started GET "/user" for 127.0.0.1 at 2020-03-11 09:12:22 -0400
+Started GET "/auth/verify" for 127.0.0.1 at 2020-03-11 09:12:22 -0400
+Started GET "/experiment" for 127.0.0.1 at 2020-03-11 09:12:22 -0400
+Processing by UserController#index as HTML
+Processing by AuthenticationController#verify as HTML
+Processing by ExperimentController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users"."id", "users"."username" FROM "users"[0m
+  ↳ app/controllers/user_controller.rb:7:in `index'
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mExperiment Load (2.7ms)[0m  [1m[34mSELECT "experiments".* FROM "experiments"[0m
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 9ms (Views: 6.7ms | ActiveRecord: 1.0ms | Allocations: 2008)
+
+
+  ↳ app/controllers/experiment_controller.rb:9:in `index'
+Completed 200 OK in 9ms (Views: 0.6ms | ActiveRecord: 3.0ms | Allocations: 3085)
+
+
+Completed 200 OK in 24ms (Views: 20.6ms | ActiveRecord: 2.7ms | Allocations: 13142)
+
+
+Started GET "/user" for 127.0.0.1 at 2020-03-11 09:12:59 -0400
+Started GET "/auth/verify" for 127.0.0.1 at 2020-03-11 09:12:59 -0400
+Started GET "/experiment" for 127.0.0.1 at 2020-03-11 09:12:59 -0400
+Processing by UserController#index as HTML
+Processing by AuthenticationController#verify as HTML
+Processing by ExperimentController#index as HTML
+  [1m[36mUser Load (4.5ms)[0m  [1m[34mSELECT "users"."id", "users"."username" FROM "users"[0m
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 5ms (Views: 0.8ms | ActiveRecord: 1.2ms | Allocations: 1723)
+
+
+  ↳ app/controllers/user_controller.rb:7:in `index'
+  [1m[36mExperiment Load (4.9ms)[0m  [1m[34mSELECT "experiments".* FROM "experiments"[0m
+Completed 200 OK in 13ms (Views: 8.4ms | ActiveRecord: 4.5ms | Allocations: 3690)
+
+
+  ↳ app/controllers/experiment_controller.rb:9:in `index'
+Completed 200 OK in 41ms (Views: 35.9ms | ActiveRecord: 4.9ms | Allocations: 13386)
+
+
+Started GET "/user" for ::1 at 2020-03-11 09:13:45 -0400
+Started GET "/experiment" for ::1 at 2020-03-11 09:13:45 -0400
+Processing by ExperimentController#index as HTML
+Processing by UserController#index as HTML
+  [1m[36mExperiment Load (1.0ms)[0m  [1m[34mSELECT "experiments".* FROM "experiments"[0m
+  ↳ app/controllers/experiment_controller.rb:9:in `index'
+Completed 200 OK in 11ms (Views: 9.4ms | ActiveRecord: 1.0ms | Allocations: 11065)
+
+
+  [1m[36mUser Load (8.9ms)[0m  [1m[34mSELECT "users"."id", "users"."username" FROM "users"[0m
+  ↳ app/controllers/user_controller.rb:7:in `index'
+Completed 200 OK in 15ms (Views: 5.6ms | ActiveRecord: 8.9ms | Allocations: 12309)
+
+
+Started POST "/auth/login" for ::1 at 2020-03-11 09:13:56 -0400
+Processing by AuthenticationController#login as HTML
+  Parameters: {"username"=>"bob", "password"=>"[FILTERED]", "authentication"=>{"username"=>"bob", "password"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :authentication[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "bob"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:5:in `login'
+[31mUnpermitted parameter: :authentication[0m
+Completed 200 OK in 201ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 1081)
+
+
+Started GET "/user" for ::1 at 2020-03-11 09:15:21 -0400
+Processing by UserController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users"."id", "users"."username" FROM "users"[0m
+  ↳ app/controllers/user_controller.rb:7:in `index'
+Completed 200 OK in 4ms (Views: 3.5ms | ActiveRecord: 0.4ms | Allocations: 1464)
+
+
+Started GET "/auth/verify" for ::1 at 2020-03-11 09:15:21 -0400
+Started GET "/experiment" for ::1 at 2020-03-11 09:15:21 -0400
+Processing by AuthenticationController#verify as HTML
+Processing by ExperimentController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 4ms (Views: 0.7ms | ActiveRecord: 0.9ms | Allocations: 1121)
+
+
+  [1m[36mExperiment Load (2.8ms)[0m  [1m[34mSELECT "experiments".* FROM "experiments"[0m
+  ↳ app/controllers/experiment_controller.rb:9:in `index'
+Completed 200 OK in 22ms (Views: 18.7ms | ActiveRecord: 2.8ms | Allocations: 11826)
+
+
+Started GET "/user" for ::1 at 2020-03-11 09:16:04 -0400
+Started GET "/experiment" for ::1 at 2020-03-11 09:16:04 -0400
+Processing by UserController#index as HTML
+Started GET "/auth/verify" for ::1 at 2020-03-11 09:16:04 -0400
+Processing by ExperimentController#index as HTML
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT "users"."id", "users"."username" FROM "users"[0m
+  ↳ app/controllers/user_controller.rb:7:in `index'
+Completed 200 OK in 25ms (Views: 22.2ms | ActiveRecord: 2.5ms | Allocations: 2214)
+
+
+  [1m[36mExperiment Load (20.6ms)[0m  [1m[34mSELECT "experiments".* FROM "experiments"[0m
+  ↳ app/controllers/experiment_controller.rb:9:in `index'
+Processing by AuthenticationController#verify as HTML
+Completed 200 OK in 43ms (Views: 21.8ms | ActiveRecord: 20.6ms | Allocations: 12911)
+
+
+  [1m[36mUser Load (14.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 19ms (Views: 0.6ms | ActiveRecord: 14.2ms | Allocations: 10342)
+
+
+Started GET "/user" for ::1 at 2020-03-11 09:16:25 -0400
+Started GET "/experiment" for ::1 at 2020-03-11 09:16:25 -0400
+Started GET "/auth/verify" for ::1 at 2020-03-11 09:16:25 -0400
+Processing by AuthenticationController#verify as HTML
+Processing by UserController#index as HTML
+Processing by ExperimentController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users"."id", "users"."username" FROM "users"[0m
+  ↳ app/controllers/user_controller.rb:7:in `index'
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 6ms (Views: 0.5ms | ActiveRecord: 1.0ms | Allocations: 2645)
+
+
+Completed 200 OK in 4ms (Views: 2.4ms | ActiveRecord: 1.0ms | Allocations: 2044)
+
+
+  [1m[36mExperiment Load (1.5ms)[0m  [1m[34mSELECT "experiments".* FROM "experiments"[0m
+  ↳ app/controllers/experiment_controller.rb:9:in `index'
+Completed 200 OK in 23ms (Views: 21.2ms | ActiveRecord: 1.5ms | Allocations: 13372)
+
+
+Started PUT "/user/10" for ::1 at 2020-03-11 09:16:45 -0400
+Processing by UserController#update as HTML
+  Parameters: {"username"=>"bob", "email"=>"bob@bob.bob", "name"=>"bill", "id"=>"10", "password"=>"[FILTERED]", "confirmPassword"=>"[FILTERED]", "user"=>{"id"=>"10", "username"=>"bob", "email"=>"bob@bob.bob", "name"=>"bill"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:40:in `set_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+[31mUnpermitted parameters: :id, :confirmPassword, :user[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/user_controller.rb:26:in `update'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "bob"], ["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:26:in `update'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "bob@bob.bob"], ["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:26:in `update'
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "password_digest" = $1, "name" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_digest", "$2a$12$SPXAYF8hI9Ok6lDXjN2uSuWb3AQo7bZ7wK17ISoNNLCsxVa/O/VDy"], ["name", "bill"], ["updated_at", "2020-03-11 13:16:45.599013"], ["id", 10]]
+  ↳ app/controllers/user_controller.rb:26:in `update'
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/user_controller.rb:26:in `update'
+Completed 200 OK in 210ms (Views: 0.2ms | ActiveRecord: 2.8ms | Allocations: 6090)
+
+
+Started POST "/auth/login" for ::1 at 2020-03-11 09:18:38 -0400
+Processing by AuthenticationController#login as HTML
+  Parameters: {"username"=>"bob", "password"=>"[FILTERED]", "authentication"=>{"username"=>"bob", "password"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :authentication[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "bob"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:5:in `login'
+[31mUnpermitted parameter: :authentication[0m
+Completed 200 OK in 226ms (Views: 0.2ms | ActiveRecord: 0.7ms | Allocations: 1083)
+
+
+Started GET "/auth/verify" for ::1 at 2020-03-11 09:19:50 -0400
+Started GET "/user" for ::1 at 2020-03-11 09:19:50 -0400
+Started GET "/experiment" for ::1 at 2020-03-11 09:19:50 -0400
+Processing by AuthenticationController#verify as HTML
+Processing by UserController#index as HTML
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+Processing by ExperimentController#index as HTML
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT "users"."id", "users"."username" FROM "users"[0m
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+  ↳ app/controllers/user_controller.rb:7:in `index'
+Completed 200 OK in 12ms (Views: 1.2ms | ActiveRecord: 2.9ms | Allocations: 2788)
+
+
+  [1m[36mExperiment Load (4.3ms)[0m  [1m[34mSELECT "experiments".* FROM "experiments"[0m
+  ↳ app/controllers/experiment_controller.rb:9:in `index'
+Completed 200 OK in 13ms (Views: 9.4ms | ActiveRecord: 2.8ms | Allocations: 2919)
+
+
+Completed 200 OK in 34ms (Views: 29.3ms | ActiveRecord: 4.3ms | Allocations: 12667)
+
+
+Started PUT "/user/10" for ::1 at 2020-03-11 09:20:04 -0400
+Processing by UserController#update as HTML
+  Parameters: {"username"=>"bob", "email"=>"bob@bob.bob", "name"=>"bob", "id"=>"10", "password"=>"[FILTERED]", "confirmPassword"=>"[FILTERED]", "user"=>{"id"=>"10", "username"=>"bob", "email"=>"bob@bob.bob", "name"=>"bob"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:40:in `set_user'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+[31mUnpermitted parameters: :id, :confirmPassword, :user[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/user_controller.rb:26:in `update'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "bob"], ["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:26:in `update'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "bob@bob.bob"], ["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:26:in `update'
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "password_digest" = $1, "name" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_digest", "$2a$12$kq/zwOaDXFctyLALqE3.SOW/BhUqpUc6gKLdzYeUxRIp4Nh31MiCa"], ["name", "bob"], ["updated_at", "2020-03-11 13:20:04.309314"], ["id", 10]]
+  ↳ app/controllers/user_controller.rb:26:in `update'
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/user_controller.rb:26:in `update'
+Completed 200 OK in 214ms (Views: 0.2ms | ActiveRecord: 2.6ms | Allocations: 5989)
+
+
+Started GET "/user" for 127.0.0.1 at 2020-03-11 09:20:43 -0400
+Processing by UserController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users"."id", "users"."username" FROM "users"[0m
+  ↳ app/controllers/user_controller.rb:7:in `index'
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.3ms | Allocations: 1464)
+
+
+Started GET "/auth/verify" for 127.0.0.1 at 2020-03-11 09:20:43 -0400
+Started GET "/experiment" for 127.0.0.1 at 2020-03-11 09:20:43 -0400
+Processing by AuthenticationController#verify as HTML
+Processing by ExperimentController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+  [1m[36mExperiment Load (0.5ms)[0m  [1m[34mSELECT "experiments".* FROM "experiments"[0m
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.7ms | Allocations: 1335)
+
+
+  ↳ app/controllers/experiment_controller.rb:9:in `index'
+Completed 200 OK in 10ms (Views: 9.6ms | ActiveRecord: 0.5ms | Allocations: 11732)
+
+
+Started PUT "/user/10" for 127.0.0.1 at 2020-03-11 09:21:00 -0400
+Processing by UserController#update as HTML
+  Parameters: {"username"=>"bob", "email"=>"bob@bob.bob", "name"=>"bobby", "id"=>"10", "password"=>"[FILTERED]", "confirmPassword"=>"[FILTERED]", "user"=>{"id"=>"10", "username"=>"bob", "email"=>"bob@bob.bob", "name"=>"bobby"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:40:in `set_user'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+[31mUnpermitted parameters: :id, :confirmPassword, :user[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/user_controller.rb:26:in `update'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "bob"], ["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:26:in `update'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "bob@bob.bob"], ["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:26:in `update'
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "password_digest" = $1, "name" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_digest", "$2a$12$xIAeVuG/RV/4AgsgOX8o3OWD3p4Mb8a1ifVc6LnjyKvTk2Y4cHgOK"], ["name", "bobby"], ["updated_at", "2020-03-11 13:21:01.199250"], ["id", 10]]
+  ↳ app/controllers/user_controller.rb:26:in `update'
+  [1m[35m (5.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/user_controller.rb:26:in `update'
+Completed 200 OK in 220ms (Views: 0.2ms | ActiveRecord: 7.1ms | Allocations: 5993)
+
+
+Started GET "/experiment" for 127.0.0.1 at 2020-03-11 09:21:27 -0400
+Started GET "/auth/verify" for 127.0.0.1 at 2020-03-11 09:21:27 -0400
+Started GET "/user" for 127.0.0.1 at 2020-03-11 09:21:27 -0400
+Processing by ExperimentController#index as HTML
+Processing by UserController#index as HTML
+  [1m[36mExperiment Load (2.1ms)[0m  [1m[34mSELECT "experiments".* FROM "experiments"[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users"."id", "users"."username" FROM "users"[0m
+Processing by AuthenticationController#verify as HTML
+  ↳ app/controllers/user_controller.rb:7:in `index'
+  ↳ app/controllers/experiment_controller.rb:9:in `index'
+Completed 200 OK in 11ms (Views: 9.9ms | ActiveRecord: 0.4ms | Allocations: 2707)
+
+
+  [1m[36mUser Load (3.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+Completed 200 OK in 34ms (Views: 32.0ms | ActiveRecord: 2.1ms | Allocations: 13358)
+
+
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 51ms (Views: 0.8ms | ActiveRecord: 3.7ms | Allocations: 12205)
+
+
+Started GET "/user" for 127.0.0.1 at 2020-03-11 09:21:39 -0400
+Started GET "/experiment" for 127.0.0.1 at 2020-03-11 09:21:39 -0400
+Started GET "/auth/verify" for 127.0.0.1 at 2020-03-11 09:21:39 -0400
+Processing by UserController#index as HTML
+Processing by ExperimentController#index as HTML
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT "users"."id", "users"."username" FROM "users"[0m
+Processing by AuthenticationController#verify as HTML
+  ↳ app/controllers/user_controller.rb:7:in `index'
+  [1m[36mExperiment Load (3.4ms)[0m  [1m[34mSELECT "experiments".* FROM "experiments"[0m
+Completed 200 OK in 8ms (Views: 5.1ms | ActiveRecord: 2.9ms | Allocations: 2694)
+
+
+  ↳ app/controllers/experiment_controller.rb:9:in `index'
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+Completed 200 OK in 27ms (Views: 22.7ms | ActiveRecord: 3.4ms | Allocations: 12964)
+
+
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 27ms (Views: 0.6ms | ActiveRecord: 3.1ms | Allocations: 12801)
+
+
+Started GET "/experiment" for 127.0.0.1 at 2020-03-11 09:21:47 -0400
+Started GET "/auth/verify" for 127.0.0.1 at 2020-03-11 09:21:47 -0400
+Started GET "/user" for 127.0.0.1 at 2020-03-11 09:21:47 -0400
+Processing by ExperimentController#index as HTML
+Processing by AuthenticationController#verify as HTML
+  [1m[36mExperiment Load (1.4ms)[0m  [1m[34mSELECT "experiments".* FROM "experiments"[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Processing by UserController#index as HTML
+  ↳ app/controllers/experiment_controller.rb:9:in `index'
+Completed 200 OK in 8ms (Views: 0.7ms | ActiveRecord: 0.8ms | Allocations: 2228)
+
+
+  [1m[36mUser Load (25.9ms)[0m  [1m[34mSELECT "users"."id", "users"."username" FROM "users"[0m
+  ↳ app/controllers/user_controller.rb:7:in `index'
+Completed 200 OK in 29ms (Views: 2.7ms | ActiveRecord: 25.9ms | Allocations: 12030)
+
+
+Completed 200 OK in 33ms (Views: 30.9ms | ActiveRecord: 1.4ms | Allocations: 12355)
+
+
