@@ -4,7 +4,7 @@
 import sys
 import requests
 import json
-import os
+import re
 
 import pandas as pd
 import numpy as np
@@ -13,21 +13,7 @@ from sklearn.metrics import r2_score
 
 
 # %%
-# Parameters for manual testing
-
-parameters = {
-    'dataset': 'ccpp',
-    'model': 'linear_regression',
-    'target': 'net_energy',
-    'metric': 'r2',
-    'user_id': 1,
-    }
-
-hyperparameters = {
-    'standard_scale': True,
-    'learning_rate': 0.1,
-    'max_iterations': 10
-}
+# Parameters for all runs
 
 test_frac = 0.2
 random_seed = 42
@@ -67,12 +53,10 @@ simulated_outgoing_body = {
 # %%
 # Import dataset
 local_root = '~/ga/u4/terrarium'
-print(os.getcwd())
-def import_dataset(parameters):
-    dataset_name = parameters['dataset']
+def import_dataset(dataset_name):
     return pd.read_csv(f'{local_root}/ml/data/processed/{dataset_name}.csv')
 
-ccpp = import_dataset(parameters)
+ccpp = import_dataset('ccpp')
 
 
 # %%
@@ -128,31 +112,11 @@ def restore_X(scaled_X, means, standard_deviations):
 def scale_X_test(X_test, means, standard_deviations):
     return (X_test - means) / standard_deviations
 
-# %%
-# # scale = scale_X(X_train)
-# # print(scale)
-# X_train, _, _ = scale_X(X_train)
-# X_train = add_ones(X_train)
-# y_train = np.array(y_train).reshape(y_train.shape[0], 1)
-# initial_thetas = gen_initial_thetas(X_train)
-# preds = predict_y(X_train, initial_thetas)
-# # print(preds[:10, :])
-# # print(y_train[:10])
-# cost = calc_cost(preds, y_train)
-# grad = calc_gradient(X_train, y_train, preds)
-# updated_thetas = update_thetas(initial_thetas, grad, 0.01)
-# new_cost = calc_cost(X_train, predict_y(X_train, updated_thetas))
-# print(cost)
-# print(new_cost)
-# # print(grad)
-# print(updated_thetas)
-# # print(preds[:10])
-
 
 # %%
 # Putting together the helper methods above to perform gradient descent linear regression
 
-def linear_regression(X_train, X_test, y_train, y_test, max_iterations=50, learn_rate=0.01, standard_scale=False):
+def linear_regression(X_train, X_test, y_train, y_test, max_iterations=50, learn_rate=0.01, standard_scale=True):
     '''
     Returns in a tuple:
         history: cost values and metric evaluated on training set at each iteration
@@ -215,17 +179,31 @@ def linear_regression(X_train, X_test, y_train, y_test, max_iterations=50, learn
 headers = simulated_headers
 body = simulated_outgoing_body
 user_id = 6
-experiment_id = 52
+experiment_id = 57
 
 
 # %%
 # Get headers and body from shell command
 
+print(sys.argv)
+learn_rate = float(sys.argv[1])
+max_iterations = int(sys.argv[2])
+experiment_id = int(sys.argv[3])
+user_id = int(sys.argv[4])
+authorization = ' '.join([sys.argv[5], sys.argv[6]])
+
+headers = {
+    "Content-Type": "application/json",
+    "Authorization": authorization
+    }
+print(headers)
+
 
 
 # %%
 # Train selected model
-linreg_results = linear_regression(X_train, X_test, y_train, y_test, max_iterations=hyperparameters['max_iterations'], learn_rate=hyperparameters['learning_rate'])
+linreg_results = linear_regression(X_train, X_test, y_train, y_test, max_iterations=max_iterations, learn_rate=learn_rate)
+print(linreg_results)
 
 
 # %%
@@ -233,7 +211,5 @@ linreg_results = linear_regression(X_train, X_test, y_train, y_test, max_iterati
 
 base_url = 'http://localhost:3000'
 response = requests.put(f'{base_url}/user/{user_id}/experiment/{experiment_id}',
-    json=simulated_outgoing_body,
+    json=linreg_results,
     headers=headers)
-
-print(response)
