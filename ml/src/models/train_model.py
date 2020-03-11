@@ -3,10 +3,8 @@
 
 import sys
 import requests
-import json
-import re
 
-import pandas as pd
+from pandas import read_csv
 import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import r2_score
@@ -20,41 +18,10 @@ random_seed = 42
 
 
 # %%
-# Manual testing request data
-
-simulated_incoming_body = '''{  "experiment": {
-	"target": "net_energy",
-	"metric": "r2",
-	"model": "linear_regression",
-	"dataset": "ccpp",
-	"user_id": 6
-	},
-	"model": {
-		"standard_scale": true,
-		"learning_rate": 0.1,
-		"max_iterations": 100
-	}
-}'''
-
-simulated_headers = {
-    "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo2LCJ1c2VybmFtZSI6ImJvYiIsImV4cCI6MTU4NDAyMTgyNn0.Cs4Izyuf_lSEt6Q3RGpOPW_CAO_oLGPfk9P3K4KW5QM",
-    "Content-Type": "application/json"
-}
-
-simulated_outgoing_body = {
-    "history": {
-        "loss": [58,68,46,1,33,60,42,51,49,54],
-        "r2": [0.37,0.16,0.62,0.22,0.76,0.95,0.86,0.35,0.74,0.65]
-        },
-    "final_score": 0.8
-}
-
-
-# %%
 # Import dataset
 local_root = '~/ga/u4/terrarium'
 def import_dataset(dataset_name):
-    return pd.read_csv(f'{local_root}/ml/data/processed/{dataset_name}.csv')
+    return read_csv(f'{local_root}/ml/data/processed/{dataset_name}.csv')
 
 ccpp = import_dataset('ccpp')
 
@@ -88,12 +55,8 @@ def calc_cost(y_pred, y_true):
     return (0.5 / num_rows) * np.sum(errors ** 2)
 
 def calc_gradient(X, y_true, y_pred):
-    # print(y_pred[:10])
-    # print(y_true[:10])
     num_rows = X.shape[0]
     errors = y_pred - y_true
-    # print(errors[:10])
-    # print((1 / num_rows) * np.matmul(X.T, errors))
     return (1 / num_rows) * np.matmul(X.T, errors)
 
 def update_thetas(thetas, gradient, learn_rate):
@@ -171,21 +134,8 @@ def linear_regression(X_train, X_test, y_train, y_test, max_iterations=50, learn
 
 
 # %%
-# More manual testing code
-# results = linear_regression(X_train, X_test, y_train, y_test, max_iterations=1000, learn_rate=0.5, standard_scale=True)
-# print(results['history']['loss'][-1])
-# print(results['final_score'])
-
-headers = simulated_headers
-body = simulated_outgoing_body
-user_id = 6
-experiment_id = 57
-
-
-# %%
 # Get headers and body from shell command
 
-print(sys.argv)
 learn_rate = float(sys.argv[1])
 max_iterations = int(sys.argv[2])
 experiment_id = int(sys.argv[3])
@@ -196,14 +146,11 @@ headers = {
     "Content-Type": "application/json",
     "Authorization": authorization
     }
-print(headers)
-
 
 
 # %%
 # Train selected model
 linreg_results = linear_regression(X_train, X_test, y_train, y_test, max_iterations=max_iterations, learn_rate=learn_rate)
-print(linreg_results)
 
 
 # %%
