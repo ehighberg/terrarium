@@ -1,3 +1,4 @@
+#!/usr/bin/python3 python3
 class ExperimentController < ApplicationController
   before_action :set_experiment, only: [:show, :update, :destroy]
   before_action :authorize_request, except: [:index, :show]
@@ -71,8 +72,9 @@ class ExperimentController < ApplicationController
   def run_experiment
     local_root = "~/ga/u4/terrarium"
     script_location = "#{local_root}/ml/src/models/train_model.py"
-    `bash python3 #{script_location} #{start_params}`
-    puts "Experiment complete"
+    puts "test"
+    puts system("python3 #{script_location}")
+    fork { system( "sh python3 #{script_location} #{start_params}" ) }
   end
 
 end

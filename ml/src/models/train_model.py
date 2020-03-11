@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/sh python3
 # %%
 
 import sys
@@ -10,10 +10,6 @@ import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import r2_score
-
-
-# %%
-# Retrieve hyperparameters from cmd arguments
 
 
 # %%
@@ -219,7 +215,12 @@ def linear_regression(X_train, X_test, y_train, y_test, max_iterations=50, learn
 headers = simulated_headers
 body = simulated_outgoing_body
 user_id = 6
-experiment_id = 7
+experiment_id = 13
+
+
+# %%
+# Get headers and body from shell command
+
 
 
 # %%
