@@ -72,9 +72,8 @@ class ExperimentController < ApplicationController
   def run_experiment
     local_root = "~/ga/u4/terrarium"
     script_location = "#{local_root}/ml/src/models/train_model.py"
-    puts "test"
-    puts system("python3 #{script_location}")
-    fork { system( "sh python3 #{script_location} #{start_params}" ) }
+    fork { system("python3 #{script_location}") }
+    # fork { system( "sh python3 #{script_location} #{start_params}" ) }
   end
 
 end

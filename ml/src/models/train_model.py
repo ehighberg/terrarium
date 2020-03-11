@@ -1,4 +1,4 @@
-#!/usr/bin/sh python3
+#!/usr/bin/bash python3
 # %%
 
 import sys
@@ -215,7 +215,7 @@ def linear_regression(X_train, X_test, y_train, y_test, max_iterations=50, learn
 headers = simulated_headers
 body = simulated_outgoing_body
 user_id = 6
-experiment_id = 13
+experiment_id = 52
 
 
 # %%
