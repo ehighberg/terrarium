@@ -18,6 +18,7 @@ class ExperimentController < ApplicationController
 
     if @experiment.save
       set_model
+      run_experiment
       render json: { experiment: @experiment, model: @model }, status: :created, location: @experiment
     else
       render json: @experiment.errors, status: :unprocessable_entity
@@ -65,6 +66,13 @@ class ExperimentController < ApplicationController
 
   def end_params
     params.require(:experiment).permit(:final_score, :history)
+  end
+
+  def run_experiment
+    local_root = "~/ga/u4/terrarium"
+    script_location = "#{local_root}/ml/src/models/train_model.py"
+    `bash python3 #{script_location} #{start_params}`
+    puts "Experiment complete"
   end
 
 end

@@ -7711,3 +7711,120 @@ Processing by ExperimentController#show as */*
 Completed 200 OK in 19ms (Views: 0.4ms | ActiveRecord: 6.2ms | Allocations: 12710)
 
 
+Started PUT "/user/6/experiment/7" for 127.0.0.1 at 2020-03-11 12:19:21 -0400
+Processing by ExperimentController#update as */*
+  Parameters: {"history"=>{"loss"=>[58, 68, 46, 1, 33, 60, 42, 51, 49, 54], "r2"=>[0.37, 0.16, 0.62, 0.22, 0.76, 0.95, 0.86, 0.35, 0.74, 0.65]}, "final_score"=>0.8, "user_id"=>"6", "id"=>"7", "experiment"=>{"final_score"=>0.8, "history"=>{"loss"=>[58, 68, 46, 1, 33, 60, 42, 51, 49, 54], "r2"=>[0.37, 0.16, 0.62, 0.22, 0.76, 0.95, 0.86, 0.35, 0.74, 0.65]}}}
+  [1m[36mExperiment Load (0.3ms)[0m  [1m[34mSELECT "experiments".* FROM "experiments" WHERE "experiments"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/experiment_controller.rb:44:in `set_experiment'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+  [1m[36mLinearRegression Load (0.2ms)[0m  [1m[34mSELECT "linear_regressions".* FROM "linear_regressions" WHERE "linear_regressions"."experiment_id" = $1 LIMIT $2[0m  [["experiment_id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/experiment_controller.rb:48:in `set_model'
+[31mUnpermitted parameter: :history[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/experiment_controller.rb:29:in `update'
+Completed 200 OK in 26ms (Views: 0.3ms | ActiveRecord: 3.9ms | Allocations: 20542)
+
+
+Started POST "/user/6/experiment/" for ::1 at 2020-03-11 12:22:00 -0400
+Processing by ExperimentController#create as */*
+  Parameters: {"experiment"=>{"target"=>"net_energy", "metric"=>"r2", "model"=>"linear_regression", "dataset"=>"ccpp", "user_id"=>6, "final_score"=>0.84, "history"=>"{\"loss\":[58,68,46,1,33,60,42,51,49,54],\"r2\":[0.37,0.16,0.62,0.22,0.76,0.95,0.86,0.35,0.74,0.65]}"}, "model"=>{"standard_scale"=>true, "learning_rate"=>0.1, "max_iterations"=>100}, "user_id"=>"6"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+[31mUnpermitted parameters: :final_score, :history[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/experiment_controller.rb:19:in `create'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/experiment_controller.rb:19:in `create'
+  [1m[36mExperiment Create (2.0ms)[0m  [1m[32mINSERT INTO "experiments" ("target", "metric", "user_id", "created_at", "updated_at", "model", "dataset") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["target", "net_energy"], ["metric", "r2"], ["user_id", 6], ["created_at", "2020-03-11 16:22:00.110609"], ["updated_at", "2020-03-11 16:22:00.110609"], ["model", "linear_regression"], ["dataset", "ccpp"]]
+  ↳ app/controllers/experiment_controller.rb:19:in `create'
+  [1m[36mLinearRegression Create (0.6ms)[0m  [1m[32mINSERT INTO "linear_regressions" ("standard_scale", "learning_rate", "max_iterations", "experiment_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["standard_scale", true], ["learning_rate", 0.1], ["max_iterations", 100], ["experiment_id", 8], ["created_at", "2020-03-11 16:22:00.115042"], ["updated_at", "2020-03-11 16:22:00.115042"]]
+  ↳ app/controllers/experiment_controller.rb:19:in `create'
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/experiment_controller.rb:19:in `create'
+  [1m[36mLinearRegression Load (0.2ms)[0m  [1m[34mSELECT "linear_regressions".* FROM "linear_regressions" WHERE "linear_regressions"."experiment_id" = $1 LIMIT $2[0m  [["experiment_id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/experiment_controller.rb:48:in `set_model'
+[31mUnpermitted parameters: :final_score, :history[0m
+Started POST "/user/6/experiment/" for ::1 at 2020-03-11 12:22:12 -0400
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ExperimentController#create as */*
+  Parameters: {"experiment"=>{"target"=>"net_energy", "metric"=>"r2", "model"=>"linear_regression", "dataset"=>"ccpp", "user_id"=>6, "final_score"=>0.84, "history"=>"{\"loss\":[58,68,46,1,33,60,42,51,49,54],\"r2\":[0.37,0.16,0.62,0.22,0.76,0.95,0.86,0.35,0.74,0.65]}"}, "model"=>{"standard_scale"=>true, "learning_rate"=>0.1, "max_iterations"=>100}, "user_id"=>"6"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+[31mUnpermitted parameters: :final_score, :history[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/experiment_controller.rb:19:in `create'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/experiment_controller.rb:19:in `create'
+  [1m[36mExperiment Create (0.6ms)[0m  [1m[32mINSERT INTO "experiments" ("target", "metric", "user_id", "created_at", "updated_at", "model", "dataset") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["target", "net_energy"], ["metric", "r2"], ["user_id", 6], ["created_at", "2020-03-11 16:22:12.977930"], ["updated_at", "2020-03-11 16:22:12.977930"], ["model", "linear_regression"], ["dataset", "ccpp"]]
+  ↳ app/controllers/experiment_controller.rb:19:in `create'
+  [1m[36mLinearRegression Create (0.6ms)[0m  [1m[32mINSERT INTO "linear_regressions" ("standard_scale", "learning_rate", "max_iterations", "experiment_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["standard_scale", true], ["learning_rate", 0.1], ["max_iterations", 100], ["experiment_id", 9], ["created_at", "2020-03-11 16:22:12.984170"], ["updated_at", "2020-03-11 16:22:12.984170"]]
+  ↳ app/controllers/experiment_controller.rb:19:in `create'
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/experiment_controller.rb:19:in `create'
+  [1m[36mLinearRegression Load (0.3ms)[0m  [1m[34mSELECT "linear_regressions".* FROM "linear_regressions" WHERE "linear_regressions"."experiment_id" = $1 LIMIT $2[0m  [["experiment_id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/experiment_controller.rb:48:in `set_model'
+[31mUnpermitted parameters: :final_score, :history[0m
+Started POST "/user/6/experiment/" for ::1 at 2020-03-11 12:22:29 -0400
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ExperimentController#create as */*
+  Parameters: {"experiment"=>{"target"=>"net_energy", "metric"=>"r2", "model"=>"linear_regression", "dataset"=>"ccpp", "user_id"=>6, "final_score"=>0.84, "history"=>"{\"loss\":[58,68,46,1,33,60,42,51,49,54],\"r2\":[0.37,0.16,0.62,0.22,0.76,0.95,0.86,0.35,0.74,0.65]}"}, "model"=>{"standard_scale"=>true, "learning_rate"=>0.1, "max_iterations"=>100}, "user_id"=>"6"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+[31mUnpermitted parameters: :final_score, :history[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/experiment_controller.rb:19:in `create'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/experiment_controller.rb:19:in `create'
+  [1m[36mExperiment Create (0.7ms)[0m  [1m[32mINSERT INTO "experiments" ("target", "metric", "user_id", "created_at", "updated_at", "model", "dataset") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["target", "net_energy"], ["metric", "r2"], ["user_id", 6], ["created_at", "2020-03-11 16:22:29.220596"], ["updated_at", "2020-03-11 16:22:29.220596"], ["model", "linear_regression"], ["dataset", "ccpp"]]
+  ↳ app/controllers/experiment_controller.rb:19:in `create'
+  [1m[36mLinearRegression Create (0.7ms)[0m  [1m[32mINSERT INTO "linear_regressions" ("standard_scale", "learning_rate", "max_iterations", "experiment_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["standard_scale", true], ["learning_rate", 0.1], ["max_iterations", 100], ["experiment_id", 10], ["created_at", "2020-03-11 16:22:29.229351"], ["updated_at", "2020-03-11 16:22:29.229351"]]
+  ↳ app/controllers/experiment_controller.rb:19:in `create'
+  [1m[35m (5.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/experiment_controller.rb:19:in `create'
+  [1m[36mLinearRegression Load (0.3ms)[0m  [1m[34mSELECT "linear_regressions".* FROM "linear_regressions" WHERE "linear_regressions"."experiment_id" = $1 LIMIT $2[0m  [["experiment_id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/experiment_controller.rb:48:in `set_model'
+[31mUnpermitted parameters: :final_score, :history[0m
+Started POST "/user/6/experiment/" for ::1 at 2020-03-11 12:23:30 -0400
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ExperimentController#create as */*
+  Parameters: {"experiment"=>{"target"=>"net_energy", "metric"=>"r2", "model"=>"linear_regression", "dataset"=>"ccpp", "user_id"=>6, "final_score"=>0.84, "history"=>"{\"loss\":[58,68,46,1,33,60,42,51,49,54],\"r2\":[0.37,0.16,0.62,0.22,0.76,0.95,0.86,0.35,0.74,0.65]}"}, "model"=>{"standard_scale"=>true, "learning_rate"=>0.1, "max_iterations"=>100}, "user_id"=>"6"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+[31mUnpermitted parameters: :final_score, :history[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/experiment_controller.rb:19:in `create'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/experiment_controller.rb:19:in `create'
+  [1m[36mExperiment Create (0.6ms)[0m  [1m[32mINSERT INTO "experiments" ("target", "metric", "user_id", "created_at", "updated_at", "model", "dataset") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["target", "net_energy"], ["metric", "r2"], ["user_id", 6], ["created_at", "2020-03-11 16:23:30.141905"], ["updated_at", "2020-03-11 16:23:30.141905"], ["model", "linear_regression"], ["dataset", "ccpp"]]
+  ↳ app/controllers/experiment_controller.rb:19:in `create'
+  [1m[36mLinearRegression Create (0.5ms)[0m  [1m[32mINSERT INTO "linear_regressions" ("standard_scale", "learning_rate", "max_iterations", "experiment_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["standard_scale", true], ["learning_rate", 0.1], ["max_iterations", 100], ["experiment_id", 11], ["created_at", "2020-03-11 16:23:30.149112"], ["updated_at", "2020-03-11 16:23:30.149112"]]
+  ↳ app/controllers/experiment_controller.rb:19:in `create'
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/experiment_controller.rb:19:in `create'
+  [1m[36mLinearRegression Load (0.4ms)[0m  [1m[34mSELECT "linear_regressions".* FROM "linear_regressions" WHERE "linear_regressions"."experiment_id" = $1 LIMIT $2[0m  [["experiment_id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/experiment_controller.rb:48:in `set_model'
+[31mUnpermitted parameters: :final_score, :history[0m
+Started POST "/user/6/experiment/" for ::1 at 2020-03-11 12:25:03 -0400
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ExperimentController#create as */*
+  Parameters: {"experiment"=>{"target"=>"net_energy", "metric"=>"r2", "model"=>"linear_regression", "dataset"=>"ccpp", "user_id"=>6, "final_score"=>0.84, "history"=>"{\"loss\":[58,68,46,1,33,60,42,51,49,54],\"r2\":[0.37,0.16,0.62,0.22,0.76,0.95,0.86,0.35,0.74,0.65]}"}, "model"=>{"standard_scale"=>true, "learning_rate"=>0.1, "max_iterations"=>100}, "user_id"=>"6"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+[31mUnpermitted parameters: :final_score, :history[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/experiment_controller.rb:19:in `create'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/experiment_controller.rb:19:in `create'
+  [1m[36mExperiment Create (0.6ms)[0m  [1m[32mINSERT INTO "experiments" ("target", "metric", "user_id", "created_at", "updated_at", "model", "dataset") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["target", "net_energy"], ["metric", "r2"], ["user_id", 6], ["created_at", "2020-03-11 16:25:04.114557"], ["updated_at", "2020-03-11 16:25:04.114557"], ["model", "linear_regression"], ["dataset", "ccpp"]]
+  ↳ app/controllers/experiment_controller.rb:19:in `create'
+  [1m[36mLinearRegression Create (0.6ms)[0m  [1m[32mINSERT INTO "linear_regressions" ("standard_scale", "learning_rate", "max_iterations", "experiment_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["standard_scale", true], ["learning_rate", 0.1], ["max_iterations", 100], ["experiment_id", 12], ["created_at", "2020-03-11 16:25:04.123081"], ["updated_at", "2020-03-11 16:25:04.123081"]]
+  ↳ app/controllers/experiment_controller.rb:19:in `create'
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/experiment_controller.rb:19:in `create'
+  [1m[36mLinearRegression Load (0.4ms)[0m  [1m[34mSELECT "linear_regressions".* FROM "linear_regressions" WHERE "linear_regressions"."experiment_id" = $1 LIMIT $2[0m  [["experiment_id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/experiment_controller.rb:48:in `set_model'
+[31mUnpermitted parameters: :final_score, :history[0m
+Completed 201 Created in 89ms (Views: 1.3ms | ActiveRecord: 11.8ms | Allocations: 27743)
+
+

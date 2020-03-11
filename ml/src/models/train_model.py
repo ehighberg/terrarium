@@ -1,16 +1,16 @@
+#!/usr/bin/env python3
 # %%
 
 import sys
 import requests
 import json
+import os
 
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import r2_score
 
-%matplotlib inline
 
 # %%
 # Retrieve hyperparameters from cmd arguments
@@ -54,29 +54,29 @@ simulated_incoming_body = '''{  "experiment": {
 	}
 }'''
 
-simulated_headers = '''{
+simulated_headers = {
     "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo2LCJ1c2VybmFtZSI6ImJvYiIsImV4cCI6MTU4NDAyMTgyNn0.Cs4Izyuf_lSEt6Q3RGpOPW_CAO_oLGPfk9P3K4KW5QM",
     "Content-Type": "application/json"
-}'''
+}
 
 simulated_outgoing_body = {
     "history": {
         "loss": [58,68,46,1,33,60,42,51,49,54],
         "r2": [0.37,0.16,0.62,0.22,0.76,0.95,0.86,0.35,0.74,0.65]
         },
-    "final_score": 0.84
+    "final_score": 0.8
 }
 
 
 # %%
 # Import dataset
-
+local_root = '~/ga/u4/terrarium'
+print(os.getcwd())
 def import_dataset(parameters):
     dataset_name = parameters['dataset']
-    return pd.read_csv(f'./ml/data/processed/{dataset_name}.csv')
+    return pd.read_csv(f'{local_root}/ml/data/processed/{dataset_name}.csv')
 
 ccpp = import_dataset(parameters)
-print(ccpp.head())
 
 
 # %%
@@ -216,7 +216,23 @@ def linear_regression(X_train, X_test, y_train, y_test, max_iterations=50, learn
 # print(results['history']['loss'][-1])
 # print(results['final_score'])
 
+headers = simulated_headers
+body = simulated_outgoing_body
+user_id = 6
+experiment_id = 7
+
 
 # %%
 # Train selected model
 linreg_results = linear_regression(X_train, X_test, y_train, y_test, max_iterations=hyperparameters['max_iterations'], learn_rate=hyperparameters['learning_rate'])
+
+
+# %%
+# Send results back to backend
+
+base_url = 'http://localhost:3000'
+response = requests.put(f'{base_url}/user/{user_id}/experiment/{experiment_id}',
+    json=simulated_outgoing_body,
+    headers=headers)
+
+print(response)
