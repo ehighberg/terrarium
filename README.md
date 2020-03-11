@@ -158,7 +158,7 @@ _The **Terrarium** MVP is to allow users to view the results of machine learning
 | User profile page | H | 3 | 2 |
 | User profile functionality | H | 3 | 4 |
 | User authentication | H | 4 | 4 |
-| Linear regression setup | H | 4 | |
+| Linear regression setup | H | 4 | 4 |
 | ML experiment running/storage | H | 4 | |
 | Experiment view | H | 8 | |
 | Run ML experiment from front end  | H | 4 | |
@@ -219,5 +219,6 @@ _The **Terrarium** MVP is to allow users to view the results of machine learning
 ### Encountered Issues
 
 - Needed user profile information for experiment control. Moved state handling up a level to Main.
+- Sklearn's implementation of linear regression doesn't support number of iterations or learning rate. Hand-building linear regression gradient descent from scratch.
 
 ***

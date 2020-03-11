@@ -68,26 +68,27 @@ def gen_initial_thetas(X):
     return np.zeros((X.shape[1], 1))
 
 def predict_y(X, thetas):
-    print('X shape:', X.shape)
-    print('theta shape:', thetas.shape)
     return X.dot(thetas)
 
 def calc_cost(y_pred, y_true):
     num_rows = y_pred.shape[0]
     errors = y_pred - y_true
-    return (1 / num_rows) * np.sum(errors ** 2)
+    return (0.5 / num_rows) * np.sum(errors ** 2)
 
 def calc_gradient(X, y_true, y_pred):
+    # print(y_pred[:10])
+    # print(y_true[:10])
     num_rows = X.shape[0]
     errors = y_pred - y_true
-    return (1 / num_rows) * X.T.dot(errors)
+    # print(errors[:10])
+    # print((1 / num_rows) * np.matmul(X.T, errors))
+    return (1 / num_rows) * np.matmul(X.T, errors)
 
-def update_thetas(thetas, theta_gradient, learn_rate):
-    return thetas - learn_rate * theta_gradient
+def update_thetas(thetas, gradient, learn_rate):
+    return thetas - learn_rate * gradient
 
 def scale_X(X):
     means = np.mean(X, axis=0)
-    print(means)
     standard_deviations = np.std(X, axis=0)
     scaled_X = (X - means) / standard_deviations
     return (scaled_X, means, standard_deviations)
@@ -100,28 +101,30 @@ def scale_X_test(X_test, means, standard_deviations):
     return (X_test - means) / standard_deviations
 
 # %%
-
 # scale = scale_X(X_train)
-# # print(scale)
-# X_train = add_ones(X_train)
-# y_train = np.array(y_train).reshape(y_train.shape[0], 1)
-# initial_thetas = gen_initial_thetas(X_train)
-# preds = predict_y(X_train, initial_thetas)
-# # print(preds[:10, :])
-# # print(y_train[:10])
-# cost = calc_cost(X_train, preds)
-# grad = calc_gradient(X_train, preds, y_train, initial_thetas)
-# updated_thetas = update_thetas(initial_thetas, grad, 1)
-# # print(cost)
-# # print(grad)
-# # print(updated_thetas)
-# # print(preds[:10])
+# print(scale)
+X_train, _, _ = scale_X(X_train)
+X_train = add_ones(X_train)
+y_train = np.array(y_train).reshape(y_train.shape[0], 1)
+initial_thetas = gen_initial_thetas(X_train)
+preds = predict_y(X_train, initial_thetas)
+# print(preds[:10, :])
+# print(y_train[:10])
+cost = calc_cost(preds, y_train)
+grad = calc_gradient(X_train, y_train, preds)
+updated_thetas = update_thetas(initial_thetas, grad, 0.01)
+new_cost = calc_cost(X_train, predict_y(X_train, updated_thetas))
+print(cost)
+print(new_cost)
+# print(grad)
+print(updated_thetas)
+# print(preds[:10])
 
 
 # %%
-# Putting together the helper methods above together to perform gradient descent linear regression
+# Putting together the helper methods above to perform gradient descent linear regression
 
-def linear_regression(X_train, X_test, y_train, y_test, max_iterations=50, learn_rate=0.1, standard_scale=False):
+def linear_regression(X_train, X_test, y_train, y_test, max_iterations=50, learn_rate=0.01, standard_scale=False):
     '''
     Returns in a tuple:
         history: cost values and metric evaluated on training set at each iteration
@@ -160,15 +163,21 @@ def linear_regression(X_train, X_test, y_train, y_test, max_iterations=50, learn
         r2 = r2_score(y_train, y_pred)
 
         # Add history values
-        history['loss'].push(cost)
-        history['r2'].push(r2)
+        history['loss'].append(cost)
+        history['r2'].append(r2)
 
     # Scale test data if selected
     if standard_scale:
         X_test = scale_X_test(X_test, means, standard_deviations)
 
     # Get final score
+    X_test = add_ones(X_test)
     y_test_pred = predict_y(X_test, thetas)
-    final_score = r2_score(Y_test, y_test_pred)
+    final_score = r2_score(y_test, y_test_pred)
 
     return {'history': history, 'final_score': final_score}
+
+
+# %%
+results = linear_regression(X_train, X_test, y_train, y_test, max_iterations=50, learn_rate=0.1, standard_scale=True)
+print(results['history'])
