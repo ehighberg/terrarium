@@ -26,7 +26,7 @@ class ExperimentController < ApplicationController
 
   def update
     if @experiment.update(end_params)
-      render json: @experiment
+      render json: { experiment: @experiment, model: @model }
     else
       render json: @experiment.errors, status: :unprocessable_entity
     end
@@ -56,15 +56,15 @@ class ExperimentController < ApplicationController
 
   def start_params
     passed_params = params.require(:experiment)
-      .permit(:time_start, :target, :metric, :user_id, :model, :dataset)
+      .permit(:target, :metric, :user_id, :model, :dataset)
 
     model_accessor = "#{passed_params[:model]}_attributes"
-    passed_params[model_accessor] = params.require(:model_info).permit!
+    passed_params[model_accessor] = params.require(:model).permit!
     passed_params
   end
 
   def end_params
-    params.require(:experiment).permit(:time_end, :final_score, :history)
+    params.require(:experiment).permit(:final_score, :history)
   end
 
 end

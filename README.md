@@ -55,6 +55,7 @@ _The **Terrarium** MVP is to allow users to view the results of machine learning
 |     pandas       | _Data preprocessing._ |
 | scikit-learn     | _Perform machine learning experiments._ |
 |      requests    | _Get experiment data to/from backend server._ |
+|       numpy      | _Fast linear albegra_          |
 
 <br>
 
@@ -206,6 +207,7 @@ _The **Terrarium** MVP is to allow users to view the results of machine learning
 [2020-03-06] - Removed Devise from libraries.
 [2020-03-09] - Moved state handling on client end to main.
 [2020-03-11] - Removed start/stop times from Experiment table.
+[2020-03-11] - Building linear regression from scratch using numpy.
 
 ## Code Showcase
 
