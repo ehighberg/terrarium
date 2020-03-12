@@ -156,8 +156,9 @@ linreg_results = linear_regression(X_train, X_test, y_train, y_test, max_iterati
 # %%
 # Send results back to backend
 
-print(port)
+print("port number: ", port)
 base_url = f'https://localhost:{port}'
 response = requests.put(f'{base_url}/user/{user_id}/experiment/{experiment_id}',
     json=linreg_results,
-    headers=headers)
+    headers=headers,
+    port=port)
