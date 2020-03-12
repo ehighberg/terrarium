@@ -3,6 +3,7 @@
 
 import sys
 import requests
+import os
 
 from pandas import read_csv
 import numpy as np
