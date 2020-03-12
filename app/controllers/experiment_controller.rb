@@ -77,7 +77,7 @@ class ExperimentController < ApplicationController
     auth_data = authorize_request()
     user_id = auth_data[:user_id]
     auth_header = auth_data[:auth_header]
-    port = request.port
+    port = Rack::Server.new.options[:Port]
     puts "rails on port: #{port}"
 
     regression_params = start_params[:linear_regression_attributes]
