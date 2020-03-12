@@ -163,7 +163,7 @@ _The **Terrarium** MVP is to allow users to view the results of machine learning
 | ML experiment running/storage | H | 4 | 2 |
 | Experiment view | H | 8 | |
 | Run ML experiment from front end  | H | 4 | |
-| Deployment | H | 4 | 6 |
+| Deployment | H | 4 | 8 |
 | TOTAL | T | 44 | |
 
 <br>
