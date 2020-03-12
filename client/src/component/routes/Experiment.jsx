@@ -16,6 +16,7 @@ const Experiment = props => {
     model: {
       standard_scale: true,
       learning_rate: 0.1,
+      user_id: props.currentUser.id,
       max_iterations: 50
     }
   }
@@ -42,6 +43,7 @@ const Experiment = props => {
             <Parameters
               handleCreate={props.handleCreate}
               model={props.model}
+              handleDelete={props.handleDelete}
             />
           </div>
         </Route>

@@ -101,6 +101,10 @@ const Main = props => {
     }
   }
 
+  const handleDelete = async (experimentData) => {
+    return null
+  }
+
   useEffect(() => {
     fetchAllUsernames()
     handlePersistingToken()
@@ -128,6 +132,7 @@ const Main = props => {
                 currentUser={currentUser}
                 handleCreate={handleCreate}
                 experiment={experiment}
+                handleDelete={handleDelete}
               />
           )} />
           </Switch>
