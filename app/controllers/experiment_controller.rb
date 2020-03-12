@@ -77,13 +77,14 @@ class ExperimentController < ApplicationController
     auth_data = authorize_request()
     user_id = auth_data[:user_id]
     auth_header = auth_data[:auth_header]
+    port = request.port
 
     regression_params = start_params[:linear_regression_attributes]
     learning_rate = regression_params[:learning_rate]
     max_iterations = regression_params[:max_iterations]
 
     script_location = "/app/src/models/train_model.py"
-    fork { system("python3 #{script_location} #{learning_rate} #{max_iterations} #{@experiment.id} #{user_id} #{auth_header}") }
+    fork { system("python3 #{script_location} #{learning_rate} #{max_iterations} #{@experiment.id} #{user_id} #{auth_header} #{port}") }
   end
 
 end

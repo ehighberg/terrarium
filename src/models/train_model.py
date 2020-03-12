@@ -140,6 +140,7 @@ max_iterations = int(sys.argv[2])
 experiment_id = int(sys.argv[3])
 user_id = int(sys.argv[4])
 authorization = ' '.join([sys.argv[5], sys.argv[6]])
+port = int(sys.argv[7])
 
 headers = {
     "Content-Type": "application/json",
@@ -154,7 +155,6 @@ linreg_results = linear_regression(X_train, X_test, y_train, y_test, max_iterati
 
 # %%
 # Send results back to backend
-port = 3000
 
 base_url = f'https://localhost:{port}'
 response = requests.put(f'{base_url}/user/{user_id}/experiment/{experiment_id}',
