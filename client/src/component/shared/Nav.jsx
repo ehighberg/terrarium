@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
 import NavCard from './NavCard'
 import '../../style/Nav.css'
@@ -11,7 +12,11 @@ const Nav = props => {
       {experiments && usernameMap && (
         experiments.map((experiment, i) => {
           const username = usernameMap[experiment.user_id]
-          return <NavCard key={i} experiment={experiment} username={username} />
+          return (
+            <NavLink key={i} exact to={`/experiment/${experiment.id}`} >
+              <NavCard key={i} experiment={experiment} username={username} />
+            </NavLink>
+            )
         })
       )}
     </nav>

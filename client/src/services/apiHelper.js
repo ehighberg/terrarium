@@ -53,6 +53,24 @@ export const getAllExperiments = async () => {
   }
 }
 
+export const getExperiment = async (exp_id) => {
+  try {
+    const res = await api.get(`experiment/${exp_id}`)
+    return res.data
+  } catch(e) {
+    console.error(e)
+  }
+}
+
+export const createExperiment = async (createData, user_id) => {
+  try {
+    const res = await api.post(`user/${user_id}/experiment`, createData)
+    return res.data
+  } catch(e) {
+    console.error(e)
+  }
+}
+
 export const getAllUsernames = async () => {
   try {
     const res = await api.get('user')
@@ -69,13 +87,4 @@ export const getAllUsernames = async () => {
 export const unauthorizeUser = () => {
   localStorage.removeItem('authToken')
   api.defaults.headers.common.authorization = ''
-}
-
-export const createExperiment = async (createData, user_id) => {
-  try {
-    const res = await api.post(`user/${user_id}/experiment`, createData)
-    return res.data
-  } catch(e) {
-    console.error(e)
-  }
 }

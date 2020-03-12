@@ -1,10 +1,16 @@
-import React from 'react'
-import { Route, Switch } from 'react-router-dom'
+import React, { useState, useEffect } from 'react'
+import { Route, Switch, useHistory } from 'react-router-dom'
 
 import Results from '../shared/Results'
 import Parameters from '../shared/Parameters'
+import { getExperiment } from '../../services/apiHelper'
 
 const Experiment = props => {
+  const [experiment, setExperiment] = useState({})
+  const history = useHistory()
+  const url = history.location.pathname.split('/')
+  const slug = url[url.length - 1]
+
   const newExperiment = {
     experiment: {
       target: "net_energy",
@@ -21,6 +27,17 @@ const Experiment = props => {
     }
   }
 
+
+  useEffect(() => {
+    const fetchExperiment = async (exp_id) => {
+      const res = await getExperiment(exp_id)
+      setExperiment(res)
+    }
+    if (parseInt(slug)) {
+      fetchExperiment(slug)
+    }
+  })
+
   return (
     <React.Fragment>
       <Switch>
@@ -36,16 +53,18 @@ const Experiment = props => {
           </div>
         </Route>
         <Route exact path='/experiment/:experiment_id'>
-          <div className='experiment-container'>
-            <Results
-              experiment={props.experiment}
-            />
-            <Parameters
-              handleCreate={props.handleCreate}
-              model={props.model}
-              handleDelete={props.handleDelete}
-            />
-          </div>
+          {experiment.experiment && (
+            <div className='experiment-container'>
+              <Results
+                experiment={experiment.experiment}
+              />
+              <Parameters
+                handleCreate={props.handleCreate}
+                model={experiment.model}
+                handleDelete={props.handleDelete}
+              />
+            </div>
+          )}
         </Route>
       </Switch>
     </React.Fragment>

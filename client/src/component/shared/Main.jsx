@@ -23,7 +23,6 @@ const Main = props => {
   const [currentUser, setCurrentUser] = useState({})
   const [experiments, setExperiments] = useState([])
   const [usernameMap, setUsernameMap] = useState([])
-  const [experiment, setExperiment] = useState({})
 
   const history = useHistory()
 
@@ -94,7 +93,6 @@ const Main = props => {
   const handleCreate = async (createData) => {
     try {
       const experiment = await createExperiment(createData)
-      setExperiment(experiment)
       history.push(`/experiment/${experiment.experiment.id}`)
     } catch(e) {
       console.error(e)
@@ -131,7 +129,6 @@ const Main = props => {
               <Experiment
                 currentUser={currentUser}
                 handleCreate={handleCreate}
-                experiment={experiment}
                 handleDelete={handleDelete}
               />
           )} />

@@ -1,10 +1,7 @@
 import React from 'react'
-import { useHistory } from 'react-router-dom'
 import { Formik, Field, Form } from 'formik'
 
 const Parameters = props => {
-  const history = useHistory()
-  console.log(history)
 
   return (
     <div className='params-container'>
