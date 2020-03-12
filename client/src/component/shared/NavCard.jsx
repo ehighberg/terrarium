@@ -14,7 +14,7 @@ const NavCard = props => {
       </div>
       <div className='nav-card-bottom'>
         <p>Metric: {experiment.metric}</p>
-        <p>Score: {experiment.final_score}</p>
+        <p>Score: {experiment.final_score && experiment.final_score.toFixed(4)}</p>
       </div>
     </div>
   )
