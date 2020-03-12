@@ -1,1 +1,1 @@
-web: bundle exec rails server -p 443
+web: bundle exec rails server -p $PORT
