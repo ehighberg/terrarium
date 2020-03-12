@@ -19,17 +19,11 @@ export const userLogin = async (loginData) => {
 
 export const userEdit = async (editData, id) => {
   try {
-    const res = await api.put(`user/${id}`, editData)
+    await api.put(`user/${id}`, editData)
   } catch(e) {
     console.error(e)
   }
 }
-
-// export const getUser = async (id) => {
-//   const res = await api.get(`user/${id}`)
-//   console.log(res.data)
-//   return res.data
-// }
 
 export const verifyUser = async () => {
   const prevToken = localStorage.getItem('authToken') || null

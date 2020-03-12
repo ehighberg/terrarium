@@ -7,6 +7,7 @@ import Home from '../routes/Home'
 import Header from './Header'
 import Footer from './Footer'
 import Nav from './Nav'
+import Experiment from '../routes/Experiment'
 
 import { userSignup,
   userLogin,
