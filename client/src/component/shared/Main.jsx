@@ -15,13 +15,15 @@ import { userSignup,
   verifyUser,
   getAllExperiments,
   getAllUsernames,
-  unauthorizeUser } from '../../services/apiHelper'
+  unauthorizeUser,
+  createExperiment } from '../../services/apiHelper'
 
 
 const Main = props => {
   const [currentUser, setCurrentUser] = useState({})
   const [experiments, setExperiments] = useState([])
   const [usernameMap, setUsernameMap] = useState([])
+  const [experiment, setExperiment] = useState({})
 
   const history = useHistory()
 
@@ -89,6 +91,16 @@ const Main = props => {
     history.push('/')
   }
 
+  const handleCreate = async (createData) => {
+    try {
+      const experiment = await createExperiment(createData)
+      setExperiment(experiment)
+      history.push(`/experiment/${experiment.experiment.id}`)
+    } catch(e) {
+      console.error(e)
+    }
+  }
+
   useEffect(() => {
     fetchAllUsernames()
     handlePersistingToken()
@@ -111,6 +123,13 @@ const Main = props => {
                 logoutUser={logoutUser}
               />
             )} />
+          <Route path='/experiment' component={() => (
+              <Experiment
+                currentUser={currentUser}
+                handleCreate={handleCreate}
+                experiment={experiment}
+              />
+          )} />
           </Switch>
         </main>
         <Nav experiments={experiments} usernameMap={usernameMap}/>

@@ -70,3 +70,12 @@ export const unauthorizeUser = () => {
   localStorage.removeItem('authToken')
   api.defaults.headers.common.authorization = ''
 }
+
+export const createExperiment = async (createData, user_id) => {
+  try {
+    const res = await api.post(`user/${user_id}/experiment`, createData)
+    return res.data
+  } catch(e) {
+    console.error(e)
+  }
+}
