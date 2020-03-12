@@ -27,7 +27,7 @@ const Parameters = props => {
           </div>
           <br />
           <div className='params-form-iters'>
-            <label>Number of iterations: </label>
+            <label>Max iterations: </label>
             <Field
               type='number'
               name="max_iterations"
@@ -38,7 +38,7 @@ const Parameters = props => {
           </div>
           {!props.userId &&
             <button className='params-form-submit' type='submit'>
-              Run Experiment
+              <span>Run Experiment</span>
             </button>
           }
           {(props.userId === props.currentUser.id) &&
@@ -47,7 +47,7 @@ const Parameters = props => {
               type='button'
               onClick={() => props.handleDelete(props.experimentId)}
             >
-              Delete Experiment
+              <span>Delete Experiment</span>
             </button>
           }
         </Form>
