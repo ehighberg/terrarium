@@ -7,6 +7,7 @@ import Home from '../routes/Home'
 import Header from './Header'
 import Footer from './Footer'
 import Nav from './Nav'
+import Experiment from '../routes/Experiment'
 
 import { userSignup,
   userLogin,
@@ -14,7 +15,9 @@ import { userSignup,
   verifyUser,
   getAllExperiments,
   getAllUsernames,
-  unauthorizeUser } from '../../services/apiHelper'
+  unauthorizeUser,
+  createExperiment,
+  deleteExperiment } from '../../services/apiHelper'
 
 
 const Main = props => {
@@ -88,6 +91,26 @@ const Main = props => {
     history.push('/')
   }
 
+  const handleCreate = async (createData) => {
+    try {
+      const experiment = await createExperiment(createData, currentUser.id)
+      fetchAllExperiments()
+      history.push(`/experiment/${experiment.experiment.id}`)
+    } catch(e) {
+      console.error(e)
+    }
+  }
+
+  const handleDelete = async (experimentId) => {
+    try {
+      await deleteExperiment(experimentId)
+      fetchAllExperiments()
+      history.push('/')
+    } catch(e) {
+      console.error(e)
+    }
+  }
+
   useEffect(() => {
     fetchAllUsernames()
     handlePersistingToken()
@@ -110,6 +133,13 @@ const Main = props => {
                 logoutUser={logoutUser}
               />
             )} />
+          <Route path='/experiment' component={() => (
+              <Experiment
+                currentUser={currentUser}
+                handleCreate={handleCreate}
+                handleDelete={handleDelete}
+              />
+          )} />
           </Switch>
         </main>
         <Nav experiments={experiments} usernameMap={usernameMap}/>

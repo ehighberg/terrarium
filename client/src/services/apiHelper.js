@@ -19,17 +19,11 @@ export const userLogin = async (loginData) => {
 
 export const userEdit = async (editData, id) => {
   try {
-    const res = await api.put(`user/${id}`, editData)
+    await api.put(`user/${id}`, editData)
   } catch(e) {
     console.error(e)
   }
 }
-
-// export const getUser = async (id) => {
-//   const res = await api.get(`user/${id}`)
-//   console.log(res.data)
-//   return res.data
-// }
 
 export const verifyUser = async () => {
   const prevToken = localStorage.getItem('authToken') || null
@@ -54,6 +48,32 @@ export const getAllExperiments = async () => {
   try {
     const res = await api.get('experiment')
     return res.data
+  } catch(e) {
+    console.error(e)
+  }
+}
+
+export const getExperiment = async (exp_id) => {
+  try {
+    const res = await api.get(`experiment/${exp_id}`)
+    return res.data
+  } catch(e) {
+    console.error(e)
+  }
+}
+
+export const createExperiment = async (createData, user_id) => {
+  try {
+    const res = await api.post(`user/${user_id}/experiment`, createData)
+    return res.data
+  } catch(e) {
+    console.error(e)
+  }
+}
+
+export const deleteExperiment = async (experimentId) => {
+  try {
+    await api.delete(`experiment/${experimentId}`)
   } catch(e) {
     console.error(e)
   }
