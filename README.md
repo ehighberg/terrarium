@@ -163,6 +163,7 @@ _The **Terrarium** MVP is to allow users to view the results of machine learning
 | ML experiment running/storage | H | 4 | 2 |
 | Experiment view | H | 8 | |
 | Run ML experiment from front end  | H | 4 | |
+| Deployment | H | 4 | 6 |
 | TOTAL | T | 44 | |
 
 <br>
@@ -224,5 +225,6 @@ _The **Terrarium** MVP is to allow users to view the results of machine learning
 - Needed user profile information for experiment control. Moved state handling up a level to Main.
 - Sklearn's implementation of linear regression doesn't support number of iterations or learning rate. Hand-building linear regression gradient descent from scratch.
 - Formik validations require password to submit (if field present). Displaying message to inform user of requirement.
+- Heroku deployment was not possible with hosting two subfolders (server and ml) running on different buildpacks (ruby and python). Made file structure flat for deployment.
 
 ***
