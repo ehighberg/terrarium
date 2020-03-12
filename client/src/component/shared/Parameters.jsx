@@ -2,14 +2,16 @@ import React from 'react'
 import { Formik, Field, Form } from 'formik'
 
 const Parameters = props => {
-
   return (
     <div className='params-container'>
       <p className='params-title'>Hyperparameters</p>
       <Formik
         initialValues={props.model}
         onSubmit={(values) => {
-          props.handleCreate(values, props.model.user_id)
+          props.handleCreate({
+            experiment: props.experiment,
+            model: values
+          }, props.experiment.user_id)
         }}
       >
         <Form>
@@ -34,11 +36,17 @@ const Parameters = props => {
               max="1000"
             />
           </div>
-          {props.model.user_id ?
+          {!props.userId &&
             <button className='params-form-submit' type='submit'>
               Run Experiment
-            </button> :
-            <button className='params-form-delete' onClick={props.handleDelete}>
+            </button>
+          }
+          {(props.userId === props.currentUser.id) &&
+            <button
+              className='params-form-delete'
+              type='button'
+              onClick={() => props.handleDelete(props.experimentId)}
+            >
               Delete Experiment
             </button>
           }

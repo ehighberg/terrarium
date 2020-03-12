@@ -22,7 +22,6 @@ const Experiment = props => {
     model: {
       standard_scale: true,
       learning_rate: 0.1,
-      user_id: props.currentUser.id,
       max_iterations: 50
     }
   }
@@ -36,7 +35,7 @@ const Experiment = props => {
     if (parseInt(slug)) {
       fetchExperiment(slug)
     }
-  })
+  }, [slug])
 
   return (
     <React.Fragment>
@@ -49,6 +48,8 @@ const Experiment = props => {
             <Parameters
               handleCreate={props.handleCreate}
               model={newExperiment.model}
+              currentUser={props.currentUser}
+              experiment={newExperiment.experiment}
             />
           </div>
         </Route>
@@ -62,6 +63,9 @@ const Experiment = props => {
                 handleCreate={props.handleCreate}
                 model={experiment.model}
                 handleDelete={props.handleDelete}
+                currentUser={props.currentUser}
+                userId={experiment.experiment.user_id}
+                experimentId={experiment.experiment.id}
               />
             </div>
           )}

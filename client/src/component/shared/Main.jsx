@@ -16,7 +16,8 @@ import { userSignup,
   getAllExperiments,
   getAllUsernames,
   unauthorizeUser,
-  createExperiment } from '../../services/apiHelper'
+  createExperiment,
+  deleteExperiment } from '../../services/apiHelper'
 
 
 const Main = props => {
@@ -92,15 +93,22 @@ const Main = props => {
 
   const handleCreate = async (createData) => {
     try {
-      const experiment = await createExperiment(createData)
+      const experiment = await createExperiment(createData, currentUser.id)
+      fetchAllExperiments()
       history.push(`/experiment/${experiment.experiment.id}`)
     } catch(e) {
       console.error(e)
     }
   }
 
-  const handleDelete = async (experimentData) => {
-    return null
+  const handleDelete = async (experimentId) => {
+    try {
+      await deleteExperiment(experimentId)
+      fetchAllExperiments()
+      history.push('/')
+    } catch(e) {
+      console.error(e)
+    }
   }
 
   useEffect(() => {

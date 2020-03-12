@@ -54,7 +54,7 @@ header * {
   }
 
   .header-name {
-    display: none;
+    font-size: 1.2em;
   }
 
   .header-new-experiment {

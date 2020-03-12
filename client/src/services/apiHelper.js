@@ -71,6 +71,14 @@ export const createExperiment = async (createData, user_id) => {
   }
 }
 
+export const deleteExperiment = async (experimentId) => {
+  try {
+    await api.delete(`experiment/${experimentId}`)
+  } catch(e) {
+    console.error(e)
+  }
+}
+
 export const getAllUsernames = async () => {
   try {
     const res = await api.get('user')
