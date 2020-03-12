@@ -3,7 +3,6 @@
 
 import sys
 import requests
-import os
 
 from pandas import read_csv
 import numpy as np
@@ -155,7 +154,7 @@ linreg_results = linear_regression(X_train, X_test, y_train, y_test, max_iterati
 
 # %%
 # Send results back to backend
-port = os.system("echo $PORT")
+port = 3000
 
 base_url = f'https://localhost:{port}'
 response = requests.put(f'{base_url}/user/{user_id}/experiment/{experiment_id}',
