@@ -82,7 +82,7 @@ class ExperimentController < ApplicationController
     learning_rate = regression_params[:learning_rate]
     max_iterations = regression_params[:max_iterations]
 
-    local_root = "~/ga/u4/terrarium"
+    local_root = "~"
     script_location = "#{local_root}/ml/src/models/train_model.py"
     fork { system("python3 #{script_location} #{learning_rate} #{max_iterations} #{@experiment.id} #{user_id} #{auth_header}") }
   end

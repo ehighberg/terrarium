@@ -19,7 +19,7 @@ random_seed = 42
 
 # %%
 # Import dataset
-local_root = '~/ga/u4/terrarium'
+local_root = '~'
 def import_dataset(dataset_name):
     return read_csv(f'{local_root}/ml/data/processed/{dataset_name}.csv')
 
