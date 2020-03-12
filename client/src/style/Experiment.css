@@ -1,0 +1,44 @@
+.experiment-container {
+  padding: 2vh 0 0 0;
+  margin-left: 2vw;
+  border-left: 3px solid gray;
+  border-bottom: 3px solid gray;
+  border-right: 3px solid gray;
+  display: flex;
+}
+
+.results-container {
+  border-right: 3px solid gray;
+  max-width: 800px;
+}
+
+.results-visual-container {
+  height: 600px;
+  width: 600px;
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.results-summary-container {
+  background-color: var(--python-yellow);
+}
+
+.results-summary-title {
+  font-size: 1.8em;
+  text-align: center;
+  border-top: 3px solid gray;
+  padding-top: 1vh;
+  text-decoration: underline;
+  margin-bottom: 2vh;
+}
+
+.results-final-score {
+  margin: 0 2vw 0 2vw;
+  padding-bottom: 2vh;
+  display: flex;
+  justify-content: space-around;
+}
+
+.params-container {
+  background-color: skyblue;
+}

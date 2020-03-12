@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Route, Switch, useHistory } from 'react-router-dom'
 
+import '../../style/Experiment.css'
 import Results from '../shared/Results'
 import Parameters from '../shared/Parameters'
 import { getExperiment } from '../../services/apiHelper'
