@@ -78,6 +78,7 @@ class ExperimentController < ApplicationController
     user_id = auth_data[:user_id]
     auth_header = auth_data[:auth_header]
     port = request.port
+    puts "rails on port: #{port}"
 
     regression_params = start_params[:linear_regression_attributes]
     learning_rate = regression_params[:learning_rate]
