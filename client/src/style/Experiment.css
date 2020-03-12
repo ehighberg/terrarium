@@ -18,6 +18,7 @@
   width: 900px;
   max-height: 100%;
   max-width: 100%;
+  margin: auto;
 }
 
 .results-summary-container {
@@ -74,4 +75,25 @@
   color: white;
   background-color: var(--button-blue);
   border-radius: 0.4em;
+}
+
+@media (max-width: 500px) {
+  .experiment-container {
+    margin: 0 auto;
+    margin-top: 1vh;
+    display: flex;
+    flex-flow: column;
+    width: 95vw;
+  }
+
+  .results-visual-container {
+    max-width: 90vw;
+    max-height: 60vw;
+  }
+
+  .params-container {
+    border-top: none;
+    border-left: 3px solid gray;
+    min-height: 30vh;
+  }
 }
