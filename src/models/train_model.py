@@ -160,5 +160,4 @@ print("python on port: ", port)
 base_url = f'https://localhost:{port}'
 response = requests.put(f'{base_url}/user/{user_id}/experiment/{experiment_id}',
     json=linreg_results,
-    headers=headers,
-    port=port)
+    headers=headers)
