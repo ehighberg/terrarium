@@ -157,14 +157,14 @@ _The **Terrarium** MVP is to allow users to view the results of machine learning
 | Header, Footer, Nav, Main | H | 4 | 4 |
 | User signup page | H | 2 | 2 |
 | User profile page | H | 3 | 2 |
-| User profile functionality | H | 3 | 4 |
+| User profile functionality | H | 3 | 5 |
 | User authentication | H | 4 | 4 |
 | Linear regression setup | H | 4 | 4 |
-| ML experiment running/storage | H | 4 | 2 |
-| Experiment view | H | 8 | 1 |
+| ML experiment running/storage | H | 4 | 3 |
+| Experiment view | H | 8 | 6 |
 | Run ML experiment from front end  | H | 4 | 2 |
 | Deployment | H | 4 | 8 |
-| TOTAL | T | 48 | |
+| TOTAL | T | 48 | 46 |
 
 <br>
 
@@ -212,7 +212,22 @@ _The **Terrarium** MVP is to allow users to view the results of machine learning
 
 ## Code Showcase
 
-> Use this section to include a brief code snippet of functionality that you are proud of and a brief description.
+```ruby
+def run_experiment
+  auth_data = authorize_request()
+  user_id = auth_data[:user_id]
+  auth_header = auth_data[:auth_header]
+  port = Rack::Server.new.options[:Port]
+
+  regression_params = start_params[:linear_regression_attributes]
+  learning_rate = regression_params[:learning_rate]
+  max_iterations = regression_params[:max_iterations]
+
+  script_location = "/app/src/models/train_model.py"
+  fork { system("python3 #{script_location} #{learning_rate} #{max_iterations} #{@experiment.id} #{user_id} #{auth_header} #{port}") }
+end
+```
+This is used in the create route for experiments to launch the Python script which actually runs the machine learning model. Python then returns the experiment results via the update route to the rails local address.
 
 ## Code Issues & Resolutions
 
