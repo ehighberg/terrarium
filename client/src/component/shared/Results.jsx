@@ -4,7 +4,7 @@ import { drawLineChart } from '../../services/chart'
 
 const Results = props => {
   if (props.experiment.final_score) {
-    setTimeout(() => drawLineChart(props.experiment.history.loss), 1)    
+    setTimeout(() => drawLineChart(props.experiment.history.loss), 0.25)    
   }
 
   return (

@@ -14,7 +14,7 @@ const Parameters = props => {
           }, props.experiment.user_id)
         }}
       >
-        <Form>
+        <Form className='params-form'>
           <div className='params-form-learn'>
             <label>Learning Rate: </label>
             <Field

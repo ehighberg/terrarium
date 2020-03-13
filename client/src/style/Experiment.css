@@ -2,7 +2,7 @@
   margin-left: 2vw;
   display: flex;
   position: sticky;
-  top: 7vh;
+  top: 11vh;
 }
 
 .results-container {
@@ -39,6 +39,8 @@
   padding-bottom: 2vh;
   display: flex;
   justify-content: space-around;
+  font-size: 1.5em;
+  color: var(--button-blue);
 }
 
 .params-container {
@@ -75,6 +77,15 @@
   color: white;
   background-color: var(--button-blue);
   border-radius: 0.4em;
+}
+
+input[type=number] {
+  width: 10em;
+}
+
+.params-form div label {
+  align-self: center;
+  margin-right: 1em;
 }
 
 @media (max-width: 500px) {
